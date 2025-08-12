@@ -140,44 +140,29 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // Barra inferior
-      bottomNavigationBar: Container(
-        height: 70,
-        decoration: BoxDecoration(
-          color: temaEscuro ? Colors.grey[900] : Colors.blue[400],
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-          ),
+      // BottomNavigationBar sem overflow
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-          ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.transparent,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.white,
-            currentIndex: 0,
-            onTap: (index) {},
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.self_improvement),
-                label: "Meditação",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.headphones),
-                label: "Audios",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.chat),
-                label: "Desabafo",
-              ),
-            ],
-          ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: temaEscuro ? Colors.grey[900] : Colors.blue[400],
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          currentIndex: 0,
+          onTap: (index) {
+            // Ação ao tocar em um item
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.self_improvement), label: "Meditação"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.headphones), label: "Audios"),
+            BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Desabafo"),
+          ],
         ),
       ),
     );
