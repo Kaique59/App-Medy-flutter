@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'pagmeditar.dart'; // <-- Import da sua página de meditação
 
 void main() {
   runApp(MyApp());
@@ -53,15 +54,12 @@ class _HomePageState extends State<HomePage> {
   Duration _tempoRestante = Duration.zero;
   bool _timerAtivo = false;
 
-  // Valores selecionados no picker
   int horasSelecionadas = 0;
   int minutosSelecionados = 0;
   int segundosSelecionados = 0;
 
-  // Nome do alarme
   final TextEditingController _nomeController = TextEditingController();
 
-  // Lista de alarmes salvos
   List<Alarme> alarmesSalvos = [];
 
   void _iniciarTimer(Duration duracao) {
@@ -199,7 +197,6 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Cabeçalho com botão para trocar tema
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -258,7 +255,6 @@ class _HomePageState extends State<HomePage> {
 
               SizedBox(height: altura * 0.05),
 
-              // Container Navegar (estético)
               Center(
                 child: Container(
                   width: largura * 0.7,
@@ -303,7 +299,6 @@ class _HomePageState extends State<HomePage> {
 
               SizedBox(height: altura * 0.04),
 
-              // Campo para nome do alarme
               Text(
                 "Nome do Alarme:",
                 style: TextStyle(
@@ -337,7 +332,6 @@ class _HomePageState extends State<HomePage> {
 
               SizedBox(height: 20),
 
-              // Seletor HH:MM:SS
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -368,7 +362,6 @@ class _HomePageState extends State<HomePage> {
 
               SizedBox(height: 20),
 
-              // Botões iniciar, parar, apagar
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -431,7 +424,6 @@ class _HomePageState extends State<HomePage> {
 
               SizedBox(height: 25),
 
-              // Tempo restante do timer (se ativo ou zerado)
               Center(
                 child: Text(
                   _tempoRestante > Duration.zero
@@ -447,7 +439,6 @@ class _HomePageState extends State<HomePage> {
 
               SizedBox(height: 30),
 
-              // Lista de alarmes salvos
               Text(
                 "Alarmes Salvos",
                 style: TextStyle(
@@ -539,7 +530,19 @@ class _HomePageState extends State<HomePage> {
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white70,
           currentIndex: 0,
-          onTap: (index) {},
+          onTap: (index) {
+            if (index == 1) { // Meditação
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PagMeditar(
+                    temaEscuro: widget.temaEscuro,
+                    onTrocarTema: widget.onTrocarTema,
+                  ),
+                ),
+              );
+            }
+          },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
