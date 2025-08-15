@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/custom_card.dart';
 
 class PagMeditar extends StatelessWidget {
-  final bool temaEscuro;
-  final VoidCallback onTrocarTema;
+   bool temaEscuro = false;
+   VoidCallback? onTrocarTema;
 
-  const PagMeditar({
-    Key? key,
-    required this.temaEscuro,
-    required this.onTrocarTema,
-  }) : super(key: key);
+  PagMeditar({
+    super.key,
+    this.temaEscuro = false,
+    this.onTrocarTema,
+  });
+
+  List<dynamic> cardList = [
+    {"icon": Icons.self_improvement, "text": "Introdução - Meditação"},
+    {"icon": Icons.access_alarm, "text": "Meditação avançada"},
+    
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,7 @@ class PagMeditar extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottomBar(context),
+      
     );
   }
 
@@ -88,52 +95,20 @@ class PagMeditar extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _card(
-              largura,
-              altura,
-              temaEscuro,
-              icon: Icons.self_improvement,
-              text: "Introdução - Meditação",
-            ),
-            SizedBox(height: altura * 0.03),
-            _card(
-              largura,
-              altura,
-              temaEscuro,
-              icon: Icons.motion_photos_on,
-              text: "Meditação Novo Ciclo",
-            ),
+           ...cardList.map((item){
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: CustomCard(icon: item["icon"], text: item["text"]),
+            );
+            
+           })
           ],
         ),
       ),
     );
   }
 
-  /// Barra inferior
-  Widget _buildBottomBar(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: temaEscuro ? Colors.grey[900] : Colors.blue[400],
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white,
-      currentIndex: 1,
-      onTap: (index) {
-        if (index == 0) Navigator.pop(context);
-      },
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.self_improvement),
-          label: "Meditação",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.headphones),
-          label: "Audios",
-        ),
-        BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Desabafo"),
-      ],
-    );
-  }
+ 
 
   /// Card genérico
   Widget _card(
