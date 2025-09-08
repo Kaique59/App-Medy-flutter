@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
-
-final IconData icon;
-final String text;
+  final IconData icon;
+  final String text;
 
   const CustomCard({super.key, required this.icon, required this.text});
 
@@ -17,10 +16,10 @@ final String text;
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color:  Colors.blue.withOpacity(0.1),
+            color: Colors.blue.withOpacity(0.1),
             blurRadius: 6,
             offset: const Offset(0, 4),
-          )
+          ),
         ],
       ),
       child: Column(

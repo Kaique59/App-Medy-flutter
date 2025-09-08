@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ChatPage.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
-import 'package:flutter_application_1/pagmeditar.dart';
+import 'package:flutter_application_1/pages/pagmeditar.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart';
 
 class HubPageView extends StatefulWidget {
