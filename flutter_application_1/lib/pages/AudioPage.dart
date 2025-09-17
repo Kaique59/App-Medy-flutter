@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/custom_card.dart';
 
+// ignore: must_be_immutable
 class AudioPage extends StatelessWidget {
   bool temaEscuro = false;
-  VoidCallback? onTrocarTema;
+  final VoidCallback? onTrocarTema;
 
-  AudioPage({
-    super.key,
-    this.temaEscuro = false,
-    this.onTrocarTema,
-  });
+  AudioPage({super.key, this.temaEscuro = false, this.onTrocarTema});
 
-  List<dynamic> cardList = [
+  final List<dynamic> cardList = [
     {"icon": Icons.nature, "text": "Som da Natureza"},
     {"icon": Icons.water_drop, "text": "Chuva Relaxante"},
     {"icon": Icons.waves, "text": "Ondas do Mar"},
@@ -50,7 +47,6 @@ class AudioPage extends StatelessWidget {
           CircleAvatar(
             radius: largura * 0.07,
             backgroundColor: Colors.transparent,
-            backgroundImage: AssetImage(temaEscuro ? "" : ""),
           ),
           SizedBox(width: largura * 0.1),
           Column(
@@ -74,9 +70,7 @@ class AudioPage extends StatelessWidget {
                     Shadow(
                       offset: const Offset(1.5, 1.5),
                       blurRadius: 3,
-                      color: temaEscuro
-                          ? Colors.black54
-                          : Colors.blue[200]!,
+                      color: temaEscuro ? Colors.black54 : Colors.blue[200]!,
                     ),
                   ],
                 ),
@@ -100,7 +94,7 @@ class AudioPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: CustomCard(icon: item["icon"], text: item["text"]),
               );
-            })
+            }),
           ],
         ),
       ),
