@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/custom_card.dart';
 
-// 👇 importa suas páginas
+// importa suas páginas
 import 'package:flutter_application_1/pages/sub_pages/pag_introducao_meditacao.dart';
 import 'package:flutter_application_1/pages/sub_pages/pag_novo_ciclo.dart';
 import 'package:flutter_application_1/pages/sub_pages/pag_avancada.dart';
@@ -37,7 +37,6 @@ class PagMeditar extends StatelessWidget {
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: temaEscuro ? Colors.black : Colors.white,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

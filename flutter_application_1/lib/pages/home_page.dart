@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Models/alarme.dart';
 
 class HomePage extends StatefulWidget {
-   bool temaEscuro;
-   VoidCallback? onTrocarTema;
+  bool temaEscuro;
+  VoidCallback? onTrocarTema;
 
-  HomePage({ this.temaEscuro = false,  this.onTrocarTema});
+  HomePage({this.temaEscuro = false, this.onTrocarTema});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -91,9 +91,10 @@ class _HomePageState extends State<HomePage> {
 
   void _salvarAlarme(String nome, Duration duracao) {
     if (duracao.inSeconds > 0 && nome.trim().isNotEmpty) {
-      bool existe = alarmesSalvos.any((a) =>
-          a.nome.toLowerCase() == nome.toLowerCase() &&
-          a.duracao == duracao);
+      bool existe = alarmesSalvos.any(
+        (a) =>
+            a.nome.toLowerCase() == nome.toLowerCase() && a.duracao == duracao,
+      );
       if (!existe) {
         setState(() {
           alarmesSalvos.add(Alarme(nome: nome.trim(), duracao: duracao));
@@ -122,22 +123,13 @@ class _HomePageState extends State<HomePage> {
               (index) => Center(
                 child: Text(
                   index.toString().padLeft(2, '0'),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: widget.temaEscuro ? Colors.white : Colors.black,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
             ),
           ),
         ),
         SizedBox(height: 6),
-        Text(
-          label,
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: widget.temaEscuro ? Colors.white : Colors.black),
-        ),
       ],
     );
   }
@@ -155,7 +147,6 @@ class _HomePageState extends State<HomePage> {
     double altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: widget.temaEscuro ? Colors.black : Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(largura * 0.05),
@@ -170,11 +161,6 @@ class _HomePageState extends State<HomePage> {
                     child: CircleAvatar(
                       radius: largura * 0.07,
                       backgroundColor: Colors.transparent,
-                      child: Icon(
-                        widget.temaEscuro ? Icons.dark_mode : Icons.light_mode,
-                        color: widget.temaEscuro ? Colors.white : Colors.black,
-                        size: largura * 0.07,
-                      ),
                     ),
                   ),
                   SizedBox(width: largura * 0.03),
@@ -225,8 +211,9 @@ class _HomePageState extends State<HomePage> {
                   width: largura * 0.7,
                   height: altura * 0.14,
                   decoration: BoxDecoration(
-                    color:
-                        widget.temaEscuro ? Colors.grey[850] : Colors.blue[100],
+                    color: widget.temaEscuro
+                        ? Colors.grey[850]
+                        : Colors.blue[100],
                     borderRadius: BorderRadius.circular(24),
                     boxShadow: [
                       BoxShadow(
@@ -277,21 +264,26 @@ class _HomePageState extends State<HomePage> {
                 controller: _nomeController,
                 maxLength: 20,
                 style: TextStyle(
-                    color: widget.temaEscuro ? Colors.white : Colors.black),
+                  color: widget.temaEscuro ? Colors.white : Colors.black,
+                ),
                 decoration: InputDecoration(
                   counterText: '',
                   filled: true,
-                  fillColor:
-                      widget.temaEscuro ? Colors.grey[850] : Colors.grey[200],
+                  fillColor: widget.temaEscuro
+                      ? Colors.grey[850]
+                      : Colors.grey[200],
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
                   ),
                   hintText: 'Ex: Meditação matinal',
                   hintStyle: TextStyle(
-                      color: widget.temaEscuro ? Colors.white54 : Colors.black45),
-                  prefixIcon: Icon(Icons.label,
-                      color: widget.temaEscuro ? Colors.white54 : Colors.black45),
+                    color: widget.temaEscuro ? Colors.white54 : Colors.black45,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.label,
+                    color: widget.temaEscuro ? Colors.white54 : Colors.black45,
+                  ),
                 ),
               ),
 
@@ -304,21 +296,24 @@ class _HomePageState extends State<HomePage> {
                     _buildPicker(
                       value: horasSelecionadas,
                       max: 23,
-                      onChanged: (val) => setState(() => horasSelecionadas = val),
+                      onChanged: (val) =>
+                          setState(() => horasSelecionadas = val),
                       label: "h",
                     ),
                     SizedBox(width: 12),
                     _buildPicker(
                       value: minutosSelecionados,
                       max: 59,
-                      onChanged: (val) => setState(() => minutosSelecionados = val),
+                      onChanged: (val) =>
+                          setState(() => minutosSelecionados = val),
                       label: "m",
                     ),
                     SizedBox(width: 12),
                     _buildPicker(
                       value: segundosSelecionados,
                       max: 59,
-                      onChanged: (val) => setState(() => segundosSelecionados = val),
+                      onChanged: (val) =>
+                          setState(() => segundosSelecionados = val),
                       label: "s",
                     ),
                   ],
@@ -335,9 +330,13 @@ class _HomePageState extends State<HomePage> {
                     label: Text('Iniciar'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green[600],
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
                     onPressed: _timerAtivo
                         ? null
@@ -348,15 +347,17 @@ class _HomePageState extends State<HomePage> {
                               seconds: segundosSelecionados,
                             );
                             final nome = _nomeController.text;
-                            if (duracao.inSeconds > 0 && nome.trim().isNotEmpty) {
+                            if (duracao.inSeconds > 0 &&
+                                nome.trim().isNotEmpty) {
                               _iniciarTimer(duracao);
                               _salvarAlarme(nome, duracao);
                               FocusScope.of(context).unfocus();
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content:
-                                      Text('Informe nome e duração válidos!'),
+                                  content: Text(
+                                    'Informe nome e duração válidos!',
+                                  ),
                                 ),
                               );
                             }
@@ -367,9 +368,13 @@ class _HomePageState extends State<HomePage> {
                     label: Text('Parar'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange[600],
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
                     onPressed: _timerAtivo ? _pararTimer : null,
                   ),
@@ -378,11 +383,17 @@ class _HomePageState extends State<HomePage> {
                     label: Text('Apagar'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red[600],
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
-                    onPressed: _tempoRestante > Duration.zero ? _apagarTimer : null,
+                    onPressed: _tempoRestante > Duration.zero
+                        ? _apagarTimer
+                        : null,
                   ),
                 ],
               ),
@@ -418,8 +429,10 @@ class _HomePageState extends State<HomePage> {
                   ? Text(
                       "Nenhum alarme salvo.",
                       style: TextStyle(
-                          color:
-                              widget.temaEscuro ? Colors.white54 : Colors.black54),
+                        color: widget.temaEscuro
+                            ? Colors.white54
+                            : Colors.black54,
+                      ),
                     )
                   : ListView.builder(
                       shrinkWrap: true,
@@ -428,21 +441,27 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (context, index) {
                         final alarme = alarmesSalvos[index];
                         return Card(
-                          color:
-                              widget.temaEscuro ? Colors.grey[850] : Colors.white,
+                          color: widget.temaEscuro
+                              ? Colors.grey[850]
+                              : Colors.white,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(14)),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
                           margin: EdgeInsets.symmetric(vertical: 6),
                           elevation: 4,
                           child: ListTile(
                             contentPadding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 8),
+                              horizontal: 16,
+                              vertical: 8,
+                            ),
                             title: Text(
                               alarme.nome,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: largura * 0.045,
-                                color: widget.temaEscuro ? Colors.white : Colors.black,
+                                color: widget.temaEscuro
+                                    ? Colors.white
+                                    : Colors.black,
                               ),
                             ),
                             subtitle: Text(
@@ -467,10 +486,12 @@ class _HomePageState extends State<HomePage> {
                                 setState(() {
                                   _nomeController.text = alarme.nome;
                                   horasSelecionadas = alarme.duracao.inHours;
-                                  minutosSelecionados =
-                                      alarme.duracao.inMinutes.remainder(60);
-                                  segundosSelecionados =
-                                      alarme.duracao.inSeconds.remainder(60);
+                                  minutosSelecionados = alarme.duracao.inMinutes
+                                      .remainder(60);
+                                  segundosSelecionados = alarme
+                                      .duracao
+                                      .inSeconds
+                                      .remainder(60);
                                 });
                                 _iniciarTimer(alarme.duracao);
                               }
@@ -483,7 +504,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      
     );
   }
 }

@@ -1,23 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const GeminiChatApp());
-}
-
-class GeminiChatApp extends StatelessWidget {
-  const GeminiChatApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Desabafo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const ChatPage(),
-    );
-  }
-}
 
 class ChatMessage {
   final String text;
@@ -27,7 +11,7 @@ class ChatMessage {
 }
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({Key? key}) : super(key: key);
+  const ChatPage({super.key});
 
   @override
   State<ChatPage> createState() => _ChatPageState();
@@ -50,7 +34,10 @@ class _ChatPageState extends State<ChatPage> {
       "contents": [
         {
           "parts": [
-            {"text": "Você é um aplicativo de meditação chamado Medfy. Mas vc trabalhara na parte do Chat de desabafo, seu dever é ser servir como um psicologo, você deve se adequar com seu usuário, de início de respostas mais curtas para que o usuário não se canse, vc deve ajudalo a fazer rotinas de meditação recomendar audios de nossa biblíoteca. sempre seja gentil $prompt"},
+            {
+              "text":
+                  "Você é um aplicativo de meditação chamado Medfy. Mas vc trabalhara na parte do Chat de desabafo, seu dever é ser servir como um psicologo, você deve se adequar com seu usuário, de início de respostas mais curtas para que o usuário não se canse, vc deve ajudalo a fazer rotinas de meditação recomendar audios de nossa biblíoteca. sempre seja gentil $prompt",
+            },
           ],
         },
       ],

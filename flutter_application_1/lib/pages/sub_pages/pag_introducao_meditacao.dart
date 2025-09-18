@@ -125,7 +125,7 @@ class PagIntroducaoMeditacao extends StatelessWidget {
 
                             SizedBox(height: 16),
 
-                            // Texto introdutório à meditação
+                            // Texto que eu peguei do GPT
                             Text(
                               "Introdução à Meditação",
                               style: TextStyle(
