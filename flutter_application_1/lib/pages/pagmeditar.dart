@@ -37,7 +37,6 @@ class PagMeditar extends StatelessWidget {
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: temaEscuro ? Colors.black : Colors.white,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
