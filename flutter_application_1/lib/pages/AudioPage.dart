@@ -7,11 +7,7 @@ class AudioPage extends StatefulWidget {
   final bool temaEscuro;
   final VoidCallback? onTrocarTema;
 
-  const AudioPage({
-    super.key,
-    this.temaEscuro = false,
-    this.onTrocarTema,
-  });
+  const AudioPage({super.key, this.temaEscuro = false, this.onTrocarTema});
 
   @override
   State<AudioPage> createState() => _AudioPageState();
@@ -27,30 +23,30 @@ class _AudioPageState extends State<AudioPage> {
   List<Map<String, String>> naturezaList = [
     {
       'text': 'Chuva',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     },
     {
       'text': 'Pássaros cantando',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
     },
     {
       'text': 'Murmúrio do riacho',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
     },
   ];
 
   List<Map<String, String>> musicasList = [
     {
       'text': 'Trilha relaxante',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3'
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
     },
     {
       'text': 'Música calma',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3'
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
     },
     {
       'text': 'Som instrumental',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3'
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
     },
   ];
 
@@ -113,7 +109,9 @@ class _AudioPageState extends State<AudioPage> {
               Text(
                 "Silencie o mundo.",
                 style: TextStyle(
-                  color: widget.temaEscuro ? Colors.grey[300] : Colors.blueGrey[400],
+                  color: widget.temaEscuro
+                      ? Colors.grey[300]
+                      : Colors.blueGrey[400],
                   fontSize: largura * 0.045,
                   fontWeight: FontWeight.bold,
                 ),
@@ -128,7 +126,9 @@ class _AudioPageState extends State<AudioPage> {
                     Shadow(
                       offset: const Offset(1.5, 1.5),
                       blurRadius: 3,
-                      color: widget.temaEscuro ? Colors.black54 : Colors.blue[200]!,
+                      color: widget.temaEscuro
+                          ? Colors.black54
+                          : Colors.blue[200]!,
                     ),
                   ],
                 ),
@@ -147,10 +147,7 @@ class _AudioPageState extends State<AudioPage> {
       children: [
         Text(
           titulo,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 10),
         SizedBox(
@@ -167,10 +164,8 @@ class _AudioPageState extends State<AudioPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => AudioRolando(
-                        url: item["url"]!,
-                        nome: item["text"]!,
-                      ),
+                      builder: (_) =>
+                          AudioRolando(url: item["url"]!, nome: item["text"]!),
                     ),
                   );
                 },
