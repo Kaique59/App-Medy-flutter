@@ -1,41 +1,34 @@
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
-  final IconData icon;
   final String text;
+  final VoidCallback onTap;
 
-  const CustomCard({super.key, required this.icon, required this.text});
+  const CustomCard({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-      width: 285,
-      decoration: BoxDecoration(
-        color: Colors.blue[100],
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blue.withValues(alpha: 0.1),
-            blurRadius: 6,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 50, color: Colors.blue[700]),
-          Text(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 130,
+        decoration: BoxDecoration(
+          color: Colors.grey[500],
+          borderRadius: BorderRadius.circular(8),
+        ),
+        padding: const EdgeInsets.all(8),
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: Text(
             text,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue[800],
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
             ),
-            textAlign: TextAlign.center,
           ),
-        ],
+        ),
       ),
     );
   }
