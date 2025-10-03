@@ -33,6 +33,10 @@ class _AudioPageState extends State<AudioPage> {
       'text': 'Murmúrio do riacho',
       'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
     },
+    {
+      'text': 'Vento suave', // Novo card
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    },
   ];
 
   List<Map<String, String>> musicasList = [
@@ -47,6 +51,10 @@ class _AudioPageState extends State<AudioPage> {
     {
       'text': 'Som instrumental',
       'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+    },
+    {
+      'text': 'Piano suave', // Novo card
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
     },
   ];
 
@@ -89,7 +97,7 @@ class _AudioPageState extends State<AudioPage> {
     );
   }
 
-  /// Cabeçalho (igual estava)
+  /// Cabeçalho
   Widget _buildCabecalho(double largura) {
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -164,8 +172,11 @@ class _AudioPageState extends State<AudioPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) =>
-                          AudioRolando(url: item["url"]!, nome: item["text"]!),
+                      builder: (_) => AudioRolando(
+                        url: item["url"]!,
+                        nome: item["text"]!,
+                        categoria: titulo, // Passando a categoria correta
+                      ),
                     ),
                   );
                 },

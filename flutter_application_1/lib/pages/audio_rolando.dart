@@ -5,8 +5,14 @@ import 'package:flutter_application_1/Config/app_colors.dart';
 class AudioRolando extends StatefulWidget {
   final String url;
   final String nome;
+  final String categoria; // Novo campo
 
-  const AudioRolando({super.key, required this.url, required this.nome});
+  const AudioRolando({
+    super.key,
+    required this.url,
+    required this.nome,
+    required this.categoria,
+  });
 
   @override
   State<AudioRolando> createState() => _AudioRolandoState();
@@ -76,7 +82,7 @@ class _AudioRolandoState extends State<AudioRolando> {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Natureza",
+                  widget.categoria, // Agora mostra a categoria certa!
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -102,7 +108,7 @@ class _AudioRolandoState extends State<AudioRolando> {
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
               decoration: BoxDecoration(
                 color: AppColors.azulMenu,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25),
                   topRight: Radius.circular(25),
                 ),
@@ -147,7 +153,7 @@ class _AudioRolandoState extends State<AudioRolando> {
                         ),
                         onPressed: _playPause,
                       ),
-                      const SizedBox(width: 70), // círculo vazio da direita
+                      const SizedBox(width: 70),
                     ],
                   ),
 
