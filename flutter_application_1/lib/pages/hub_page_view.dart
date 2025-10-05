@@ -22,7 +22,7 @@ class _HubPageViewState extends State<HubPageView> {
 
   final List<Widget> listPage = [
     HomePage(),
-    //PagMeditar(),
+    PagMeditar(),
     AudioPage(),
     ChatPage(),
   ];

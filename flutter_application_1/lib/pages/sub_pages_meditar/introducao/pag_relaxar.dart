@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AvancadaPage extends StatelessWidget {
-  const AvancadaPage({super.key});
+class PagRelaxar extends StatelessWidget {
+  const PagRelaxar({super.key});
 
   @override
   Widget build(BuildContext context) {
