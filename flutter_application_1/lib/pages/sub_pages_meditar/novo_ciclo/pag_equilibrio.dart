@@ -4,54 +4,49 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
 
 // Classe para cada etapa
-class EtapaRelaxamento {
+class EtapaMeditacao {
   final String titulo;
   final String descricao;
 
-  EtapaRelaxamento({required this.titulo, required this.descricao});
+  EtapaMeditacao({required this.titulo, required this.descricao});
 }
 
-class PagRelaxar extends StatefulWidget {
-  const PagRelaxar({super.key});
+class PagEquilibrio extends StatefulWidget {
+  const PagEquilibrio({super.key});
 
   @override
-  State<PagRelaxar> createState() => _PagRelaxarState();
+  State<PagEquilibrio> createState() => _PagEquilibrioState();
 }
 
-class _PagRelaxarState extends State<PagRelaxar>
+class _PagEquilibrioState extends State<PagEquilibrio>
     with SingleTickerProviderStateMixin {
   int etapaAtual = 0;
 
-  final List<EtapaRelaxamento> instrucoes = [
-    EtapaRelaxamento(
-      titulo: "Escolha um momento só seu",
+  final List<EtapaMeditacao> instrucoes = [
+    EtapaMeditacao(
+      titulo: "Conexão Corpo e Mente",
       descricao:
-          "Encontre um lugar confortável, sente-se ou deite-se de forma relaxada e segure o celular de um jeito que não cause incômodo. Coloque o volume em um nível agradável e prepare-se para aproveitar este momento de pausa e tranquilidade.",
+          "O equilíbrio interno começa ao reconhecer a conexão profunda entre corpo e mente. Ao respirar conscientemente, prestando atenção às sensações físicas e ao ritmo do coração, percebemos que cada pensamento, emoção e gesto impacta nosso estado geral. Quando harmonizamos essas duas dimensões, sentimos serenidade e clareza, abrindo espaço para decisões mais conscientes e atitudes mais equilibradas diante dos desafios diários.",
     ),
-    EtapaRelaxamento(
-      titulo: "Respire de forma agradável",
+    EtapaMeditacao(
+      titulo: "Aceitação e Fluidez",
       descricao:
-          "Conforme o que você aprendeu no outro módulo, faça respirações lentas e agradáveis. Inspire suavemente pelo nariz, sentindo o ar entrar leve e fresco. Segure por alguns segundos e depois solte o ar pela boca, sem pressa, deixando o corpo relaxar a cada expiração. Repita esse processo algumas vezes, concentrando-se na sensação de conforto que a respiração traz.",
+          "Encontrar equilíbrio é aprender a aceitar a vida como ela é, sem resistência ou julgamento. Nem tudo precisa ser controlado; há beleza na fluidez dos acontecimentos e nos ciclos naturais do dia a dia. Ao liberar o que não podemos mudar e acolher o presente, nosso coração se aquece, a mente encontra paz duradoura e nos tornamos capazes de agir com mais clareza, deixando que cada momento se revele com sua própria sabedoria.",
     ),
-    EtapaRelaxamento(
-      titulo: "Solte o corpo",
+    EtapaMeditacao(
+      titulo: "Centro da Paz Interior",
       descricao:
-          "Feche os olhos e perceba lentamente cada parte: comece pelos ombros, pescoço e mandíbula, soltando qualquer rigidez. "
-          "Sinta o peso dos braços descansando e deixe as mãos relaxarem. Respire fundo e imagine que, a cada expiração, o cansaço vai saindo do corpo. "
-          "Desça a atenção até as pernas e os pés, percebendo o contato com o chão ou com o local onde está deitado. "
-          "Permita que todo o seu corpo fique leve, como se estivesse flutuando em um estado de paz e descanso.",
+          "Nosso centro interno é como um refúgio silencioso dentro de nós, um espaço que permanece calmo mesmo quando o mundo ao redor parece agitado. Quando nos afastamos do ruído externo e nos voltamos para a quietude interna, descobrimos força, estabilidade e clareza. É nesse ponto sereno que conseguimos lidar com situações desafiadoras, tomar decisões equilibradas e manter a harmonia entre emoções e pensamentos, cultivando bem-estar contínuo.",
     ),
-    EtapaRelaxamento(
-      titulo: "Acalme a mente",
+    EtapaMeditacao(
+      titulo: "Harmonia Emocional",
       descricao:
-          "Feche os olhos e observe os pensamentos que surgem, sem se prender a nenhum. Imagine que eles são como nuvens passando pelo céu — algumas grandes, outras pequenas, mas todas transitórias. Concentre-se na sensação de paz que cresce dentro de você, percebendo o ritmo tranquilo da respiração e a leveza no corpo. "
-          "Permita que qualquer tensão mental se dissolva lentamente, e que seu foco se mantenha apenas no momento presente. Sinta a serenidade se espalhando da cabeça aos pés, trazendo clareza e conforto.",
+          "Equilíbrio interno envolve também a regulação das emoções, reconhecendo e acolhendo cada sentimento sem permitir que nos domine. A prática da atenção plena e da auto-observação nos permite observar emoções intensas como nuvens passando pelo céu, sem perturbar nosso centro sereno. Essa consciência fortalece nossa capacidade de responder à vida com sabedoria, paciência e compaixão, transformando conflitos internos em oportunidades de crescimento.",
     ),
-    EtapaRelaxamento(
-      titulo: "Sinta a leveza",
+    EtapaMeditacao(
+      titulo: "Renovação Constante",
       descricao:
-          "Permaneça neste estado de calma o tempo que desejar. Observe como cada parte do seu corpo parece mais leve e como a mente está mais tranquila. Mova-se suavemente, alongue-se se quiser, e abra lentamente os olhos quando estiver pronto. "
-          "Leve essa sensação de bem-estar e equilíbrio com você para as próximas atividades do dia. Lembre-se de que sempre pode retornar a esse estado de relaxamento, mesmo por alguns minutos, para restaurar energia e tranquilidade.",
+          "Manter o equilíbrio interno é um processo contínuo, semelhante a cuidar de um jardim que precisa de atenção e carinho diários. Cada respiração consciente, cada pausa para reflexão ou meditação, é uma oportunidade de renovar energia, limpar pensamentos dispersos e fortalecer o foco. A cada dia podemos cultivar estabilidade, serenidade e resiliência, lembrando que o equilíbrio não é um estado estático, mas sim uma prática constante de presença e atenção plena.",
     ),
   ];
 
@@ -83,7 +78,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    "O relaxamento não é preguiça — é a arte de restaurar a energia e encontrar paz dentro de si.",
+                    "Encontre a harmonia entre corpo, mente e espírito através da meditação do equilíbrio.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -117,9 +112,9 @@ class _PagRelaxarState extends State<PagRelaxar>
                         children: [
                           Expanded(
                             child: _actionButton(
-                              icon: Icons.spa,
-                              text: "Guia de relaxamento",
-                              color: Colors.purple[100]!,
+                              icon: Icons.balance,
+                              text: "Guia de equilíbrio",
+                              color: Colors.blue[100]!,
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -135,8 +130,8 @@ class _PagRelaxarState extends State<PagRelaxar>
                               },
                               child: _actionButton(
                                 icon: Icons.music_note,
-                                text: "Sons relaxantes",
-                                color: Colors.purple[100]!,
+                                text: "Sons para relaxar",
+                                color: Colors.blue[100]!,
                               ),
                             ),
                           ),
@@ -146,22 +141,22 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       // VÍDEOS
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=iCPt9AZUmRg",
-                        title: "Relaxe o corpo e a mente",
+                        videoUrl: "https://www.youtube.com/watch?v=I0YUoDp2MAc",
+                        title: "Recupere o seu Equilíbrio Interno",
                         subtitle:
-                            "Um guia para aliviar tensões e restaurar o equilíbrio interior.",
+                            "Um guia prático para alinhar mente e corpo e encontrar serenidade.",
                       ),
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=We44qc_6Gj4",
-                        title: "Movimentos para relaxar o seu corpo",
+                        videoUrl: "https://www.youtube.com/watch?v=URaOBBnG4CA",
+                        title: "Energia e Harmonia",
                         subtitle:
-                            "Uma prática simples para desacelerar e reconectar-se consigo mesmo.",
+                            "Aprenda a respirar e movimentar sua energia interna de forma consciente.",
                       ),
 
                       const SizedBox(height: 30),
 
                       const Text(
-                        "Passos para relaxar",
+                        "Passos para alcançar o equilíbrio interior e ter uma vida mais harmoniosa",
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -170,13 +165,12 @@ class _PagRelaxarState extends State<PagRelaxar>
                       ),
                       const SizedBox(height: 30),
 
-                      // LINHA DE ETAPAS COM TEXTO AO LADO
+                      // LINHA DE ETAPAS
                       SizedBox(
-                        height: altura * 0.7, // AUMENTEI A ALTURA
+                        height: altura * 0.7,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Linha de etapas
                             Expanded(
                               flex: 2,
                               child: LinhaDeEtapas(
@@ -191,7 +185,6 @@ class _PagRelaxarState extends State<PagRelaxar>
                               ),
                             ),
                             const SizedBox(width: 20),
-                            // Texto das instruções
                             Expanded(
                               flex: 5,
                               child: AnimatedSwitcher(
@@ -238,10 +231,10 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       const SizedBox(height: 30),
 
-                      // FRASE DE RELAXAMENTO NO FINAL
+                      // FRASE FINAL
                       const Center(
                         child: Text(
-                          "Respire fundo, sinta a calma envolver cada parte do seu ser e leve consigo a leveza que o momento lhe trouxe.",
+                          "Permaneça em equilíbrio, respirando com leveza e deixando a paz fluir através de cada instante.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,

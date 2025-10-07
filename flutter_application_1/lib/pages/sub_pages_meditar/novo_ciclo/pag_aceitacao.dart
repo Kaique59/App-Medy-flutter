@@ -4,54 +4,49 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
 
 // Classe para cada etapa
-class EtapaRelaxamento {
+class EtapaMeditacao {
   final String titulo;
   final String descricao;
 
-  EtapaRelaxamento({required this.titulo, required this.descricao});
+  EtapaMeditacao({required this.titulo, required this.descricao});
 }
 
-class PagRelaxar extends StatefulWidget {
-  const PagRelaxar({super.key});
+class PagAceitacao extends StatefulWidget {
+  const PagAceitacao({super.key});
 
   @override
-  State<PagRelaxar> createState() => _PagRelaxarState();
+  State<PagAceitacao> createState() => _PagAceitacaoState();
 }
 
-class _PagRelaxarState extends State<PagRelaxar>
+class _PagAceitacaoState extends State<PagAceitacao>
     with SingleTickerProviderStateMixin {
   int etapaAtual = 0;
 
-  final List<EtapaRelaxamento> instrucoes = [
-    EtapaRelaxamento(
-      titulo: "Escolha um momento só seu",
+  final List<EtapaMeditacao> instrucoes = [
+    EtapaMeditacao(
+      titulo: "Aceitação do Momento Presente",
       descricao:
-          "Encontre um lugar confortável, sente-se ou deite-se de forma relaxada e segure o celular de um jeito que não cause incômodo. Coloque o volume em um nível agradável e prepare-se para aproveitar este momento de pausa e tranquilidade.",
+          "Aceitar o momento presente é permitir que a vida se desenrole sem resistência ou ansiedade. Cada experiência, seja agradável ou desafiadora, traz aprendizados valiosos que fortalecem nossa maturidade emocional. Ao acolher a realidade como ela é, percebemos que cada instante é único e merece nossa atenção plena. Essa prática nos ajuda a encontrar serenidade, clareza interior e a cultivar uma postura de presença consciente, mesmo diante de situações inesperadas.",
     ),
-    EtapaRelaxamento(
-      titulo: "Respire de forma agradável",
+    EtapaMeditacao(
+      titulo: "Fluir com a Vida",
       descricao:
-          "Conforme o que você aprendeu no outro módulo, faça respirações lentas e agradáveis. Inspire suavemente pelo nariz, sentindo o ar entrar leve e fresco. Segure por alguns segundos e depois solte o ar pela boca, sem pressa, deixando o corpo relaxar a cada expiração. Repita esse processo algumas vezes, concentrando-se na sensação de conforto que a respiração traz.",
+          "Fluir com a vida é a arte de acompanhar os ciclos naturais sem lutar contra eles. Em vez de insistir em controlar resultados ou evitar mudanças, aprendemos a adaptar-nos com leveza, flexibilidade e paciência. Esse estado nos permite reagir às situações com equilíbrio, transformando desafios em oportunidades de aprendizado. A fluidez cria espaço para a criatividade, a espontaneidade e a capacidade de perceber as soluções que surgem de forma natural, sem esforço forçado.",
     ),
-    EtapaRelaxamento(
-      titulo: "Solte o corpo",
+    EtapaMeditacao(
+      titulo: "Liberação de Resistências",
       descricao:
-          "Feche os olhos e perceba lentamente cada parte: comece pelos ombros, pescoço e mandíbula, soltando qualquer rigidez. "
-          "Sinta o peso dos braços descansando e deixe as mãos relaxarem. Respire fundo e imagine que, a cada expiração, o cansaço vai saindo do corpo. "
-          "Desça a atenção até as pernas e os pés, percebendo o contato com o chão ou com o local onde está deitado. "
-          "Permita que todo o seu corpo fique leve, como se estivesse flutuando em um estado de paz e descanso.",
+          "Aceitar não significa resignar-se ou desistir, mas sim liberar a resistência que gera tensão, ansiedade e sofrimento. Ao permitir que pensamentos, emoções e acontecimentos fluam naturalmente, sentimos leveza, clareza e expansão interior. Essa prática fortalece a resiliência, promove maior autoconhecimento e nos ajuda a tomar decisões mais conscientes, criando um espaço interno de paz e liberdade para agir com autenticidade e propósito.",
     ),
-    EtapaRelaxamento(
-      titulo: "Acalme a mente",
+    EtapaMeditacao(
+      titulo: "Harmonia Interior e Conexão",
       descricao:
-          "Feche os olhos e observe os pensamentos que surgem, sem se prender a nenhum. Imagine que eles são como nuvens passando pelo céu — algumas grandes, outras pequenas, mas todas transitórias. Concentre-se na sensação de paz que cresce dentro de você, percebendo o ritmo tranquilo da respiração e a leveza no corpo. "
-          "Permita que qualquer tensão mental se dissolva lentamente, e que seu foco se mantenha apenas no momento presente. Sinta a serenidade se espalhando da cabeça aos pés, trazendo clareza e conforto.",
+          "A aceitação profunda cria uma harmonia real entre mente, corpo e espírito. Quando deixamos de lutar contra o inevitável e acolhemos nossas emoções sem julgamento, abrimos espaço para ouvir nossa intuição e alinhar nossas ações com nossos valores mais profundos. Essa integração fortalece nossa autoconfiança, nos conecta com nossa essência e proporciona estabilidade emocional, promovendo bem-estar, serenidade e a capacidade de enfrentar os desafios da vida com equilíbrio e sabedoria.",
     ),
-    EtapaRelaxamento(
-      titulo: "Sinta a leveza",
+    EtapaMeditacao(
+      titulo: "Transformando Desafios em Crescimento",
       descricao:
-          "Permaneça neste estado de calma o tempo que desejar. Observe como cada parte do seu corpo parece mais leve e como a mente está mais tranquila. Mova-se suavemente, alongue-se se quiser, e abra lentamente os olhos quando estiver pronto. "
-          "Leve essa sensação de bem-estar e equilíbrio com você para as próximas atividades do dia. Lembre-se de que sempre pode retornar a esse estado de relaxamento, mesmo por alguns minutos, para restaurar energia e tranquilidade.",
+          "Cada desafio, mudança inesperada ou momento de dificuldade pode ser recebido como parte do fluxo natural da vida. Ao acolher o que surge sem resistência e sem julgamento, transformamos obstáculos em oportunidades de aprendizado e evolução. A prática da fluidez nos permite seguir em frente com coragem, paciência e serenidade, cultivando resiliência, equilíbrio emocional e realização pessoal. Cada passo consciente se torna um degrau rumo ao crescimento e à vida plena.",
     ),
   ];
 
@@ -61,7 +56,7 @@ class _PagRelaxarState extends State<PagRelaxar>
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.blue[800],
+      backgroundColor: Colors.blue[700],
       body: SafeArea(
         child: Column(
           children: [
@@ -69,7 +64,7 @@ class _PagRelaxarState extends State<PagRelaxar>
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-              color: Colors.blue[800],
+              color: Colors.blue[700],
               child: Column(
                 children: [
                   Align(
@@ -83,7 +78,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    "O relaxamento não é preguiça — é a arte de restaurar a energia e encontrar paz dentro de si.",
+                    "Aprenda a acolher a si mesmo e as circunstâncias da vida, encontrando serenidade e harmonia através da aceitação.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -117,9 +112,9 @@ class _PagRelaxarState extends State<PagRelaxar>
                         children: [
                           Expanded(
                             child: _actionButton(
-                              icon: Icons.spa,
-                              text: "Guia de relaxamento",
-                              color: Colors.purple[100]!,
+                              icon: Icons.self_improvement,
+                              text: "Guia da Aceitação",
+                              color: Colors.blue[100]!,
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -135,8 +130,8 @@ class _PagRelaxarState extends State<PagRelaxar>
                               },
                               child: _actionButton(
                                 icon: Icons.music_note,
-                                text: "Sons relaxantes",
-                                color: Colors.purple[100]!,
+                                text: "Sons para relaxar",
+                                color: Colors.blue[100]!,
                               ),
                             ),
                           ),
@@ -146,37 +141,36 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       // VÍDEOS
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=iCPt9AZUmRg",
-                        title: "Relaxe o corpo e a mente",
+                        videoUrl: "https://www.youtube.com/watch?v=KvXBoFQpNAM",
+                        title: "Nem tudo é como a gente quer",
                         subtitle:
-                            "Um guia para aliviar tensões e restaurar o equilíbrio interior.",
+                            "Descubra como acolher o presente e viver de forma mais consciente.",
                       ),
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=We44qc_6Gj4",
-                        title: "Movimentos para relaxar o seu corpo",
+                        videoUrl: "https://www.youtube.com/watch?v=ygECi_HxydI",
+                        title: "A Arte de Aceitar",
                         subtitle:
-                            "Uma prática simples para desacelerar e reconectar-se consigo mesmo.",
+                            "Aprenda a lidar com desafios e a transformar sua vida com serenidade.",
                       ),
 
                       const SizedBox(height: 30),
 
                       const Text(
-                        "Passos para relaxar",
+                        "Passos para cultivar a aceitação e viver em harmonia consigo mesmo",
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blueAccent,
+                          color: Colors.blue,
                         ),
                       ),
                       const SizedBox(height: 30),
 
-                      // LINHA DE ETAPAS COM TEXTO AO LADO
+                      // LINHA DE ETAPAS
                       SizedBox(
-                        height: altura * 0.7, // AUMENTEI A ALTURA
+                        height: altura * 0.7,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Linha de etapas
                             Expanded(
                               flex: 2,
                               child: LinhaDeEtapas(
@@ -191,7 +185,6 @@ class _PagRelaxarState extends State<PagRelaxar>
                               ),
                             ),
                             const SizedBox(width: 20),
-                            // Texto das instruções
                             Expanded(
                               flex: 5,
                               child: AnimatedSwitcher(
@@ -216,7 +209,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                                       style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.blueAccent,
+                                        color: Colors.blue,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
@@ -238,10 +231,10 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       const SizedBox(height: 30),
 
-                      // FRASE DE RELAXAMENTO NO FINAL
+                      // FRASE FINAL
                       const Center(
                         child: Text(
-                          "Respire fundo, sinta a calma envolver cada parte do seu ser e leve consigo a leveza que o momento lhe trouxe.",
+                          "Respire profundamente, acolha-se e permita que a aceitação traga paz e equilíbrio à sua vida.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
@@ -277,12 +270,12 @@ class _PagRelaxarState extends State<PagRelaxar>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 30),
+          Icon(icon, color: Colors.blue, size: 30),
           const SizedBox(width: 10),
           Text(
             text,
-            style: const TextStyle(
-              color: Colors.blueAccent,
+            style: TextStyle(
+              color: Colors.blue[700],
               fontWeight: FontWeight.w600,
               fontSize: 16,
             ),

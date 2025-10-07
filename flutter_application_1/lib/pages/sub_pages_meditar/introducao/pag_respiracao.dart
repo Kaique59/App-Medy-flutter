@@ -82,7 +82,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: largura * 0.05,
+                      fontSize: largura * 0.04,
                       fontWeight: FontWeight.w500,
                       height: 1.4,
                     ),

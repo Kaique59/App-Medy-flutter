@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/custom_card_meditar.dart';
-
-// importa suas páginas de destino
 import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_respiracao.dart';
-import 'package:flutter_application_1/pages/sub_pages_meditar/pag_novo_ciclo.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_aprenda_meditacao.dart';
 import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_relaxar.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/novo_ciclo/pag_equilibrio.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/novo_ciclo/pag_proposito.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/novo_ciclo/pag_aceitacao.dart';
 
 class PagMeditar extends StatelessWidget {
   final bool temaEscuro;
@@ -12,17 +13,21 @@ class PagMeditar extends StatelessWidget {
 
   const PagMeditar({super.key, this.temaEscuro = false, this.onTrocarTema});
 
-  // Seções e seus cards
   final Map<String, List<Map<String, dynamic>>> sections = const {
     "Introdução-Meditação": [
       {"text": "Respiração Guiada", "page": PagRespiracao()},
-      {"text": "Relaxamento", "page": NovoCicloPage()},
-      {"text": "Mindfulness", "page": PagRelaxar()},
+      {"text": "Relaxamento", "page": PagRelaxar()},
+      {"text": "Comece a Meditar", "page": PagAprendaMeditacao()},
     ],
     "Meditação Novo Ciclo": [
-      {"text": "Equilíbrio Interior", "page": PagRespiracao()},
-      {"text": "Harmonia da mente", "page": NovoCicloPage()},
-      {"text": "Despertar da alma", "page": PagRelaxar()},
+      {"text": "Equilíbrio Interior", "page": PagEquilibrio()},
+      {"text": "Intenção e Propósito", "page": PagProposito()},
+      {"text": "Aceitação e Fluidez", "page": PagAceitacao()},
+    ],
+    "Meditação Avançada": [
+      {"text": "Foco e Atenção", "page": PagRespiracao()},
+      {"text": "Calma Interior", "page": PagAprendaMeditacao()},
+      {"text": "Mente e Corpo", "page": PagRelaxar()},
     ],
   };
 
