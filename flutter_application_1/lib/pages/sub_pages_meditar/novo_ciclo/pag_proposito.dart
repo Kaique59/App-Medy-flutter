@@ -4,54 +4,49 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
 
 // Classe para cada etapa
-class EtapaRelaxamento {
+class EtapaMeditacao {
   final String titulo;
   final String descricao;
 
-  EtapaRelaxamento({required this.titulo, required this.descricao});
+  EtapaMeditacao({required this.titulo, required this.descricao});
 }
 
-class PagRelaxar extends StatefulWidget {
-  const PagRelaxar({super.key});
+class PagProposito extends StatefulWidget {
+  const PagProposito({super.key});
 
   @override
-  State<PagRelaxar> createState() => _PagRelaxarState();
+  State<PagProposito> createState() => _PagPropositoState();
 }
 
-class _PagRelaxarState extends State<PagRelaxar>
+class _PagPropositoState extends State<PagProposito>
     with SingleTickerProviderStateMixin {
   int etapaAtual = 0;
 
-  final List<EtapaRelaxamento> instrucoes = [
-    EtapaRelaxamento(
-      titulo: "Escolha um momento só seu",
+  final List<EtapaMeditacao> instrucoes = [
+    EtapaMeditacao(
+      titulo: "Conectando-se com o Propósito",
       descricao:
-          "Encontre um lugar confortável, sente-se ou deite-se de forma relaxada e segure o celular de um jeito que não cause incômodo. Coloque o volume em um nível agradável e prepare-se para aproveitar este momento de pausa e tranquilidade.",
+          "Descobrir o próprio propósito é perceber aquilo que realmente dá sentido à vida e nos faz sentir vivos. Ao nos conectarmos com nossos valores, paixões e talentos, nossas ações se tornam mais conscientes e alinhadas com quem realmente somos. Essa clareza transforma decisões diárias, direciona esforços de maneira significativa e promove uma sensação profunda de realização, permitindo que cada passo seja um reflexo do que valorizamos.",
     ),
-    EtapaRelaxamento(
-      titulo: "Respire de forma agradável",
+    EtapaMeditacao(
+      titulo: "A Força da Intenção",
       descricao:
-          "Conforme o que você aprendeu no outro módulo, faça respirações lentas e agradáveis. Inspire suavemente pelo nariz, sentindo o ar entrar leve e fresco. Segure por alguns segundos e depois solte o ar pela boca, sem pressa, deixando o corpo relaxar a cada expiração. Repita esse processo algumas vezes, concentrando-se na sensação de conforto que a respiração traz.",
+          "Cada ação nasce de uma intenção, mesmo que inconsciente. Quando dedicamos momentos à meditação ou reflexão profunda, podemos definir claramente nossas intenções, tornando mente e coração aliados de nossos objetivos mais importantes. Intenção consciente nos ajuda a agir com foco, a superar distrações e a canalizar nossa energia para aquilo que realmente importa, criando resultados que ressoam com nosso verdadeiro eu.",
     ),
-    EtapaRelaxamento(
-      titulo: "Solte o corpo",
+    EtapaMeditacao(
+      titulo: "Alinhando Paixão e Propósito",
       descricao:
-          "Feche os olhos e perceba lentamente cada parte: comece pelos ombros, pescoço e mandíbula, soltando qualquer rigidez. "
-          "Sinta o peso dos braços descansando e deixe as mãos relaxarem. Respire fundo e imagine que, a cada expiração, o cansaço vai saindo do corpo. "
-          "Desça a atenção até as pernas e os pés, percebendo o contato com o chão ou com o local onde está deitado. "
-          "Permita que todo o seu corpo fique leve, como se estivesse flutuando em um estado de paz e descanso.",
+          "O propósito floresce quando está intimamente ligado à nossa paixão. Identificar aquilo que amamos fazer e combiná-lo com nossas metas pessoais cria um caminho cheio de motivação, satisfação e realização. Esse alinhamento nos impulsiona a seguir adiante mesmo diante de desafios, transformando obstáculos em oportunidades de aprendizado, crescimento e evolução contínua, fortalecendo nossa confiança e determinação.",
     ),
-    EtapaRelaxamento(
-      titulo: "Acalme a mente",
+    EtapaMeditacao(
+      titulo: "Propósito e Transformação Interior",
       descricao:
-          "Feche os olhos e observe os pensamentos que surgem, sem se prender a nenhum. Imagine que eles são como nuvens passando pelo céu — algumas grandes, outras pequenas, mas todas transitórias. Concentre-se na sensação de paz que cresce dentro de você, percebendo o ritmo tranquilo da respiração e a leveza no corpo. "
-          "Permita que qualquer tensão mental se dissolva lentamente, e que seu foco se mantenha apenas no momento presente. Sinta a serenidade se espalhando da cabeça aos pés, trazendo clareza e conforto.",
+          "Viver com propósito é permitir que cada dia seja uma oportunidade de evolução e autoconhecimento. Quando nossas ações refletem nossas intenções mais profundas, transformamos hábitos, pensamentos e emoções, tornando-nos mais conscientes, resilientes e alinhados com nosso verdadeiro eu. O propósito atua como um guia silencioso, orientando decisões, fortalecendo a autoestima e nos incentivando a buscar uma vida mais equilibrada e significativa.",
     ),
-    EtapaRelaxamento(
-      titulo: "Sinta a leveza",
+    EtapaMeditacao(
+      titulo: "Ação com Significado",
       descricao:
-          "Permaneça neste estado de calma o tempo que desejar. Observe como cada parte do seu corpo parece mais leve e como a mente está mais tranquila. Mova-se suavemente, alongue-se se quiser, e abra lentamente os olhos quando estiver pronto. "
-          "Leve essa sensação de bem-estar e equilíbrio com você para as próximas atividades do dia. Lembre-se de que sempre pode retornar a esse estado de relaxamento, mesmo por alguns minutos, para restaurar energia e tranquilidade.",
+          "Não basta apenas definir metas; é essencial agir com intenção, consciência e comprometimento. Cada gesto, escolha e decisão pode ser direcionado para aquilo que realmente importa, transformando pequenas ações em grandes passos de crescimento pessoal. Quando vivemos alinhados ao nosso propósito, cada dia se torna uma oportunidade de construir uma vida mais plena, significativa e conectada com nossos valores, despertando satisfação e realização interior.",
     ),
   ];
 
@@ -61,7 +56,7 @@ class _PagRelaxarState extends State<PagRelaxar>
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.blue[800],
+      backgroundColor: Colors.blue[700],
       body: SafeArea(
         child: Column(
           children: [
@@ -69,7 +64,7 @@ class _PagRelaxarState extends State<PagRelaxar>
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-              color: Colors.blue[800],
+              color: Colors.blue[700],
               child: Column(
                 children: [
                   Align(
@@ -83,7 +78,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    "O relaxamento não é preguiça — é a arte de restaurar a energia e encontrar paz dentro de si.",
+                    "Descubra seu propósito e alinhe-se com o novo ciclo de sua vida através desta meditação.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -117,9 +112,9 @@ class _PagRelaxarState extends State<PagRelaxar>
                         children: [
                           Expanded(
                             child: _actionButton(
-                              icon: Icons.spa,
-                              text: "Guia de relaxamento",
-                              color: Colors.purple[100]!,
+                              icon: Icons.track_changes,
+                              text: "Guia do Propósito",
+                              color: Colors.blue[100]!,
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -135,8 +130,8 @@ class _PagRelaxarState extends State<PagRelaxar>
                               },
                               child: _actionButton(
                                 icon: Icons.music_note,
-                                text: "Sons relaxantes",
-                                color: Colors.purple[100]!,
+                                text: "Sons para concentração",
+                                color: Colors.blue[100]!,
                               ),
                             ),
                           ),
@@ -146,37 +141,36 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       // VÍDEOS
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=iCPt9AZUmRg",
-                        title: "Relaxe o corpo e a mente",
+                        videoUrl: "https://www.youtube.com/watch?v=CxDS3MlvwZE",
+                        title: "Você sabe o que quer da Vida?",
                         subtitle:
-                            "Um guia para aliviar tensões e restaurar o equilíbrio interior.",
+                            "Aprenda a alinhar seu propósito com o próximo ciclo da sua vida.",
                       ),
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=We44qc_6Gj4",
-                        title: "Movimentos para relaxar o seu corpo",
+                        videoUrl: "https://www.youtube.com/watch?v=77vqMkV2QT0",
+                        title: "Encontre o seu Propósito de Vida",
                         subtitle:
-                            "Uma prática simples para desacelerar e reconectar-se consigo mesmo.",
+                            "Descubra o seu propósito e desperte para uma vida plena e significativa.",
                       ),
 
                       const SizedBox(height: 30),
 
                       const Text(
-                        "Passos para relaxar",
+                        "Passos para se alinhar com seu propósito e viver plenamente o novo ciclo",
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blueAccent,
+                          color: Colors.blue,
                         ),
                       ),
                       const SizedBox(height: 30),
 
-                      // LINHA DE ETAPAS COM TEXTO AO LADO
+                      // LINHA DE ETAPAS
                       SizedBox(
-                        height: altura * 0.7, // AUMENTEI A ALTURA
+                        height: altura * 0.7,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Linha de etapas
                             Expanded(
                               flex: 2,
                               child: LinhaDeEtapas(
@@ -191,7 +185,6 @@ class _PagRelaxarState extends State<PagRelaxar>
                               ),
                             ),
                             const SizedBox(width: 20),
-                            // Texto das instruções
                             Expanded(
                               flex: 5,
                               child: AnimatedSwitcher(
@@ -216,7 +209,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                                       style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.blueAccent,
+                                        color: Colors.blue,
                                       ),
                                     ),
                                     const SizedBox(height: 10),
@@ -238,15 +231,15 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       const SizedBox(height: 30),
 
-                      // FRASE DE RELAXAMENTO NO FINAL
+                      // FRASE FINAL
                       const Center(
                         child: Text(
-                          "Respire fundo, sinta a calma envolver cada parte do seu ser e leve consigo a leveza que o momento lhe trouxe.",
+                          "Respire profundamente, conecte-se com seu propósito e permita que o novo ciclo floresça.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
                             fontStyle: FontStyle.italic,
-                            color: Colors.blueGrey,
+                            color: Colors.blue,
                             height: 1.5,
                           ),
                         ),
@@ -277,12 +270,12 @@ class _PagRelaxarState extends State<PagRelaxar>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 30),
+          Icon(icon, color: Colors.blue, size: 30),
           const SizedBox(width: 10),
           Text(
             text,
-            style: const TextStyle(
-              color: Colors.blueAccent,
+            style: TextStyle(
+              color: Colors.blue[700],
               fontWeight: FontWeight.w600,
               fontSize: 16,
             ),

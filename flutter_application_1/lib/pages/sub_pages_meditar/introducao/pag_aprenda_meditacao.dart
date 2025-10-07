@@ -4,54 +4,61 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
 
 // Classe para cada etapa
-class EtapaRelaxamento {
+class EtapaMeditacao {
   final String titulo;
   final String descricao;
 
-  EtapaRelaxamento({required this.titulo, required this.descricao});
+  EtapaMeditacao({required this.titulo, required this.descricao});
 }
 
-class PagRelaxar extends StatefulWidget {
-  const PagRelaxar({super.key});
+class PagAprendaMeditacao extends StatefulWidget {
+  const PagAprendaMeditacao({super.key});
 
   @override
-  State<PagRelaxar> createState() => _PagRelaxarState();
+  State<PagAprendaMeditacao> createState() => _PagAprendaMeditacaoState();
 }
 
-class _PagRelaxarState extends State<PagRelaxar>
+class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
     with SingleTickerProviderStateMixin {
   int etapaAtual = 0;
 
-  final List<EtapaRelaxamento> instrucoes = [
-    EtapaRelaxamento(
-      titulo: "Escolha um momento só seu",
+  final List<EtapaMeditacao> instrucoes = [
+    EtapaMeditacao(
+      titulo: "Respire e Esteja Presente",
       descricao:
-          "Encontre um lugar confortável, sente-se ou deite-se de forma relaxada e segure o celular de um jeito que não cause incômodo. Coloque o volume em um nível agradável e prepare-se para aproveitar este momento de pausa e tranquilidade.",
+          "Feche os olhos e inspire profundamente."
+          "Sinta o ar entrando e saindo, levando embora as tensões do corpo."
+          "Você não precisa estar em outro lugar, nem ser outra pessoa — apenas esteja aqui e agora.",
     ),
-    EtapaRelaxamento(
-      titulo: "Respire de forma agradável",
+    EtapaMeditacao(
+      titulo: "O Silêncio que Cura",
       descricao:
-          "Conforme o que você aprendeu no outro módulo, faça respirações lentas e agradáveis. Inspire suavemente pelo nariz, sentindo o ar entrar leve e fresco. Segure por alguns segundos e depois solte o ar pela boca, sem pressa, deixando o corpo relaxar a cada expiração. Repita esse processo algumas vezes, concentrando-se na sensação de conforto que a respiração traz.",
+          "Sente-se confortavelmente e observe o silêncio ao seu redor."
+          "Não lute contra os pensamentos, apenas veja-os passar como nuvens no céu."
+          "No fundo do silêncio, mora a paz que você sempre buscou.",
     ),
-    EtapaRelaxamento(
-      titulo: "Solte o corpo",
+    EtapaMeditacao(
+      titulo: "O Corpo e a Respiração",
       descricao:
-          "Feche os olhos e perceba lentamente cada parte: comece pelos ombros, pescoço e mandíbula, soltando qualquer rigidez. "
-          "Sinta o peso dos braços descansando e deixe as mãos relaxarem. Respire fundo e imagine que, a cada expiração, o cansaço vai saindo do corpo. "
-          "Desça a atenção até as pernas e os pés, percebendo o contato com o chão ou com o local onde está deitado. "
-          "Permita que todo o seu corpo fique leve, como se estivesse flutuando em um estado de paz e descanso.",
+          "Sinta o peso do seu corpo apoiado no chão."
+          "Perceba o ar entrando pelo nariz, enchendo seus pulmões, e saindo suavemente."
+          "A cada respiração, o corpo relaxa, e a mente se torna mais leve.",
     ),
-    EtapaRelaxamento(
-      titulo: "Acalme a mente",
+    EtapaMeditacao(
+      titulo: "Aceitação",
       descricao:
-          "Feche os olhos e observe os pensamentos que surgem, sem se prender a nenhum. Imagine que eles são como nuvens passando pelo céu — algumas grandes, outras pequenas, mas todas transitórias. Concentre-se na sensação de paz que cresce dentro de você, percebendo o ritmo tranquilo da respiração e a leveza no corpo. "
-          "Permita que qualquer tensão mental se dissolva lentamente, e que seu foco se mantenha apenas no momento presente. Sinta a serenidade se espalhando da cabeça aos pés, trazendo clareza e conforto.",
+          "Aceitar é compreender que a vida tem seu próprio ritmo e que nem tudo precisa ser controlado."
+          "Há momentos em que o melhor que podemos fazer é respirar fundo e permitir que as coisas simplesmente aconteçam."
+          "Quando soltamos o peso das expectativas e acolhemos o presente como ele é, o coração se torna leve e a mente encontra paz."
+          "Na aceitação, descobrimos que o agora é suficiente e que tudo está exatamente onde deveria estar.",
     ),
-    EtapaRelaxamento(
-      titulo: "Sinta a leveza",
+    EtapaMeditacao(
+      titulo: "Um Novo Começo",
       descricao:
-          "Permaneça neste estado de calma o tempo que desejar. Observe como cada parte do seu corpo parece mais leve e como a mente está mais tranquila. Mova-se suavemente, alongue-se se quiser, e abra lentamente os olhos quando estiver pronto. "
-          "Leve essa sensação de bem-estar e equilíbrio com você para as próximas atividades do dia. Lembre-se de que sempre pode retornar a esse estado de relaxamento, mesmo por alguns minutos, para restaurar energia e tranquilidade.",
+          "Toda respiração é uma porta aberta para recomeçar."
+          "Ao inspirar, você convida a calma, e ao expirar, libera o que já não faz parte de você."
+          "Cada ciclo de ar é uma chance de se renovar, de deixar o passado ir e acolher o novo com serenidade."
+          "Não importa quantas vezes você tenha caído, o momento presente sempre oferece uma nova oportunidade de florescer com mais força e clareza.",
     ),
   ];
 
@@ -83,7 +90,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    "O relaxamento não é preguiça — é a arte de restaurar a energia e encontrar paz dentro de si.",
+                    "A meditação é a arte de acalmar a mente e harmonizar corpo e espírito.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -118,7 +125,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                           Expanded(
                             child: _actionButton(
                               icon: Icons.spa,
-                              text: "Guia de relaxamento",
+                              text: "Guia de meditação",
                               color: Colors.purple[100]!,
                             ),
                           ),
@@ -135,7 +142,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                               },
                               child: _actionButton(
                                 icon: Icons.music_note,
-                                text: "Sons relaxantes",
+                                text: "Sons para meditar",
                                 color: Colors.purple[100]!,
                               ),
                             ),
@@ -146,22 +153,22 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       // VÍDEOS
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=iCPt9AZUmRg",
-                        title: "Relaxe o corpo e a mente",
+                        videoUrl: "https://www.youtube.com/watch?v=1MrQPZuSs7A",
+                        title: "Meditação Simples",
                         subtitle:
-                            "Um guia para aliviar tensões e restaurar o equilíbrio interior.",
+                            "Aprenda técnicas para acalmar a mente e relaxar o corpo.",
                       ),
                       const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=We44qc_6Gj4",
-                        title: "Movimentos para relaxar o seu corpo",
+                        videoUrl: "https://www.youtube.com/watch?v=32UM11dSves",
+                        title: "O começo de uma Meditação mais Serena",
                         subtitle:
-                            "Uma prática simples para desacelerar e reconectar-se consigo mesmo.",
+                            "Movimentos simples para relaxar o corpo e a mente para meditar.",
                       ),
 
                       const SizedBox(height: 30),
 
                       const Text(
-                        "Passos para relaxar",
+                        "Passos para aprender meditação",
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -172,11 +179,10 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       // LINHA DE ETAPAS COM TEXTO AO LADO
                       SizedBox(
-                        height: altura * 0.7, // AUMENTEI A ALTURA
+                        height: altura * 0.7,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Linha de etapas
                             Expanded(
                               flex: 2,
                               child: LinhaDeEtapas(
@@ -191,7 +197,6 @@ class _PagRelaxarState extends State<PagRelaxar>
                               ),
                             ),
                             const SizedBox(width: 20),
-                            // Texto das instruções
                             Expanded(
                               flex: 5,
                               child: AnimatedSwitcher(
@@ -238,10 +243,10 @@ class _PagRelaxarState extends State<PagRelaxar>
 
                       const SizedBox(height: 30),
 
-                      // FRASE DE RELAXAMENTO NO FINAL
+                      // FRASE FINAL
                       const Center(
                         child: Text(
-                          "Respire fundo, sinta a calma envolver cada parte do seu ser e leve consigo a leveza que o momento lhe trouxe.",
+                          "Respire fundo, sinta a paz envolver você e leve consigo a serenidade deste momento.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
