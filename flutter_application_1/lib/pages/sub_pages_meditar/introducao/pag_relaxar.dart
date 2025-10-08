@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/linha_de_etapas.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
+import 'package:flutter_application_1/pages/Audiopage.dart';
 
-// Classe para cada etapa
 class EtapaRelaxamento {
   final String titulo;
   final String descricao;
@@ -26,32 +25,27 @@ class _PagRelaxarState extends State<PagRelaxar>
     EtapaRelaxamento(
       titulo: "Escolha um momento só seu",
       descricao:
-          "Encontre um lugar confortável, sente-se ou deite-se de forma relaxada e segure o celular de um jeito que não cause incômodo. Coloque o volume em um nível agradável e prepare-se para aproveitar este momento de pausa e tranquilidade.",
+          "Encontre um lugar confortável e tranquilo. Sente-se ou deite-se de forma relaxada, ajuste o volume e prepare-se para um momento de pausa e tranquilidade.",
     ),
     EtapaRelaxamento(
       titulo: "Respire de forma agradável",
       descricao:
-          "Conforme o que você aprendeu no outro módulo, faça respirações lentas e agradáveis. Inspire suavemente pelo nariz, sentindo o ar entrar leve e fresco. Segure por alguns segundos e depois solte o ar pela boca, sem pressa, deixando o corpo relaxar a cada expiração. Repita esse processo algumas vezes, concentrando-se na sensação de conforto que a respiração traz.",
+          "Faça respirações lentas e suaves. Inspire pelo nariz, segure um pouco e solte o ar pela boca, sentindo o corpo relaxar. Repita algumas vezes.",
     ),
     EtapaRelaxamento(
       titulo: "Solte o corpo",
       descricao:
-          "Feche os olhos e perceba lentamente cada parte: comece pelos ombros, pescoço e mandíbula, soltando qualquer rigidez. "
-          "Sinta o peso dos braços descansando e deixe as mãos relaxarem. Respire fundo e imagine que, a cada expiração, o cansaço vai saindo do corpo. "
-          "Desça a atenção até as pernas e os pés, percebendo o contato com o chão ou com o local onde está deitado. "
-          "Permita que todo o seu corpo fique leve, como se estivesse flutuando em um estado de paz e descanso.",
+          "Feche os olhos e solte a tensão dos ombros, pescoço e mandíbula. Sinta os braços e pernas leves, como se o corpo flutuasse em paz e descanso.",
     ),
     EtapaRelaxamento(
       titulo: "Acalme a mente",
       descricao:
-          "Feche os olhos e observe os pensamentos que surgem, sem se prender a nenhum. Imagine que eles são como nuvens passando pelo céu — algumas grandes, outras pequenas, mas todas transitórias. Concentre-se na sensação de paz que cresce dentro de você, percebendo o ritmo tranquilo da respiração e a leveza no corpo. "
-          "Permita que qualquer tensão mental se dissolva lentamente, e que seu foco se mantenha apenas no momento presente. Sinta a serenidade se espalhando da cabeça aos pés, trazendo clareza e conforto.",
+          "Observe seus pensamentos passando, como nuvens no céu. Deixe-os ir sem se prender. Concentre-se na respiração e na sensação de serenidade.",
     ),
     EtapaRelaxamento(
       titulo: "Sinta a leveza",
       descricao:
-          "Permaneça neste estado de calma o tempo que desejar. Observe como cada parte do seu corpo parece mais leve e como a mente está mais tranquila. Mova-se suavemente, alongue-se se quiser, e abra lentamente os olhos quando estiver pronto. "
-          "Leve essa sensação de bem-estar e equilíbrio com você para as próximas atividades do dia. Lembre-se de que sempre pode retornar a esse estado de relaxamento, mesmo por alguns minutos, para restaurar energia e tranquilidade.",
+          "Permaneça nesse estado de calma. Mova-se suavemente e leve essa sensação de bem-estar para o resto do dia.",
     ),
   ];
 
@@ -68,7 +62,7 @@ class _PagRelaxarState extends State<PagRelaxar>
             // TOPO
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
               color: Colors.blue[800],
               child: Column(
                 children: [
@@ -81,15 +75,15 @@ class _PagRelaxarState extends State<PagRelaxar>
                       },
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Text(
                     "O relaxamento não é preguiça — é a arte de restaurar a energia e encontrar paz dentro de si.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: largura * 0.04,
+                      fontSize: largura * 0.035,
                       fontWeight: FontWeight.w500,
-                      height: 1.4,
+                      height: 1.3,
                     ),
                   ),
                 ],
@@ -108,7 +102,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                   ),
                 ),
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -118,11 +112,11 @@ class _PagRelaxarState extends State<PagRelaxar>
                           Expanded(
                             child: _actionButton(
                               icon: Icons.spa,
-                              text: "Guia de relaxamento",
+                              text: "Guia de relaxar",
                               color: Colors.purple[100]!,
                             ),
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 10),
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
@@ -142,7 +136,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                           ),
                         ],
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 20),
 
                       // VÍDEOS
                       const YoutubeVideoCard(
@@ -153,30 +147,29 @@ class _PagRelaxarState extends State<PagRelaxar>
                       ),
                       const YoutubeVideoCard(
                         videoUrl: "https://www.youtube.com/watch?v=We44qc_6Gj4",
-                        title: "Movimentos para relaxar o seu corpo",
+                        title: "Movimentos para relaxar o corpo",
                         subtitle:
-                            "Uma prática simples para desacelerar e reconectar-se consigo mesmo.",
+                            "Uma prática simples para desacelerar e reconectar-se.",
                       ),
 
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
 
                       const Text(
                         "Passos para relaxar",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: Colors.blueAccent,
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
 
-                      // LINHA DE ETAPAS COM TEXTO AO LADO
+                      // LINHA DE ETAPAS
                       SizedBox(
-                        height: altura * 0.7, // AUMENTEI A ALTURA
+                        height: altura * 0.45, // reduzida
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Linha de etapas
                             Expanded(
                               flex: 2,
                               child: LinhaDeEtapas(
@@ -190,8 +183,7 @@ class _PagRelaxarState extends State<PagRelaxar>
                                 },
                               ),
                             ),
-                            const SizedBox(width: 20),
-                            // Texto das instruções
+                            const SizedBox(width: 15),
                             Expanded(
                               flex: 5,
                               child: AnimatedSwitcher(
@@ -214,17 +206,17 @@ class _PagRelaxarState extends State<PagRelaxar>
                                     Text(
                                       instrucoes[etapaAtual].titulo,
                                       style: const TextStyle(
-                                        fontSize: 24,
+                                        fontSize: 22,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.blueAccent,
                                       ),
                                     ),
-                                    const SizedBox(height: 10),
+                                    const SizedBox(height: 8),
                                     Text(
                                       instrucoes[etapaAtual].descricao,
                                       style: const TextStyle(
-                                        fontSize: 20,
-                                        height: 1.5,
+                                        fontSize: 18,
+                                        height: 1.4,
                                         color: Colors.black87,
                                       ),
                                     ),
@@ -236,22 +228,22 @@ class _PagRelaxarState extends State<PagRelaxar>
                         ),
                       ),
 
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
 
-                      // FRASE DE RELAXAMENTO NO FINAL
+                      // FRASE FINAL
                       const Center(
                         child: Text(
-                          "Respire fundo, sinta a calma envolver cada parte do seu ser e leve consigo a leveza que o momento lhe trouxe.",
+                          "Respire fundo e leve consigo a leveza deste momento.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             fontStyle: FontStyle.italic,
                             color: Colors.blueGrey,
-                            height: 1.5,
+                            height: 1.4,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -269,22 +261,22 @@ class _PagRelaxarState extends State<PagRelaxar>
     required Color color,
   }) {
     return Container(
-      height: 70,
+      height: 60, // reduzido
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 30),
-          const SizedBox(width: 10),
+          Icon(icon, color: Colors.blueAccent, size: 26),
+          const SizedBox(width: 8),
           Text(
             text,
             style: const TextStyle(
               color: Colors.blueAccent,
               fontWeight: FontWeight.w600,
-              fontSize: 16,
+              fontSize: 15,
             ),
           ),
         ],
@@ -310,12 +302,12 @@ class YoutubeVideoCard extends StatelessWidget {
     final videoId = YoutubePlayer.convertUrlToId(videoUrl);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 6),
       child: Card(
-        elevation: 6,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               YoutubePlayer(
@@ -325,19 +317,19 @@ class YoutubeVideoCard extends StatelessWidget {
                 ),
                 showVideoProgressIndicator: true,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Text(
                 title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 17,
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 4),
               Text(
                 subtitle,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey[700]),
+                style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
             ],
           ),

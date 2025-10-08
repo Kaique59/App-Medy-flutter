@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/linha_de_etapas.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
+import 'package:flutter_application_1/pages/Audiopage.dart';
 
-// Classe para cada etapa
 class EtapaRespiracao {
   final String titulo;
   final String descricao;
@@ -26,27 +25,27 @@ class _PagRespiracaoState extends State<PagRespiracao>
     EtapaRespiracao(
       titulo: "Encontre a calma",
       descricao:
-          "Escolha um local silencioso, livre de distrações, onde você se sinta seguro e confortável. Sente-se ou deite-se mantendo a coluna ereta, mas sem rigidez. Feche suavemente os olhos se quiser e solte os ombros, permitindo que cada músculo do corpo relaxe. Respire naturalmente por alguns instantes, apenas percebendo o ar entrar e sair, criando um momento de presença consigo mesmo.",
+          "Escolha um local silencioso, livre de distrações, onde você se sinta seguro e confortável. Sente-se ou deite-se mantendo a coluna ereta, mas sem rigidez. Respire naturalmente por alguns instantes, apenas percebendo o ar entrar e sair.",
     ),
     EtapaRespiracao(
       titulo: "Inspire profundamente",
       descricao:
-          "Respire devagar pelo nariz, enchendo os pulmões de ar gradualmente. Sinta a barriga expandir suavemente, depois o peito, sem forçar. Imagine que está levando oxigênio para cada célula do corpo. Conte mentalmente até 4 durante a inspiração, mantendo o ritmo calmo e constante. Concentre-se na sensação do ar entrando, sentindo frescor e energia.",
+          "Respire devagar pelo nariz, enchendo os pulmões gradualmente. Sinta a barriga expandir, depois o peito. Conte mentalmente até 4 e mantenha o ritmo calmo e constante.",
     ),
     EtapaRespiracao(
       titulo: "Segure o ar",
       descricao:
-          "Segure a respiração por um momento confortável, cerca de 2 a 3 segundos. Evite tensionar o corpo; apenas mantenha a atenção na sensação de plenitude do ar nos pulmões. Esse breve intervalo ajuda a equilibrar o sistema nervoso e traz sensação de estabilidade interna. Perceba como o corpo se acalma naturalmente enquanto mantém o ar dentro.",
+          "Segure a respiração por 2 a 3 segundos, sem tensão. Esse breve intervalo ajuda a equilibrar o sistema nervoso e traz estabilidade interna.",
     ),
     EtapaRespiracao(
       titulo: "Expire lentamente",
       descricao:
-          "Solte o ar suavemente pela boca, como se estivesse soprando devagar através de um canudo imaginário. Conte até 6 durante a expiração, prolongando a saída do ar. Imagine que cada respiração leva embora a tensão, o estresse e pensamentos pesados. Sinta o relaxamento se espalhar pelo corpo, da cabeça aos pés, enquanto libera tudo que não precisa mais.",
+          "Solte o ar suavemente pela boca, como se soprasse devagar por um canudo imaginário. Conte até 6 e sinta o relaxamento se espalhar pelo corpo.",
     ),
     EtapaRespiracao(
       titulo: "Repita e concentre-se",
       descricao:
-          "Continue o ciclo de inspiração, retenção e expiração de 5 a 10 vezes, ou pelo tempo que desejar. Mantenha o foco na respiração e nas sensações do corpo. Se pensamentos surgirem, observe-os sem julgamento e suavemente retorne a atenção ao ar entrando e saindo. Permita que cada respiração aprofunde seu estado de calma, tranquilidade e presença no momento.",
+          "Continue o ciclo de inspiração, retenção e expiração de 5 a 10 vezes. Mantenha o foco na respiração e nas sensações do corpo.",
     ),
   ];
 
@@ -63,7 +62,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
             // TOPO
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
               color: Colors.blue[800],
               child: Column(
                 children: [
@@ -76,15 +75,15 @@ class _PagRespiracaoState extends State<PagRespiracao>
                       },
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Text(
                     "Nem tudo que é enfrentado pode ser mudado,\nmas nada pode ser mudado até que seja enfrentado.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: largura * 0.04,
+                      fontSize: largura * 0.035,
                       fontWeight: FontWeight.w500,
-                      height: 1.4,
+                      height: 1.3,
                     ),
                   ),
                 ],
@@ -103,7 +102,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
                   ),
                 ),
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -113,11 +112,11 @@ class _PagRespiracaoState extends State<PagRespiracao>
                           Expanded(
                             child: _actionButton(
                               icon: Icons.air,
-                              text: "Exercício de respiração",
+                              text: "Exercício",
                               color: Colors.purple[100]!,
                             ),
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 10),
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
@@ -137,12 +136,12 @@ class _PagRespiracaoState extends State<PagRespiracao>
                           ),
                         ],
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 20),
 
                       // VÍDEOS
                       const YoutubeVideoCard(
                         videoUrl: "https://www.youtube.com/watch?v=kiEmbhvv7Fo",
-                        title: "Comece sua jornada com uma boa ",
+                        title: "Comece sua jornada com uma boa",
                         subtitle:
                             "Uma introdução guiada à respiração consciente.",
                       ),
@@ -153,25 +152,24 @@ class _PagRespiracaoState extends State<PagRespiracao>
                             "Um exercício para relaxar e aliviar o estresse.",
                       ),
 
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
 
                       const Text(
                         "Guia de respiração",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: Colors.blueAccent,
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
 
-                      // LINHA DE ETAPAS COM TEXTO AO LADO
+                      // LINHA DE ETAPAS
                       SizedBox(
-                        height: altura * 0.55,
+                        height: altura * 0.45, // <-- reduzida
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Linha de etapas
                             Expanded(
                               flex: 2,
                               child: LinhaDeEtapas(
@@ -185,11 +183,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
                                 },
                               ),
                             ),
-
-                            const SizedBox(
-                              width: 20,
-                            ), // Espaço entre linha e texto
-                            // Texto das instruções com título
+                            const SizedBox(width: 15),
                             Expanded(
                               flex: 5,
                               child: AnimatedSwitcher(
@@ -212,17 +206,17 @@ class _PagRespiracaoState extends State<PagRespiracao>
                                     Text(
                                       instrucoes[etapaAtual].titulo,
                                       style: const TextStyle(
-                                        fontSize: 24,
+                                        fontSize: 22,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.blueAccent,
                                       ),
                                     ),
-                                    const SizedBox(height: 10),
+                                    const SizedBox(height: 8),
                                     Text(
                                       instrucoes[etapaAtual].descricao,
                                       style: const TextStyle(
-                                        fontSize: 20,
-                                        height: 1.5,
+                                        fontSize: 18,
+                                        height: 1.4,
                                         color: Colors.black87,
                                       ),
                                     ),
@@ -234,7 +228,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
                         ),
                       ),
 
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -252,22 +246,22 @@ class _PagRespiracaoState extends State<PagRespiracao>
     required Color color,
   }) {
     return Container(
-      height: 70,
+      height: 60, // <-- menor
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 30),
-          const SizedBox(width: 10),
+          Icon(icon, color: Colors.blueAccent, size: 26),
+          const SizedBox(width: 8),
           Text(
             text,
             style: const TextStyle(
               color: Colors.blueAccent,
               fontWeight: FontWeight.w600,
-              fontSize: 16,
+              fontSize: 15,
             ),
           ),
         ],
@@ -293,12 +287,12 @@ class YoutubeVideoCard extends StatelessWidget {
     final videoId = YoutubePlayer.convertUrlToId(videoUrl);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 6),
       child: Card(
-        elevation: 6,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               YoutubePlayer(
@@ -308,19 +302,19 @@ class YoutubeVideoCard extends StatelessWidget {
                 ),
                 showVideoProgressIndicator: true,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Text(
                 title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 17,
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 4),
               Text(
                 subtitle,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey[700]),
+                style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
             ],
           ),
