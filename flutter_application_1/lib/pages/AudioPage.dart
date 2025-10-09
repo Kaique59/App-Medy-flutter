@@ -33,6 +33,10 @@ class _AudioPageState extends State<AudioPage> {
       'text': 'Murmúrio do riacho',
       'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
     },
+    {
+      'text': 'Vento suave', // Novo card natureza
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    },
   ];
 
   List<Map<String, String>> musicasList = [
@@ -47,6 +51,10 @@ class _AudioPageState extends State<AudioPage> {
     {
       'text': 'Som instrumental',
       'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+    },
+    {
+      'text': 'Piano suave', // Novo card musica
+      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
     },
   ];
 
