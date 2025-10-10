@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/linha_de_etapas.dart';
+import 'package:flutter_application_1/Config/video_play_list.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart';
 
@@ -106,54 +107,6 @@ class _PagRespiracaoState extends State<PagRespiracao>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // BOTÕES DE AÇÃO
-                      Row(
-                        children: [
-                          Expanded(
-                            child: _actionButton(
-                              icon: Icons.air,
-                              text: "Exercício",
-                              color: Colors.purple[100]!,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const AudioPage(),
-                                  ),
-                                );
-                              },
-                              child: _actionButton(
-                                icon: Icons.music_note,
-                                text: "Sons relaxantes",
-                                color: Colors.purple[100]!,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-
-                      // VÍDEOS
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=kiEmbhvv7Fo",
-                        title: "Comece sua jornada com uma boa",
-                        subtitle:
-                            "Uma introdução guiada à respiração consciente.",
-                      ),
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=Q2Idcwo4DCU",
-                        title: "Acalme sua mente",
-                        subtitle:
-                            "Um exercício para relaxar e aliviar o estresse.",
-                      ),
-
-                      const SizedBox(height: 20),
-
                       const Text(
                         "Guia de respiração",
                         style: TextStyle(
@@ -164,9 +117,9 @@ class _PagRespiracaoState extends State<PagRespiracao>
                       ),
                       const SizedBox(height: 20),
 
-                      // LINHA DE ETAPAS
+                      // 🔹 BLOCO DE ETAPAS (agora aparece primeiro)
                       SizedBox(
-                        height: altura * 0.45, // <-- reduzida
+                        height: altura * 0.45,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -228,6 +181,47 @@ class _PagRespiracaoState extends State<PagRespiracao>
                         ),
                       ),
 
+                      const SizedBox(height: 30),
+
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _actionButton(
+                              icon: Icons.air,
+                              text: "Exercício",
+                              color: Colors.purple[100]!,
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AudioPage(),
+                                  ),
+                                );
+                              },
+                              child: _actionButton(
+                                icon: Icons.music_note,
+                                text: "Sons relaxantes",
+                                color: Colors.purple[100]!,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+
+                      ...VideoPlayList.videoListIntro.map((video) {
+                        return YoutubeVideoCard(
+                          videoUrl: video["videoUrl"]!,
+                          title: video["title"]!,
+                          subtitle: video["subtitle"]!,
+                        );
+                      }),
+
                       const SizedBox(height: 20),
                     ],
                   ),
@@ -246,7 +240,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
     required Color color,
   }) {
     return Container(
-      height: 60, // <-- menor
+      height: 60,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(18),

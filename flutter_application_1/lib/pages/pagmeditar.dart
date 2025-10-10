@@ -15,14 +15,14 @@ class PagMeditar extends StatelessWidget {
 
   final Map<String, List<Map<String, dynamic>>> sections = const {
     "Introdução-Meditação": [
-      {"text": "Respiração Guiada", "page": PagRespiracao()},
+      {"text": "Respiração", "page": PagRespiracao()},
       {"text": "Relaxamento", "page": PagRelaxar()},
       {"text": "Comece a Meditar", "page": PagAprendaMeditacao()},
     ],
     "Meditação Novo Ciclo": [
-      {"text": "Equilíbrio Interior", "page": PagEquilibrio()},
-      {"text": "Intenção e Propósito", "page": PagProposito()},
-      {"text": "Aceitação e Fluidez", "page": PagAceitacao()},
+      {"text": "Equilíbrio", "page": PagEquilibrio()},
+      {"text": "Propósito", "page": PagProposito()},
+      {"text": "Aceitação", "page": PagAceitacao()},
     ],
     "Meditação Avançada": [
       {"text": "Foco e Atenção", "page": PagRespiracao()},
@@ -36,6 +36,7 @@ class PagMeditar extends StatelessWidget {
     final largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: const Color(0xFFEBE8E0),
       body: SafeArea(
         child: ListView(
           children: [
