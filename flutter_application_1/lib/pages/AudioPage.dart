@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_application_1/Config/play_list.dart';
 import 'audio_rolando.dart';
 import '../widgets/custom_card.dart';
 
@@ -19,44 +20,6 @@ class _AudioPageState extends State<AudioPage> {
 
   bool carregandoNatureza = false;
   bool carregandoMusicas = false;
-
-  List<Map<String, String>> naturezaList = [
-    {
-      'text': 'Chuva',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    },
-    {
-      'text': 'Pássaros cantando',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    },
-    {
-      'text': 'Murmúrio do riacho',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    },
-    {
-      'text': 'Vento suave', // Novo card
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
-    },
-  ];
-
-  List<Map<String, String>> musicasList = [
-    {
-      'text': 'Trilha relaxante',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    },
-    {
-      'text': 'Música calma',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
-    },
-    {
-      'text': 'Som instrumental',
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
-    },
-    {
-      'text': 'Piano suave', // Novo card
-      'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
-    },
-  ];
 
   @override
   void dispose() {
@@ -83,9 +46,9 @@ class _AudioPageState extends State<AudioPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildCategoria("Natureza", naturezaList),
+                      _buildCategoria("Natureza", PlayList.naturezaList),
                       SizedBox(height: altura * 0.03),
-                      _buildCategoria("Músicas", musicasList),
+                      _buildCategoria("Músicas", PlayList.musicasList),
                     ],
                   ),
                 ),
