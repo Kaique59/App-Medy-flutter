@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Config/linha_de_etapas.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart';
+import 'package:flutter_application_1/Config/video_play_list.dart';
+import 'package:flutter_application_1/pages/Home_Page.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class EtapaRelaxamento {
   final String titulo;
@@ -17,10 +20,7 @@ class PagRelaxar extends StatefulWidget {
   State<PagRelaxar> createState() => _PagRelaxarState();
 }
 
-class _PagRelaxarState extends State<PagRelaxar>
-    with SingleTickerProviderStateMixin {
-  int etapaAtual = 0;
-
+class _PagRelaxarState extends State<PagRelaxar> {
   final List<EtapaRelaxamento> instrucoes = [
     EtapaRelaxamento(
       titulo: "Escolha um momento só seu",
@@ -49,13 +49,18 @@ class _PagRelaxarState extends State<PagRelaxar>
     ),
   ];
 
+  final Color fundoClaro = const Color(0xFFEBE8E0);
+  final Color verdePrincipal = const Color(0xFF7A9591);
+  final Color verdeBotao = Colors.grey[400]!;
+  final Color verdeContorno = const Color(0xFFA4A4A4);
+
   @override
   Widget build(BuildContext context) {
     final largura = MediaQuery.of(context).size.width;
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.blue[800],
+      backgroundColor: verdePrincipal,
       body: SafeArea(
         child: Column(
           children: [
@@ -63,16 +68,14 @@ class _PagRelaxarState extends State<PagRelaxar>
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-              color: Colors.blue[800],
+              color: verdePrincipal,
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: IconButton(
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      onPressed: () => Navigator.pop(context),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -94,9 +97,9 @@ class _PagRelaxarState extends State<PagRelaxar>
             Expanded(
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: fundoClaro,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25),
                   ),
@@ -110,10 +113,23 @@ class _PagRelaxarState extends State<PagRelaxar>
                       Row(
                         children: [
                           Expanded(
-                            child: _actionButton(
-                              icon: Icons.spa,
-                              text: "Guia de relaxar",
-                              color: Colors.purple[100]!,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HomePage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: _actionButton(
+                                icon: CupertinoIcons.house_fill,
+                                text: "Home",
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -128,109 +144,86 @@ class _PagRelaxarState extends State<PagRelaxar>
                                 );
                               },
                               child: _actionButton(
-                                icon: Icons.music_note,
+                                icon: CupertinoIcons.music_note_2,
                                 text: "Sons relaxantes",
-                                color: Colors.purple[100]!,
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
 
-                      // VÍDEOS
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=iCPt9AZUmRg",
-                        title: "Relaxe o corpo e a mente",
-                        subtitle:
-                            "Um guia para aliviar tensões e restaurar o equilíbrio interior.",
-                      ),
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=We44qc_6Gj4",
-                        title: "Movimentos para relaxar o corpo",
-                        subtitle:
-                            "Uma prática simples para desacelerar e reconectar-se.",
-                      ),
-
-                      const SizedBox(height: 20),
-
-                      const Text(
+                      // PASSOS PARA RELAXAR
+                      Text(
                         "Passos para relaxar",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blueAccent,
+                          color: verdePrincipal,
                         ),
                       ),
                       const SizedBox(height: 20),
 
-                      // LINHA DE ETAPAS
-                      SizedBox(
-                        height: altura * 0.45, // reduzida
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: LinhaDeEtapas(
-                                etapaAtual: etapaAtual,
-                                altura: altura,
-                                totalEtapas: instrucoes.length,
-                                onTap: (index) {
-                                  setState(() {
-                                    etapaAtual = index;
-                                  });
-                                },
-                              ),
-                            ),
-                            const SizedBox(width: 15),
-                            Expanded(
-                              flex: 5,
-                              child: AnimatedSwitcher(
-                                duration: const Duration(milliseconds: 400),
-                                transitionBuilder: (child, animation) =>
-                                    FadeTransition(
-                                      opacity: animation,
-                                      child: SlideTransition(
-                                        position: Tween<Offset>(
-                                          begin: const Offset(0.2, 0),
-                                          end: Offset.zero,
-                                        ).animate(animation),
-                                        child: child,
-                                      ),
-                                    ),
-                                child: Column(
-                                  key: ValueKey(etapaAtual),
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      instrucoes[etapaAtual].titulo,
-                                      style: const TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blueAccent,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      instrucoes[etapaAtual].descricao,
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        height: 1.4,
-                                        color: Colors.black87,
-                                      ),
-                                    ),
-                                  ],
+                      AppScrollCard<EtapaRelaxamento>(
+                        items: instrucoes,
+                        height: altura * 0.35,
+                        activeDotColor: verdePrincipal,
+                        inactiveDotColor: Colors.grey[400]!,
+                        itemBuilder: (etapa) {
+                          return Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6,
+                                  spreadRadius: 2,
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  etapa.titulo,
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: verdePrincipal,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  etapa.descricao,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    height: 1.4,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
 
                       const SizedBox(height: 20),
 
-                      // FRASE FINAL
+                      // VÍDEOS
+                      ...VideoPlayList.videoListRelaxar.map((video) {
+                        return YoutubeVideoCard(
+                          videoUrl: video["videoUrl"]!,
+                          title: video["title"]!,
+                          subtitle: video["subtitle"]!,
+                        );
+                      }),
+
+                      const SizedBox(height: 20),
                       const Center(
                         child: Text(
                           "Respire fundo e leve consigo a leveza deste momento.",
@@ -258,23 +251,26 @@ class _PagRelaxarState extends State<PagRelaxar>
   Widget _actionButton({
     required IconData icon,
     required String text,
-    required Color color,
+    required Color backgroundColor,
+    required Color borderColor,
+    required Color iconTextColor,
   }) {
     return Container(
-      height: 60, // reduzido
+      height: 60,
       decoration: BoxDecoration(
-        color: color,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: borderColor, width: 2),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 26),
-          const SizedBox(width: 8),
+          Icon(icon, color: iconTextColor, size: 26),
+          const SizedBox(width: 15),
           Text(
             text,
-            style: const TextStyle(
-              color: Colors.blueAccent,
+            style: TextStyle(
+              color: iconTextColor,
               fontWeight: FontWeight.w600,
               fontSize: 15,
             ),
@@ -285,6 +281,7 @@ class _PagRelaxarState extends State<PagRelaxar>
   }
 }
 
+// --- CARD DE VÍDEO ---
 class YoutubeVideoCard extends StatelessWidget {
   final String videoUrl;
   final String title;
