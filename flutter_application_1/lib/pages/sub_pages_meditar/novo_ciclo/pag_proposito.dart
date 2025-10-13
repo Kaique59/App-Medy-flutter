@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Config/linha_de_etapas.dart';
+import 'package:flutter_application_1/Config/app_scroll_card.dart';
+import 'package:flutter_application_1/Config/video_play_list.dart';
+import 'package:flutter_application_1/pages/Audiopage.dart';
+import 'package:flutter_application_1/pages/Home_Page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
 
 // Classe para cada etapa
 class EtapaMeditacao {
@@ -18,37 +21,39 @@ class PagProposito extends StatefulWidget {
   State<PagProposito> createState() => _PagPropositoState();
 }
 
-class _PagPropositoState extends State<PagProposito>
-    with SingleTickerProviderStateMixin {
-  int etapaAtual = 0;
-
+class _PagPropositoState extends State<PagProposito> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
       titulo: "Conectando-se com o Propósito",
       descricao:
-          "Descobrir o próprio propósito é perceber aquilo que realmente dá sentido à vida e nos faz sentir vivos. Ao nos conectarmos com nossos valores, paixões e talentos, nossas ações se tornam mais conscientes e alinhadas com quem realmente somos. Essa clareza transforma decisões diárias, direciona esforços de maneira significativa e promove uma sensação profunda de realização, permitindo que cada passo seja um reflexo do que valorizamos.",
+          "Descobrir o próprio propósito é perceber aquilo que realmente dá sentido à vida e nos faz sentir vivos. Ao nos conectarmos com nossos valores, ",
     ),
     EtapaMeditacao(
       titulo: "A Força da Intenção",
       descricao:
-          "Cada ação nasce de uma intenção, mesmo que inconsciente. Quando dedicamos momentos à meditação ou reflexão profunda, podemos definir claramente nossas intenções, tornando mente e coração aliados de nossos objetivos mais importantes. Intenção consciente nos ajuda a agir com foco, a superar distrações e a canalizar nossa energia para aquilo que realmente importa, criando resultados que ressoam com nosso verdadeiro eu.",
+          "Cada ação nasce de uma intenção, mesmo que inconsciente. Quando dedicamos momentos à meditação ou reflexão profunda, podemos definir claramente nossas intenções,",
     ),
     EtapaMeditacao(
       titulo: "Alinhando Paixão e Propósito",
       descricao:
-          "O propósito floresce quando está intimamente ligado à nossa paixão. Identificar aquilo que amamos fazer e combiná-lo com nossas metas pessoais cria um caminho cheio de motivação, satisfação e realização. Esse alinhamento nos impulsiona a seguir adiante mesmo diante de desafios, transformando obstáculos em oportunidades de aprendizado, crescimento e evolução contínua, fortalecendo nossa confiança e determinação.",
+          "O propósito floresce quando está intimamente ligado à nossa paixão. Identificar aquilo que amamos fazer e combiná-lo com nossas metas pessoais cria um caminho cheio de motivação,",
     ),
     EtapaMeditacao(
       titulo: "Propósito e Transformação Interior",
       descricao:
-          "Viver com propósito é permitir que cada dia seja uma oportunidade de evolução e autoconhecimento. Quando nossas ações refletem nossas intenções mais profundas, transformamos hábitos, pensamentos e emoções, tornando-nos mais conscientes, resilientes e alinhados com nosso verdadeiro eu. O propósito atua como um guia silencioso, orientando decisões, fortalecendo a autoestima e nos incentivando a buscar uma vida mais equilibrada e significativa.",
+          "Viver com propósito é permitir que cada dia seja uma oportunidade de evolução e autoconhecimento. Quando nossas ações refletem nossas intenções mais profundas, transformamos hábitos,",
     ),
     EtapaMeditacao(
       titulo: "Ação com Significado",
       descricao:
-          "Não basta apenas definir metas; é essencial agir com intenção, consciência e comprometimento. Cada gesto, escolha e decisão pode ser direcionado para aquilo que realmente importa, transformando pequenas ações em grandes passos de crescimento pessoal. Quando vivemos alinhados ao nosso propósito, cada dia se torna uma oportunidade de construir uma vida mais plena, significativa e conectada com nossos valores, despertando satisfação e realização interior.",
+          "Não basta apenas definir metas; é essencial agir com intenção, consciência e comprometimento. Cada gesto, escolha e decisão pode ser direcionado para aquilo que realmente importa,",
     ),
   ];
+
+  final Color fundoClaro = const Color(0xFFEBE8E0);
+  final Color verdePrincipal = const Color(0xFF7A9591);
+  final Color verdeBotao = Colors.grey[400]!;
+  final Color verdeContorno = const Color(0xFFA4A4A4);
 
   @override
   Widget build(BuildContext context) {
@@ -56,35 +61,33 @@ class _PagPropositoState extends State<PagProposito>
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.blue[700],
+      backgroundColor: verdePrincipal,
       body: SafeArea(
         child: Column(
           children: [
             // TOPO
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-              color: Colors.blue[700],
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+              color: verdePrincipal,
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: IconButton(
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      onPressed: () => Navigator.pop(context),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Text(
                     "Descubra seu propósito e alinhe-se com o novo ciclo de sua vida através desta meditação.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: largura * 0.04,
+                      fontSize: largura * 0.035,
                       fontWeight: FontWeight.w500,
-                      height: 1.4,
+                      height: 1.3,
                     ),
                   ),
                 ],
@@ -95,15 +98,15 @@ class _PagPropositoState extends State<PagProposito>
             Expanded(
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: fundoClaro,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25),
                   ),
                 ),
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -111,13 +114,26 @@ class _PagPropositoState extends State<PagProposito>
                       Row(
                         children: [
                           Expanded(
-                            child: _actionButton(
-                              icon: Icons.track_changes,
-                              text: "Guia do Propósito",
-                              color: Colors.blue[100]!,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HomePage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: _actionButton(
+                                icon: CupertinoIcons.house_fill,
+                                text: "Home",
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
+                              ),
                             ),
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 10),
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
@@ -129,122 +145,99 @@ class _PagPropositoState extends State<PagProposito>
                                 );
                               },
                               child: _actionButton(
-                                icon: Icons.music_note,
+                                icon: CupertinoIcons.music_note_2,
                                 text: "Sons para concentração",
-                                color: Colors.blue[100]!,
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 30),
+
+                      // PASSOS PARA SE ALINHAR COM O PROPÓSITO
+                      Text(
+                        "Passos para se alinhar com seu propósito",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: verdePrincipal,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      AppScrollCard<EtapaMeditacao>(
+                        items: instrucoes,
+                        height: altura * 0.35,
+                        activeDotColor: verdePrincipal,
+                        inactiveDotColor: Colors.grey[400]!,
+                        itemBuilder: (etapa) {
+                          return Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6,
+                                  spreadRadius: 2,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  etapa.titulo,
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: verdePrincipal,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  etapa.descricao,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    height: 1.4,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+
+                      const SizedBox(height: 30),
 
                       // VÍDEOS
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=CxDS3MlvwZE",
-                        title: "Você sabe o que quer da Vida?",
-                        subtitle:
-                            "Aprenda a alinhar seu propósito com o próximo ciclo da sua vida.",
-                      ),
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=77vqMkV2QT0",
-                        title: "Encontre o seu Propósito de Vida",
-                        subtitle:
-                            "Descubra o seu propósito e desperte para uma vida plena e significativa.",
-                      ),
+                      ...VideoPlayList.videoListProposito.map((video) {
+                        return YoutubeVideoCard(
+                          videoUrl: video["videoUrl"]!,
+                          title: video["title"]!,
+                          subtitle: video["subtitle"]!,
+                        );
+                      }),
 
-                      const SizedBox(height: 30),
-
-                      const Text(
-                        "Passos para se alinhar com seu propósito e viver plenamente o novo ciclo",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-
-                      // LINHA DE ETAPAS
-                      SizedBox(
-                        height: altura * 0.7,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: LinhaDeEtapas(
-                                etapaAtual: etapaAtual,
-                                altura: altura,
-                                totalEtapas: instrucoes.length,
-                                onTap: (index) {
-                                  setState(() {
-                                    etapaAtual = index;
-                                  });
-                                },
-                              ),
-                            ),
-                            const SizedBox(width: 20),
-                            Expanded(
-                              flex: 5,
-                              child: AnimatedSwitcher(
-                                duration: const Duration(milliseconds: 400),
-                                transitionBuilder: (child, animation) =>
-                                    FadeTransition(
-                                      opacity: animation,
-                                      child: SlideTransition(
-                                        position: Tween<Offset>(
-                                          begin: const Offset(0.2, 0),
-                                          end: Offset.zero,
-                                        ).animate(animation),
-                                        child: child,
-                                      ),
-                                    ),
-                                child: Column(
-                                  key: ValueKey(etapaAtual),
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      instrucoes[etapaAtual].titulo,
-                                      style: const TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      instrucoes[etapaAtual].descricao,
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                        height: 1.5,
-                                        color: Colors.black87,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      const SizedBox(height: 30),
-
-                      // FRASE FINAL
+                      const SizedBox(height: 20),
                       const Center(
                         child: Text(
                           "Respire profundamente, conecte-se com seu propósito e permita que o novo ciclo floresça.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             fontStyle: FontStyle.italic,
-                            color: Colors.blue,
-                            height: 1.5,
+                            color: Colors.blueGrey,
+                            height: 1.4,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -259,25 +252,28 @@ class _PagPropositoState extends State<PagProposito>
   Widget _actionButton({
     required IconData icon,
     required String text,
-    required Color color,
+    required Color backgroundColor,
+    required Color borderColor,
+    required Color iconTextColor,
   }) {
     return Container(
-      height: 70,
+      height: 60,
       decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(20),
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: borderColor, width: 2),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blue, size: 30),
-          const SizedBox(width: 10),
+          Icon(icon, color: iconTextColor, size: 26),
+          const SizedBox(width: 15),
           Text(
             text,
             style: TextStyle(
-              color: Colors.blue[700],
+              color: iconTextColor,
               fontWeight: FontWeight.w600,
-              fontSize: 16,
+              fontSize: 15,
             ),
           ),
         ],
@@ -303,12 +299,12 @@ class YoutubeVideoCard extends StatelessWidget {
     final videoId = YoutubePlayer.convertUrlToId(videoUrl);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 6),
       child: Card(
-        elevation: 6,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               YoutubePlayer(
@@ -318,19 +314,19 @@ class YoutubeVideoCard extends StatelessWidget {
                 ),
                 showVideoProgressIndicator: true,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Text(
                 title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 17,
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 4),
               Text(
                 subtitle,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey[700]),
+                style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
             ],
           ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart';
-import 'package:flutter_application_1/pages/Home_Page.dart';
+import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 // Classe para cada etapa
@@ -14,42 +14,43 @@ class EtapaMeditacao {
   EtapaMeditacao({required this.titulo, required this.descricao});
 }
 
-class PagEquilibrio extends StatefulWidget {
-  const PagEquilibrio({super.key});
+class PagFocoAtencao extends StatefulWidget {
+  const PagFocoAtencao({super.key});
 
   @override
-  State<PagEquilibrio> createState() => _PagEquilibrioState();
+  State<PagFocoAtencao> createState() => _PagFocoAtencaoState();
 }
 
-class _PagEquilibrioState extends State<PagEquilibrio> {
+class _PagFocoAtencaoState extends State<PagFocoAtencao> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Conexão Corpo e Mente",
+      titulo: "Preparação Mental",
       descricao:
-          "O equilíbrio interno começa ao reconhecer a conexão profunda entre corpo e mente. Ao respirar conscientemente, você aprende a perceber e alinhar suas sensações físicas e mentais em harmonia.",
+          "Antes de iniciar, libere distrações externas. Sente-se confortavelmente e feche os olhos para preparar a mente para concentração profunda.",
     ),
     EtapaMeditacao(
-      titulo: "Aceitação e Fluidez",
+      titulo: "Respiração Consciente",
       descricao:
-          "Encontrar equilíbrio é aprender a aceitar a vida como ela é, sem resistência ou julgamento. Ao se permitir fluir, você encontra serenidade mesmo nas mudanças.",
+          "A atenção plena começa na respiração. Observe cada inspiração e expiração, percebendo o fluxo do ar e o ritmo natural do corpo.",
     ),
     EtapaMeditacao(
-      titulo: "Centro da Paz Interior",
+      titulo: "Foco no Momento Presente",
       descricao:
-          "Nosso centro interno é como um refúgio silencioso dentro de nós — um espaço que permanece calmo mesmo quando o mundo ao redor parece agitado. Retorne a ele sempre que precisar de estabilidade.",
+          "Direcione toda a sua atenção ao momento presente. Sempre que pensamentos surgirem, reconheça-os sem julgamento e volte ao foco da meditação.",
     ),
     EtapaMeditacao(
-      titulo: "Harmonia Emocional",
+      titulo: "Ancorando a Atenção",
       descricao:
-          "Equilíbrio interno também é acolher suas emoções com compreensão. Ao reconhecer cada sentimento sem se deixar dominar, você cria espaço para a verdadeira paz emocional.",
+          "Escolha um ponto de referência, como uma sensação corporal, som ou imagem mental, e use-o para manter a atenção estável durante a prática.",
     ),
     EtapaMeditacao(
-      titulo: "Renovação Constante",
+      titulo: "Expansão da Consciência",
       descricao:
-          "Manter o equilíbrio é um processo contínuo, como cuidar de um jardim. Cada respiração consciente e momento de reflexão são sementes que fortalecem sua serenidade interior.",
+          "Após dominar a concentração, expanda sua atenção para incluir pensamentos, emoções e ambiente de forma consciente, mantendo a calma e o equilíbrio interno.",
     ),
   ];
 
+  // CORES PADRÃO DO APP (sem azul)
   final Color fundoClaro = const Color(0xFFEBE8E0);
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
@@ -81,7 +82,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "Encontre a harmonia entre corpo, mente e espírito através da meditação do equilíbrio.",
+                    "Aprofunde sua atenção e melhore sua capacidade de foco com esta prática de meditação avançada.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -116,16 +117,15 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.pushAndRemoveUntil(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => HomePage(),
                                   ),
-                                  (route) => false,
                                 );
                               },
                               child: _actionButton(
-                                icon: CupertinoIcons.house_fill,
+                                icon: Icons.home,
                                 text: "Home",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
@@ -146,7 +146,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons de Tranquilidade",
+                                text: "Sons para concentração",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -157,9 +157,9 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       ),
                       const SizedBox(height: 30),
 
-                      // PASSOS PARA ALCANÇAR O EQUILÍBRIO
+                      // PASSOS PARA FOCO E ATENÇÃO
                       Text(
-                        "Passos para alcançar o equilíbrio interior",
+                        "Passos para desenvolver foco e atenção plena",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -179,7 +179,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   color: Colors.black12,
                                   blurRadius: 6,
@@ -216,7 +216,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       const SizedBox(height: 30),
 
                       // VÍDEOS
-                      ...VideoPlayList.videoListEquilibrio.map((video) {
+                      ...VideoPlayList.videoListFocoAtencao.map((video) {
                         return YoutubeVideoCard(
                           videoUrl: video["videoUrl"]!,
                           title: video["title"]!,
@@ -227,7 +227,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       const SizedBox(height: 20),
                       const Center(
                         child: Text(
-                          "Permaneça em equilíbrio, respirando com leveza e deixando a paz fluir através de cada instante.",
+                          "Mantenha sua atenção no presente, respire com consciência e permita que seu foco se fortaleça a cada instante.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -249,6 +249,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
     );
   }
 
+  // BOTÃO PERSONALIZADO
   Widget _actionButton({
     required IconData icon,
     required String text,
@@ -267,7 +268,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, color: iconTextColor, size: 26),
-          const SizedBox(width: 15),
+          const SizedBox(width: 8), // 👈 espaço entre ícone e texto
           Text(
             text,
             style: TextStyle(
@@ -282,6 +283,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
   }
 }
 
+// --- CARD DE VÍDEO ---
 class YoutubeVideoCard extends StatelessWidget {
   final String videoUrl;
   final String title;

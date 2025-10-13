@@ -3,53 +3,54 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart';
-import 'package:flutter_application_1/pages/Home_Page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_application_1/pages/home_page.dart';
 
 // Classe para cada etapa
-class EtapaMeditacao {
+class EtapaMenteCorpo {
   final String titulo;
   final String descricao;
 
-  EtapaMeditacao({required this.titulo, required this.descricao});
+  EtapaMenteCorpo({required this.titulo, required this.descricao});
 }
 
-class PagEquilibrio extends StatefulWidget {
-  const PagEquilibrio({super.key});
+class PagMenteCorpo extends StatefulWidget {
+  const PagMenteCorpo({super.key});
 
   @override
-  State<PagEquilibrio> createState() => _PagEquilibrioState();
+  State<PagMenteCorpo> createState() => _PagMenteCorpoState();
 }
 
-class _PagEquilibrioState extends State<PagEquilibrio> {
-  final List<EtapaMeditacao> instrucoes = [
-    EtapaMeditacao(
-      titulo: "Conexão Corpo e Mente",
+class _PagMenteCorpoState extends State<PagMenteCorpo> {
+  final List<EtapaMenteCorpo> instrucoes = [
+    EtapaMenteCorpo(
+      titulo: "Respire com Consciência",
       descricao:
-          "O equilíbrio interno começa ao reconhecer a conexão profunda entre corpo e mente. Ao respirar conscientemente, você aprende a perceber e alinhar suas sensações físicas e mentais em harmonia.",
+          "Sente-se confortavelmente, feche os olhos e perceba o ritmo da sua respiração. Inspire profundamente e solte o ar devagar, sentindo seu corpo relaxar.",
     ),
-    EtapaMeditacao(
-      titulo: "Aceitação e Fluidez",
+    EtapaMenteCorpo(
+      titulo: "Perceba as Sensações Corporais",
       descricao:
-          "Encontrar equilíbrio é aprender a aceitar a vida como ela é, sem resistência ou julgamento. Ao se permitir fluir, você encontra serenidade mesmo nas mudanças.",
+          "Observe as partes do seu corpo. Perceba as tensões, o calor, o frio, o toque do ar na pele. Não tente mudar nada, apenas sinta.",
     ),
-    EtapaMeditacao(
-      titulo: "Centro da Paz Interior",
+    EtapaMenteCorpo(
+      titulo: "Conecte-se com o Presente",
       descricao:
-          "Nosso centro interno é como um refúgio silencioso dentro de nós — um espaço que permanece calmo mesmo quando o mundo ao redor parece agitado. Retorne a ele sempre que precisar de estabilidade.",
+          "Mantenha sua atenção no momento atual. Deixe que pensamentos venham e vão, sem se prender a eles.",
     ),
-    EtapaMeditacao(
-      titulo: "Harmonia Emocional",
+    EtapaMenteCorpo(
+      titulo: "Movimente-se com Atenção",
       descricao:
-          "Equilíbrio interno também é acolher suas emoções com compreensão. Ao reconhecer cada sentimento sem se deixar dominar, você cria espaço para a verdadeira paz emocional.",
+          "Faça pequenos movimentos conscientes — alongue os braços, gire o pescoço — sentindo cada músculo e articulação responder.",
     ),
-    EtapaMeditacao(
-      titulo: "Renovação Constante",
+    EtapaMenteCorpo(
+      titulo: "Integre Mente e Corpo",
       descricao:
-          "Manter o equilíbrio é um processo contínuo, como cuidar de um jardim. Cada respiração consciente e momento de reflexão são sementes que fortalecem sua serenidade interior.",
+          "Perceba como a calma mental influencia o corpo, e como o corpo relaxado acalma a mente. Este é o equilíbrio natural que buscamos.",
     ),
   ];
 
+  // Cores padrão
   final Color fundoClaro = const Color(0xFFEBE8E0);
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
@@ -81,7 +82,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "Encontre a harmonia entre corpo, mente e espírito através da meditação do equilíbrio.",
+                    "Cultive o equilíbrio entre mente e corpo através da respiração e da consciência plena.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -146,7 +147,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons de Tranquilidade",
+                                text: "Sons Relaxantes",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -155,11 +156,12 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                           ),
                         ],
                       ),
+
                       const SizedBox(height: 30),
 
-                      // PASSOS PARA ALCANÇAR O EQUILÍBRIO
+                      // PASSOS
                       Text(
-                        "Passos para alcançar o equilíbrio interior",
+                        "Passos para integrar mente e corpo",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -168,7 +170,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       ),
                       const SizedBox(height: 20),
 
-                      AppScrollCard<EtapaMeditacao>(
+                      AppScrollCard<EtapaMenteCorpo>(
                         items: instrucoes,
                         height: altura * 0.35,
                         activeDotColor: verdePrincipal,
@@ -179,7 +181,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   color: Colors.black12,
                                   blurRadius: 6,
@@ -215,8 +217,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
 
                       const SizedBox(height: 30),
 
-                      // VÍDEOS
-                      ...VideoPlayList.videoListEquilibrio.map((video) {
+                      ...VideoPlayList.videoListMenteCorpo.map((video) {
                         return YoutubeVideoCard(
                           videoUrl: video["videoUrl"]!,
                           title: video["title"]!,
@@ -227,7 +228,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       const SizedBox(height: 20),
                       const Center(
                         child: Text(
-                          "Permaneça em equilíbrio, respirando com leveza e deixando a paz fluir através de cada instante.",
+                          "Corpo e mente caminham juntos. Quando você acalma um, o outro se harmoniza naturalmente.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -282,6 +283,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
   }
 }
 
+// --- CARD DE VÍDEO ---
 class YoutubeVideoCard extends StatelessWidget {
   final String videoUrl;
   final String title;

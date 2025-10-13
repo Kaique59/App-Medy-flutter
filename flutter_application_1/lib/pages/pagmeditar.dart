@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/meditacao_avancada/pag_mente_corpo.dart';
 import 'package:flutter_application_1/widgets/custom_card_meditar.dart';
 import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_respiracao.dart';
 import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_aprenda_meditacao.dart';
@@ -6,6 +7,8 @@ import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_rel
 import 'package:flutter_application_1/pages/sub_pages_meditar/novo_ciclo/pag_equilibrio.dart';
 import 'package:flutter_application_1/pages/sub_pages_meditar/novo_ciclo/pag_proposito.dart';
 import 'package:flutter_application_1/pages/sub_pages_meditar/novo_ciclo/pag_aceitacao.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/meditacao_avancada/pag_foco_atencao.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/meditacao_avancada/pag_calma_interior.dart';
 
 class PagMeditar extends StatelessWidget {
   final bool temaEscuro;
@@ -25,9 +28,9 @@ class PagMeditar extends StatelessWidget {
       {"text": "Aceitação", "page": PagAceitacao()},
     ],
     "Meditação Avançada": [
-      {"text": "Foco e Atenção", "page": PagRespiracao()},
-      {"text": "Calma Interior", "page": PagAprendaMeditacao()},
-      {"text": "Mente e Corpo", "page": PagRelaxar()},
+      {"text": "Foco e Atenção", "page": PagFocoAtencao()},
+      {"text": "Calma Interior", "page": PagCalmaInterior()},
+      {"text": "Mente e Corpo", "page": PagMenteCorpo()},
     ],
   };
 
@@ -72,7 +75,7 @@ class PagMeditar extends StatelessWidget {
                 Text(
                   "Silencie o mundo.",
                   style: TextStyle(
-                    color: temaEscuro ? Colors.grey[300] : Colors.blueGrey[400],
+                    color: const Color(0xFFA0C8C0),
                     fontSize: largura * 0.045,
                     fontWeight: FontWeight.bold,
                   ),
@@ -80,14 +83,14 @@ class PagMeditar extends StatelessWidget {
                 Text(
                   "Ouça a si mesmo.",
                   style: TextStyle(
-                    color: temaEscuro ? Colors.white : Colors.blue[800],
+                    color: const Color(0xFF748D88),
                     fontSize: largura * 0.06,
                     fontWeight: FontWeight.bold,
                     shadows: [
                       Shadow(
                         offset: const Offset(1.5, 1.5),
                         blurRadius: 3,
-                        color: temaEscuro ? Colors.black54 : Colors.blue[200]!,
+                        color: Colors.blue[200]!,
                       ),
                     ],
                   ),
