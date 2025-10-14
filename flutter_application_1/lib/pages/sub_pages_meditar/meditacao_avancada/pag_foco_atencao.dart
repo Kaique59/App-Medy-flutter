@@ -24,29 +24,29 @@ class PagFocoAtencao extends StatefulWidget {
 class _PagFocoAtencaoState extends State<PagFocoAtencao> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Preparação Mental",
+      titulo: "O Poder do Agora",
       descricao:
-          "Antes de iniciar, libere distrações externas. Sente-se confortavelmente e feche os olhos para preparar a mente para concentração profunda.",
+        "Focar é voltar ao instante que está diante de você. É sentir o ar entrar, o corpo existir, o silêncio se expandir. Toda vez que a mente se dispersa e você retorna, fortalece o músculo invisível da presença — e é nesse retorno que o foco nasce.",
     ),
     EtapaMeditacao(
-      titulo: "Respiração Consciente",
+      titulo: "A Arte de Observar",
       descricao:
-          "A atenção plena começa na respiração. Observe cada inspiração e expiração, percebendo o fluxo do ar e o ritmo natural do corpo.",
+        "Durante a meditação, pensamentos surgem como nuvens. Em vez de afastá-los, apenas observe. Veja-os passar, dissolver-se, mudar de forma. O foco verdadeiro não é eliminar o movimento da mente, mas permanecer firme enquanto ele acontece.",
     ),
     EtapaMeditacao(
-      titulo: "Foco no Momento Presente",
+      titulo: "A Atenção Suave",
       descricao:
-          "Direcione toda a sua atenção ao momento presente. Sempre que pensamentos surgirem, reconheça-os sem julgamento e volte ao foco da meditação.",
+        "O foco não precisa ser rígido. Ele pode ser leve, como um olhar calmo sobre o presente. Quando você observa com suavidade — sem cobrança, sem pressa — a mente aprende a descansar no agora, e a atenção se torna natural.",
     ),
     EtapaMeditacao(
-      titulo: "Ancorando a Atenção",
+      titulo: "O Silêncio entre os Pensamentos",
       descricao:
-          "Escolha um ponto de referência, como uma sensação corporal, som ou imagem mental, e use-o para manter a atenção estável durante a prática.",
+        "Há um espaço silencioso entre um pensamento e outro. É nesse intervalo que mora a clareza. Quanto mais você reconhece esse silêncio, mais ele se expande, e o foco deixa de ser um esforço — torna-se estado.",
     ),
     EtapaMeditacao(
-      titulo: "Expansão da Consciência",
+      titulo: "A Presença Desperta",
       descricao:
-          "Após dominar a concentração, expanda sua atenção para incluir pensamentos, emoções e ambiente de forma consciente, mantendo a calma e o equilíbrio interno.",
+        "Com o tempo, o foco ultrapassa a meditação. Ele se manifesta em cada gesto, em cada palavra, em cada olhar. Estar atento é viver plenamente. Quando a mente se ancora no presente, tudo o que existe se ilumina — e o simples ato de estar torna-se sagrado.",
     ),
   ];
 
@@ -146,7 +146,7 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons para concentração",
+                                text: "Sons para Meditar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,

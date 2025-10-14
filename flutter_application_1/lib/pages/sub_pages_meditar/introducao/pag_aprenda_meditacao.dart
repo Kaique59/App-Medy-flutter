@@ -24,29 +24,29 @@ class PagAprendaMeditacao extends StatefulWidget {
 class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Respire e Esteja Presente",
+      titulo: "O Início da Jornada",
       descricao:
-          "Feche os olhos e inspire profundamente. Sinta o ar entrando e saindo, levando embora as tensões do corpo. Você não precisa estar em outro lugar, nem ser outra pessoa — apenas esteja aqui e agora.",
+          "Meditar começa com o simples ato de parar. Sentar, fechar os olhos e permitir-se estar. Não é sobre “fazer certo”, mas sobre se aproximar de si mesmo. Cada respiração é um convite para voltar ao presente — e o presente é onde tudo começa.",
     ),
     EtapaMeditacao(
-      titulo: "O Silêncio que Cura",
+      titulo: "O Encontro com o Silêncio",
       descricao:
-          "Sente-se confortavelmente e observe o silêncio ao seu redor. Não lute contra os pensamentos, apenas veja-os passar como nuvens no céu. No fundo do silêncio, mora a paz que você sempre buscou.",
+          "Nos primeiros momentos, a mente pode parecer barulhenta. Pensamentos correm, lembranças surgem, distrações aparecem. Não lute contra isso. Observe. O silêncio não chega de repente — ele nasce da aceitação.",
     ),
     EtapaMeditacao(
-      titulo: "O Corpo e a Respiração",
+      titulo: "O Tempo e a Paciência",
       descricao:
-          "Sinta o peso do seu corpo apoiado no chão. Perceba o ar entrando pelo nariz, enchendo seus pulmões, e saindo suavemente. A cada respiração, o corpo relaxa, e a mente se torna mais leve.",
+          "Comece devagar. Um minuto, depois três, depois cinco. O tempo se ajusta ao seu ritmo. O importante é a constância, não a duração. Cada pequeno instante de presença é uma semente que, com o tempo, floresce em serenidade.",
     ),
     EtapaMeditacao(
-      titulo: "Aceitação",
+      titulo: "A Mente que Aprende a Observar",
       descricao:
-          "Aceitar é compreender que a vida tem seu próprio ritmo e que nem tudo precisa ser controlado. Há momentos em que o melhor que podemos fazer é respirar fundo e permitir que as coisas simplesmente aconteçam. Quando soltamos o peso das expectativas e acolhemos o presente como ele é, o coração se torna leve e a mente encontra paz. Na aceitação, descobrimos que o agora é suficiente e que tudo está exatamente onde deveria estar.",
+          "Com a prática, os pensamentos deixam de ser inimigos e passam a ser visitantes. Você aprende a observá-los com leveza, sem se prender a nenhum. Essa é a essência da meditação: ser o espaço onde tudo acontece, e nada se perde.",
     ),
     EtapaMeditacao(
-      titulo: "Um Novo Começo",
+      titulo: "O Momento de Clareza",
       descricao:
-          "Toda respiração é uma porta aberta para recomeçar. Ao inspirar, você convida a calma, e ao expirar, libera o que já não faz parte de você. Cada ciclo de ar é uma chance de se renovar, de deixar o passado ir e acolher o novo com serenidade. Não importa quantas vezes você tenha caído, o momento presente sempre oferece uma nova oportunidade de florescer com mais força e clareza.",
+          "Em algum ponto da jornada, você percebe que não está mais buscando paz — você é a paz. A vida continua igual por fora, mas por dentro há calma, leveza e compreensão. Meditar é isso: viver desperto em cada respiração.",
     ),
   ];
 

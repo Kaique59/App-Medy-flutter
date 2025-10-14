@@ -23,27 +23,29 @@ class PagRespiracao extends StatefulWidget {
 class _PagRespiracaoState extends State<PagRespiracao> {
   final List<EtapaRespiracao> instrucoes = [
     EtapaRespiracao(
-      titulo: "Encontre a calma",
+      titulo: "O Primeiro Passo",
       descricao:
-          "Escolha um local silencioso, livre de distrações, onde você se sinta seguro e confortável...",
+          "Antes de qualquer técnica, aprenda a observar a respiração como ela é. Não tente controlá-la. Apenas sinta o ar entrando e saindo, o peito se expandindo, o corpo se movendo. Essa simples consciência já é o início da meditação — o momento em que você se conecta com o presente.",
     ),
     EtapaRespiracao(
-      titulo: "Inspire profundamente",
+      titulo: "Inspiração e Soltar",
       descricao:
-          "Respire devagar pelo nariz, enchendo os pulmões gradualmente...",
+          "Respire fundo pelo nariz, enchendo o abdômen como se ele fosse um balão. Segure por um instante e solte lentamente pela boca. A cada expiração, imagine que está liberando tensões e pensamentos presos. O corpo se suaviza, e a mente começa a silenciar.",
     ),
     EtapaRespiracao(
-      titulo: "Segure o ar",
-      descricao: "Segure a respiração por 2 a 3 segundos, sem tensão...",
-    ),
-    EtapaRespiracao(
-      titulo: "Expire lentamente",
-      descricao: "Solte o ar suavemente pela boca, como se soprasse devagar...",
-    ),
-    EtapaRespiracao(
-      titulo: "Repita e concentre-se",
+      titulo: "O Ritmo Natural",
       descricao:
-          "Continue o ciclo de inspiração, retenção e expiração de 5 a 10 vezes...",
+          "Encontre um ritmo que seja confortável. Nem rápido, nem lento demais. O importante é que cada ciclo de respiração te envolva completamente. Quando o ar entra, a energia chega; quando o ar sai, tudo o que é desnecessário parte. Assim nasce o equilíbrio.",
+    ),
+    EtapaRespiracao(
+      titulo: "Quando a Mente Foge",
+      descricao:
+          "É natural que os pensamentos tentem distrair você. Quando isso acontecer, apenas perceba e volte gentilmente a atenção para o ar que entra e sai. Não há erro na prática, apenas retorno — e cada retorno fortalece a presença.",
+    ),
+    EtapaRespiracao(
+      titulo: "O Silêncio Interior",
+      descricao:
+          "Depois de algumas respirações conscientes, algo muda. O corpo relaxa, o tempo desacelera, e o silêncio interno surge naturalmente. Nesse instante, a respiração se torna uma ponte entre o que você sente e o que realmente é: paz em movimento.",
     ),
   ];
 

@@ -24,29 +24,29 @@ class PagEquilibrio extends StatefulWidget {
 class _PagEquilibrioState extends State<PagEquilibrio> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Conexão Corpo e Mente",
+      titulo: "O Centro Silencioso",
       descricao:
-          "O equilíbrio interno começa ao reconhecer a conexão profunda entre corpo e mente. Ao respirar conscientemente, você aprende a perceber e alinhar suas sensações físicas e mentais em harmonia.",
+        "O equilíbrio nasce quando você encontra, dentro de si, um ponto que permanece firme mesmo quando tudo ao redor muda. É o espaço silencioso entre um pensamento e outro, onde mora a clareza e o descanso.",
     ),
     EtapaMeditacao(
-      titulo: "Aceitação e Fluidez",
+      titulo: "Entre o Fazer e o Ser",
       descricao:
-          "Encontrar equilíbrio é aprender a aceitar a vida como ela é, sem resistência ou julgamento. Ao se permitir fluir, você encontra serenidade mesmo nas mudanças.",
+        "Viver em equilíbrio é aprender a alternar entre agir e simplesmente estar. Há momentos de movimento e momentos de pausa — e ambos são necessários. Saber quando avançar e quando respirar é a arte da harmonia.",
     ),
     EtapaMeditacao(
-      titulo: "Centro da Paz Interior",
+      titulo: "O Corpo que Ensina",
       descricao:
-          "Nosso centro interno é como um refúgio silencioso dentro de nós — um espaço que permanece calmo mesmo quando o mundo ao redor parece agitado. Retorne a ele sempre que precisar de estabilidade.",
+        "O corpo mostra o caminho: ele inspira e expira, contrai e relaxa, sem esforço. Quando o seguimos, percebemos que o equilíbrio não é rigidez, mas fluidez. É o vai e vem natural da vida acontecendo sem resistência.",
     ),
     EtapaMeditacao(
-      titulo: "Harmonia Emocional",
+      titulo: "A Calma em Meio ao Caos",
       descricao:
-          "Equilíbrio interno também é acolher suas emoções com compreensão. Ao reconhecer cada sentimento sem se deixar dominar, você cria espaço para a verdadeira paz emocional.",
+        "Mesmo quando tudo parece instável, o equilíbrio pode permanecer dentro de você. Ele não depende das circunstâncias, mas da forma como você as acolhe. É o olhar tranquilo que enxerga o caos e ainda escolhe a paz.",
     ),
     EtapaMeditacao(
-      titulo: "Renovação Constante",
+      titulo: "O Retorno ao Essencial",
       descricao:
-          "Manter o equilíbrio é um processo contínuo, como cuidar de um jardim. Cada respiração consciente e momento de reflexão são sementes que fortalecem sua serenidade interior.",
+        "No fundo, equilíbrio é lembrar-se de quem você é. Não é buscar algo novo, mas retornar ao que sempre esteve aí: presença, serenidade e confiança. Quando você se reconecta com esse centro, descobre que a vida toda respira no mesmo ritmo que você.",
     ),
   ];
 
@@ -146,7 +146,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons de Tranquilidade",
+                                text: "Sons para Meditar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
