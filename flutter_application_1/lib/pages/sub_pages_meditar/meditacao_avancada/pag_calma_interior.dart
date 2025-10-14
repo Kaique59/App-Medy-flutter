@@ -14,42 +14,43 @@ class EtapaMeditacao {
   EtapaMeditacao({required this.titulo, required this.descricao});
 }
 
-class PagEquilibrio extends StatefulWidget {
-  const PagEquilibrio({super.key});
+class PagCalmaInterior extends StatefulWidget {
+  const PagCalmaInterior({super.key});
 
   @override
-  State<PagEquilibrio> createState() => _PagEquilibrioState();
+  State<PagCalmaInterior> createState() => _PagCalmaInteriorState();
 }
 
-class _PagEquilibrioState extends State<PagEquilibrio> {
+class _PagCalmaInteriorState extends State<PagCalmaInterior> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Conexão Corpo e Mente",
+      titulo: "Respire a Serenidade",
       descricao:
-          "O equilíbrio interno começa ao reconhecer a conexão profunda entre corpo e mente. Ao respirar conscientemente, você aprende a perceber e alinhar suas sensações físicas e mentais em harmonia.",
+          "Comece inspirando profundamente e soltando o ar lentamente. Sinta cada respiração como uma onda que acalma seu corpo e mente.",
     ),
     EtapaMeditacao(
-      titulo: "Aceitação e Fluidez",
+      titulo: "Silencie o Mundo Interior",
       descricao:
-          "Encontrar equilíbrio é aprender a aceitar a vida como ela é, sem resistência ou julgamento. Ao se permitir fluir, você encontra serenidade mesmo nas mudanças.",
+          "Deixe os pensamentos fluírem sem se prender a eles. Apenas observe o silêncio que surge entre um pensamento e outro.",
     ),
     EtapaMeditacao(
-      titulo: "Centro da Paz Interior",
+      titulo: "Conecte-se com o Agora",
       descricao:
-          "Nosso centro interno é como um refúgio silencioso dentro de nós — um espaço que permanece calmo mesmo quando o mundo ao redor parece agitado. Retorne a ele sempre que precisar de estabilidade.",
+          "Traga sua atenção ao momento presente. Perceba o som ao seu redor, o toque do ar na pele e o pulsar tranquilo do seu coração.",
     ),
     EtapaMeditacao(
-      titulo: "Harmonia Emocional",
+      titulo: "Aceite e Acolha",
       descricao:
-          "Equilíbrio interno também é acolher suas emoções com compreensão. Ao reconhecer cada sentimento sem se deixar dominar, você cria espaço para a verdadeira paz emocional.",
+          "Não lute contra as emoções ou distrações. Acolha-as com gentileza e retorne suavemente ao foco da sua respiração.",
     ),
     EtapaMeditacao(
-      titulo: "Renovação Constante",
+      titulo: "Mergulhe na Calma Interior",
       descricao:
-          "Manter o equilíbrio é um processo contínuo, como cuidar de um jardim. Cada respiração consciente e momento de reflexão são sementes que fortalecem sua serenidade interior.",
+          "Permita-se descansar na quietude. Sinta o equilíbrio entre corpo, mente e alma florescendo em paz profunda.",
     ),
   ];
 
+  // CORES DO APP
   final Color fundoClaro = const Color(0xFFEBE8E0);
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
@@ -81,7 +82,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "Encontre a harmonia entre corpo, mente e espírito através da meditação do equilíbrio.",
+                    "Aprofunde-se em sua serenidade interior e descubra o poder do silêncio e da presença plena.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -157,9 +158,9 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       ),
                       const SizedBox(height: 30),
 
-                      // PASSOS PARA ALCANÇAR O EQUILÍBRIO
+                      // PASSOS DE MEDITAÇÃO
                       Text(
-                        "Passos para alcançar o equilíbrio interior",
+                        "Passos para cultivar a calma interior",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -216,7 +217,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       const SizedBox(height: 30),
 
                       // VÍDEOS
-                      ...VideoPlayList.videoListEquilibrio.map((video) {
+                      ...VideoPlayList.videoListCalmaInterior.map((video) {
                         return YoutubeVideoCard(
                           videoUrl: video["videoUrl"]!,
                           title: video["title"]!,
@@ -227,7 +228,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                       const SizedBox(height: 20),
                       const Center(
                         child: Text(
-                          "Permaneça em equilíbrio, respirando com leveza e deixando a paz fluir através de cada instante.",
+                          "A verdadeira calma nasce dentro de você. Respire, solte e permita que a serenidade floresça.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16,
@@ -282,6 +283,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
   }
 }
 
+// --- CARD DE VÍDEO ---
 class YoutubeVideoCard extends StatelessWidget {
   final String videoUrl;
   final String title;

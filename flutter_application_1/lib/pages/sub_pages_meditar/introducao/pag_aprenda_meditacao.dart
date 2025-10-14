@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Config/linha_de_etapas.dart';
+import 'package:flutter_application_1/Config/app_scroll_card.dart';
+import 'package:flutter_application_1/Config/video_play_list.dart';
+import 'package:flutter_application_1/pages/Audiopage.dart';
+import 'package:flutter_application_1/pages/Home_Page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:flutter_application_1/pages/Audiopage.dart'; // Import da página de áudio
 
 // Classe para cada etapa
 class EtapaMeditacao {
@@ -18,49 +21,39 @@ class PagAprendaMeditacao extends StatefulWidget {
   State<PagAprendaMeditacao> createState() => _PagAprendaMeditacaoState();
 }
 
-class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
-    with SingleTickerProviderStateMixin {
-  int etapaAtual = 0;
-
+class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
       titulo: "Respire e Esteja Presente",
       descricao:
-          "Feche os olhos e inspire profundamente."
-          "Sinta o ar entrando e saindo, levando embora as tensões do corpo."
-          "Você não precisa estar em outro lugar, nem ser outra pessoa — apenas esteja aqui e agora.",
+          "Feche os olhos e inspire profundamente. Sinta o ar entrando e saindo, levando embora as tensões do corpo. Você não precisa estar em outro lugar, nem ser outra pessoa — apenas esteja aqui e agora.",
     ),
     EtapaMeditacao(
       titulo: "O Silêncio que Cura",
       descricao:
-          "Sente-se confortavelmente e observe o silêncio ao seu redor."
-          "Não lute contra os pensamentos, apenas veja-os passar como nuvens no céu."
-          "No fundo do silêncio, mora a paz que você sempre buscou.",
+          "Sente-se confortavelmente e observe o silêncio ao seu redor. Não lute contra os pensamentos, apenas veja-os passar como nuvens no céu. No fundo do silêncio, mora a paz que você sempre buscou.",
     ),
     EtapaMeditacao(
       titulo: "O Corpo e a Respiração",
       descricao:
-          "Sinta o peso do seu corpo apoiado no chão."
-          "Perceba o ar entrando pelo nariz, enchendo seus pulmões, e saindo suavemente."
-          "A cada respiração, o corpo relaxa, e a mente se torna mais leve.",
+          "Sinta o peso do seu corpo apoiado no chão. Perceba o ar entrando pelo nariz, enchendo seus pulmões, e saindo suavemente. A cada respiração, o corpo relaxa, e a mente se torna mais leve.",
     ),
     EtapaMeditacao(
       titulo: "Aceitação",
       descricao:
-          "Aceitar é compreender que a vida tem seu próprio ritmo e que nem tudo precisa ser controlado."
-          "Há momentos em que o melhor que podemos fazer é respirar fundo e permitir que as coisas simplesmente aconteçam."
-          "Quando soltamos o peso das expectativas e acolhemos o presente como ele é, o coração se torna leve e a mente encontra paz."
-          "Na aceitação, descobrimos que o agora é suficiente e que tudo está exatamente onde deveria estar.",
+          "Aceitar é compreender que a vida tem seu próprio ritmo e que nem tudo precisa ser controlado. Há momentos em que o melhor que podemos fazer é respirar fundo e permitir que as coisas simplesmente aconteçam. Quando soltamos o peso das expectativas e acolhemos o presente como ele é, o coração se torna leve e a mente encontra paz. Na aceitação, descobrimos que o agora é suficiente e que tudo está exatamente onde deveria estar.",
     ),
     EtapaMeditacao(
       titulo: "Um Novo Começo",
       descricao:
-          "Toda respiração é uma porta aberta para recomeçar."
-          "Ao inspirar, você convida a calma, e ao expirar, libera o que já não faz parte de você."
-          "Cada ciclo de ar é uma chance de se renovar, de deixar o passado ir e acolher o novo com serenidade."
-          "Não importa quantas vezes você tenha caído, o momento presente sempre oferece uma nova oportunidade de florescer com mais força e clareza.",
+          "Toda respiração é uma porta aberta para recomeçar. Ao inspirar, você convida a calma, e ao expirar, libera o que já não faz parte de você. Cada ciclo de ar é uma chance de se renovar, de deixar o passado ir e acolher o novo com serenidade. Não importa quantas vezes você tenha caído, o momento presente sempre oferece uma nova oportunidade de florescer com mais força e clareza.",
     ),
   ];
+
+  final Color fundoClaro = const Color(0xFFEBE8E0);
+  final Color verdePrincipal = const Color(0xFF7A9591);
+  final Color verdeBotao = Colors.grey[400]!;
+  final Color verdeContorno = const Color(0xFFA4A4A4);
 
   @override
   Widget build(BuildContext context) {
@@ -68,35 +61,33 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.blue[800],
+      backgroundColor: verdePrincipal,
       body: SafeArea(
         child: Column(
           children: [
             // TOPO
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-              color: Colors.blue[800],
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+              color: verdePrincipal,
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: IconButton(
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      onPressed: () => Navigator.pop(context),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Text(
                     "A meditação é a arte de acalmar a mente e harmonizar corpo e espírito.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: largura * 0.04,
+                      fontSize: largura * 0.035,
                       fontWeight: FontWeight.w500,
-                      height: 1.4,
+                      height: 1.3,
                     ),
                   ),
                 ],
@@ -107,15 +98,15 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
             Expanded(
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: fundoClaro,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25),
                   ),
                 ),
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -123,13 +114,26 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
                       Row(
                         children: [
                           Expanded(
-                            child: _actionButton(
-                              icon: Icons.spa,
-                              text: "Guia de meditação",
-                              color: Colors.purple[100]!,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HomePage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: _actionButton(
+                                icon: CupertinoIcons.house_fill,
+                                text: "Home",
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
+                              ),
                             ),
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 10),
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
@@ -141,122 +145,99 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
                                 );
                               },
                               child: _actionButton(
-                                icon: Icons.music_note,
+                                icon: CupertinoIcons.music_note_2,
                                 text: "Sons para meditar",
-                                color: Colors.purple[100]!,
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 25),
-
-                      // VÍDEOS
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=1MrQPZuSs7A",
-                        title: "Meditação Simples",
-                        subtitle:
-                            "Aprenda técnicas para acalmar a mente e relaxar o corpo.",
-                      ),
-                      const YoutubeVideoCard(
-                        videoUrl: "https://www.youtube.com/watch?v=32UM11dSves",
-                        title: "O começo de uma Meditação mais Serena",
-                        subtitle:
-                            "Movimentos simples para relaxar o corpo e a mente para meditar.",
-                      ),
-
                       const SizedBox(height: 30),
 
-                      const Text(
+                      // PASSOS PARA APRENDER MEDITAÇÃO
+                      Text(
                         "Passos para aprender meditação",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blueAccent,
+                          color: verdePrincipal,
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
 
-                      // LINHA DE ETAPAS COM TEXTO AO LADO
-                      SizedBox(
-                        height: altura * 0.7,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: LinhaDeEtapas(
-                                etapaAtual: etapaAtual,
-                                altura: altura,
-                                totalEtapas: instrucoes.length,
-                                onTap: (index) {
-                                  setState(() {
-                                    etapaAtual = index;
-                                  });
-                                },
-                              ),
-                            ),
-                            const SizedBox(width: 20),
-                            Expanded(
-                              flex: 5,
-                              child: AnimatedSwitcher(
-                                duration: const Duration(milliseconds: 400),
-                                transitionBuilder: (child, animation) =>
-                                    FadeTransition(
-                                      opacity: animation,
-                                      child: SlideTransition(
-                                        position: Tween<Offset>(
-                                          begin: const Offset(0.2, 0),
-                                          end: Offset.zero,
-                                        ).animate(animation),
-                                        child: child,
-                                      ),
-                                    ),
-                                child: Column(
-                                  key: ValueKey(etapaAtual),
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      instrucoes[etapaAtual].titulo,
-                                      style: const TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blueAccent,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      instrucoes[etapaAtual].descricao,
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                        height: 1.5,
-                                        color: Colors.black87,
-                                      ),
-                                    ),
-                                  ],
+                      AppScrollCard<EtapaMeditacao>(
+                        items: instrucoes,
+                        height: altura * 0.35,
+                        activeDotColor: verdePrincipal,
+                        inactiveDotColor: Colors.grey[400]!,
+                        itemBuilder: (etapa) {
+                          return Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6,
+                                  spreadRadius: 2,
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  etapa.titulo,
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: verdePrincipal,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  etapa.descricao,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    height: 1.4,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
 
                       const SizedBox(height: 30),
 
-                      // FRASE FINAL
+                      // VÍDEOS
+                      ...VideoPlayList.videoListAprendaMetidacao.map((video) {
+                        return YoutubeVideoCard(
+                          videoUrl: video["videoUrl"]!,
+                          title: video["title"]!,
+                          subtitle: video["subtitle"]!,
+                        );
+                      }),
+
+                      const SizedBox(height: 20),
                       const Center(
                         child: Text(
                           "Respire fundo, sinta a paz envolver você e leve consigo a serenidade deste momento.",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             fontStyle: FontStyle.italic,
                             color: Colors.blueGrey,
-                            height: 1.5,
+                            height: 1.4,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -271,25 +252,28 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
   Widget _actionButton({
     required IconData icon,
     required String text,
-    required Color color,
+    required Color backgroundColor,
+    required Color borderColor,
+    required Color iconTextColor,
   }) {
     return Container(
-      height: 70,
+      height: 60,
       decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(20),
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: borderColor, width: 2),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 30),
-          const SizedBox(width: 10),
+          Icon(icon, color: iconTextColor, size: 26),
+          const SizedBox(width: 15),
           Text(
             text,
-            style: const TextStyle(
-              color: Colors.blueAccent,
+            style: TextStyle(
+              color: iconTextColor,
               fontWeight: FontWeight.w600,
-              fontSize: 16,
+              fontSize: 15,
             ),
           ),
         ],
@@ -298,6 +282,7 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao>
   }
 }
 
+// --- CARD DE VÍDEO ---
 class YoutubeVideoCard extends StatelessWidget {
   final String videoUrl;
   final String title;
@@ -315,12 +300,12 @@ class YoutubeVideoCard extends StatelessWidget {
     final videoId = YoutubePlayer.convertUrlToId(videoUrl);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 6),
       child: Card(
-        elevation: 6,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               YoutubePlayer(
@@ -330,19 +315,19 @@ class YoutubeVideoCard extends StatelessWidget {
                 ),
                 showVideoProgressIndicator: true,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Text(
                 title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 17,
                 ),
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 4),
               Text(
                 subtitle,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey[700]),
+                style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
             ],
           ),

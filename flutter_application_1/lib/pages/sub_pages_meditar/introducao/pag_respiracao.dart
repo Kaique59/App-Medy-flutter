@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Config/linha_de_etapas.dart';
-import 'package:flutter_application_1/Config/video_play_list.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart';
+import 'package:flutter_application_1/Config/video_play_list.dart';
+import 'package:flutter_application_1/pages/Home_Page.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class EtapaRespiracao {
   final String titulo;
@@ -18,37 +20,37 @@ class PagRespiracao extends StatefulWidget {
   State<PagRespiracao> createState() => _PagRespiracaoState();
 }
 
-class _PagRespiracaoState extends State<PagRespiracao>
-    with SingleTickerProviderStateMixin {
-  int etapaAtual = 0;
-
+class _PagRespiracaoState extends State<PagRespiracao> {
   final List<EtapaRespiracao> instrucoes = [
     EtapaRespiracao(
       titulo: "Encontre a calma",
       descricao:
-          "Escolha um local silencioso, livre de distrações, onde você se sinta seguro e confortável. Sente-se ou deite-se mantendo a coluna ereta, mas sem rigidez. Respire naturalmente por alguns instantes, apenas percebendo o ar entrar e sair.",
+          "Escolha um local silencioso, livre de distrações, onde você se sinta seguro e confortável...",
     ),
     EtapaRespiracao(
       titulo: "Inspire profundamente",
       descricao:
-          "Respire devagar pelo nariz, enchendo os pulmões gradualmente. Sinta a barriga expandir, depois o peito. Conte mentalmente até 4 e mantenha o ritmo calmo e constante.",
+          "Respire devagar pelo nariz, enchendo os pulmões gradualmente...",
     ),
     EtapaRespiracao(
       titulo: "Segure o ar",
-      descricao:
-          "Segure a respiração por 2 a 3 segundos, sem tensão. Esse breve intervalo ajuda a equilibrar o sistema nervoso e traz estabilidade interna.",
+      descricao: "Segure a respiração por 2 a 3 segundos, sem tensão...",
     ),
     EtapaRespiracao(
       titulo: "Expire lentamente",
-      descricao:
-          "Solte o ar suavemente pela boca, como se soprasse devagar por um canudo imaginário. Conte até 6 e sinta o relaxamento se espalhar pelo corpo.",
+      descricao: "Solte o ar suavemente pela boca, como se soprasse devagar...",
     ),
     EtapaRespiracao(
       titulo: "Repita e concentre-se",
       descricao:
-          "Continue o ciclo de inspiração, retenção e expiração de 5 a 10 vezes. Mantenha o foco na respiração e nas sensações do corpo.",
+          "Continue o ciclo de inspiração, retenção e expiração de 5 a 10 vezes...",
     ),
   ];
+
+  final Color fundoClaro = const Color(0xFFEBE8E0);
+  final Color verdePrincipal = const Color(0xFF7A9591);
+  final Color verdeBotao = Colors.grey[400]!;
+  final Color verdeContorno = const Color(0xFFA4A4A4);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.blue[800],
+      backgroundColor: verdePrincipal,
       body: SafeArea(
         child: Column(
           children: [
@@ -64,16 +66,14 @@ class _PagRespiracaoState extends State<PagRespiracao>
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-              color: Colors.blue[800],
+              color: verdePrincipal,
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                      icon: Icon(Icons.arrow_back, color: fundoClaro),
+                      onPressed: () => Navigator.pop(context),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -81,7 +81,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
                     "Nem tudo que é enfrentado pode ser mudado,\nmas nada pode ser mudado até que seja enfrentado.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: fundoClaro,
                       fontSize: largura * 0.035,
                       fontWeight: FontWeight.w500,
                       height: 1.3,
@@ -95,9 +95,9 @@ class _PagRespiracaoState extends State<PagRespiracao>
             Expanded(
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: fundoClaro,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25),
                   ),
@@ -107,89 +107,27 @@ class _PagRespiracaoState extends State<PagRespiracao>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Guia de respiração",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blueAccent,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-
-                      // 🔹 BLOCO DE ETAPAS (agora aparece primeiro)
-                      SizedBox(
-                        height: altura * 0.45,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: LinhaDeEtapas(
-                                etapaAtual: etapaAtual,
-                                altura: altura,
-                                totalEtapas: instrucoes.length,
-                                onTap: (index) {
-                                  setState(() {
-                                    etapaAtual = index;
-                                  });
-                                },
-                              ),
-                            ),
-                            const SizedBox(width: 15),
-                            Expanded(
-                              flex: 5,
-                              child: AnimatedSwitcher(
-                                duration: const Duration(milliseconds: 400),
-                                transitionBuilder: (child, animation) =>
-                                    FadeTransition(
-                                      opacity: animation,
-                                      child: SlideTransition(
-                                        position: Tween<Offset>(
-                                          begin: const Offset(0.2, 0),
-                                          end: Offset.zero,
-                                        ).animate(animation),
-                                        child: child,
-                                      ),
-                                    ),
-                                child: Column(
-                                  key: ValueKey(etapaAtual),
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      instrucoes[etapaAtual].titulo,
-                                      style: const TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blueAccent,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      instrucoes[etapaAtual].descricao,
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        height: 1.4,
-                                        color: Colors.black87,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      const SizedBox(height: 30),
-
+                      // BOTÕES DE AÇÃO
                       Row(
                         children: [
                           Expanded(
-                            child: _actionButton(
-                              icon: Icons.air,
-                              text: "Exercício",
-                              color: Colors.purple[100]!,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HomePage(),
+                                  ),
+                                  (route) => false,
+                                );
+                              },
+                              child: _actionButton(
+                                icon: CupertinoIcons.house_fill,
+                                text: "Home",
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -204,17 +142,78 @@ class _PagRespiracaoState extends State<PagRespiracao>
                                 );
                               },
                               child: _actionButton(
-                                icon: Icons.music_note,
+                                icon: CupertinoIcons.music_note_2,
                                 text: "Sons relaxantes",
-                                color: Colors.purple[100]!,
+                                backgroundColor: verdeBotao,
+                                borderColor: verdeContorno,
+                                iconTextColor: Colors.black,
                               ),
                             ),
                           ),
                         ],
                       ),
+                      const SizedBox(height: 30),
+
+                      // PASSOS PARA RESPIRAÇÃO
+                      Text(
+                        "Guia de respiração",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: verdePrincipal,
+                        ),
+                      ),
                       const SizedBox(height: 20),
 
-                      ...VideoPlayList.videoListIntro.map((video) {
+                      AppScrollCard<EtapaRespiracao>(
+                        items: instrucoes,
+                        height: altura * 0.35,
+                        activeDotColor: verdePrincipal,
+                        inactiveDotColor: Colors.grey[400]!,
+                        itemBuilder: (etapa) {
+                          return Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6,
+                                  spreadRadius: 2,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  etapa.titulo,
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: verdePrincipal,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  etapa.descricao,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    height: 1.4,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      // VÍDEOS
+                      ...VideoPlayList.videoListrespiracao.map((video) {
                         return YoutubeVideoCard(
                           videoUrl: video["videoUrl"]!,
                           title: video["title"]!,
@@ -237,23 +236,26 @@ class _PagRespiracaoState extends State<PagRespiracao>
   Widget _actionButton({
     required IconData icon,
     required String text,
-    required Color color,
+    required Color backgroundColor,
+    required Color borderColor,
+    required Color iconTextColor,
   }) {
     return Container(
       height: 60,
       decoration: BoxDecoration(
-        color: color,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: borderColor, width: 2),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 26),
-          const SizedBox(width: 8),
+          Icon(icon, color: iconTextColor, size: 26),
+          const SizedBox(width: 15),
           Text(
             text,
-            style: const TextStyle(
-              color: Colors.blueAccent,
+            style: TextStyle(
+              color: iconTextColor,
               fontWeight: FontWeight.w600,
               fontSize: 15,
             ),
@@ -264,6 +266,7 @@ class _PagRespiracaoState extends State<PagRespiracao>
   }
 }
 
+// --- CARD DE VÍDEO ---
 class YoutubeVideoCard extends StatelessWidget {
   final String videoUrl;
   final String title;
