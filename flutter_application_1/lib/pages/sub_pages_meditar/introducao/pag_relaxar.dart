@@ -23,29 +23,29 @@ class PagRelaxar extends StatefulWidget {
 class _PagRelaxarState extends State<PagRelaxar> {
   final List<EtapaRelaxamento> instrucoes = [
     EtapaRelaxamento(
-      titulo: "Escolha um momento só seu",
+      titulo: "O Espaço da Calma",
       descricao:
-          "Encontre um lugar confortável e tranquilo. Sente-se ou deite-se de forma relaxada, ajuste o volume e prepare-se para um momento de pausa e tranquilidade.",
+          "Encontre um lugar onde o silêncio possa te abraçar. Não precisa ser perfeito — apenas um canto onde você possa respirar sem pressa. Feche os olhos e perceba o som do ambiente, o toque do ar na pele. O relaxamento começa quando você se permite estar presente.",
     ),
     EtapaRelaxamento(
-      titulo: "Respire de forma agradável",
+      titulo: "Soltar o Corpo",
       descricao:
-          "Faça respirações lentas e suaves. Inspire pelo nariz, segure um pouco e solte o ar pela boca, sentindo o corpo relaxar. Repita algumas vezes.",
+          "Sinta o peso dos ombros caindo, o maxilar se abrindo, as mãos se soltando. Cada parte do corpo responde ao seu cuidado. Imagine que está derretendo suavemente em direção à terra, entregando o cansaço e acolhendo a leveza.",
     ),
     EtapaRelaxamento(
-      titulo: "Solte o corpo",
+      titulo: "Deixar Ir",
       descricao:
-          "Feche os olhos e solte a tensão dos ombros, pescoço e mandíbula. Sinta os braços e pernas leves, como se o corpo flutuasse em paz e descanso.",
+          "Relaxar também é uma forma de deixar ir. Solte a necessidade de controlar, de entender, de resolver tudo. O descanso é um ato de confiança: o mundo pode esperar um pouco enquanto você volta a si.",
     ),
     EtapaRelaxamento(
-      titulo: "Acalme a mente",
+      titulo: "Silenciar o Ruído Interno",
       descricao:
-          "Observe seus pensamentos passando, como nuvens no céu. Deixe-os ir sem se prender. Concentre-se na respiração e na sensação de serenidade.",
+          "Quando o corpo desacelera, a mente começa a falar menos. O barulho dos pensamentos se torna mais distante. Nesse silêncio, há espaço para sentir, para ouvir o próprio coração e perceber o quanto a paz sempre esteve ali, só adormecida.",
     ),
     EtapaRelaxamento(
-      titulo: "Sinta a leveza",
+      titulo: "O Estado de Entrega",
       descricao:
-          "Permaneça nesse estado de calma. Mova-se suavemente e leve essa sensação de bem-estar para o resto do dia.",
+          "Relaxe sem esforço. Permita que o corpo e a mente se encontrem em quietude. Não há o que buscar, apenas o que sentir. Nesse instante, você não está tentando relaxar — você é o relaxamento. E nele, encontra o verdadeiro descanso.",
     ),
   ];
 
