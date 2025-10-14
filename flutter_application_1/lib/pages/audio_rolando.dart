@@ -5,13 +5,15 @@ import 'package:flutter_application_1/Config/app_colors.dart';
 class AudioRolando extends StatefulWidget {
   final String url;
   final String nome;
-  final String categoria; // Novo campo
+  final String categoria;
+  final String? img;
 
   const AudioRolando({
     super.key,
     required this.url,
     required this.nome,
     required this.categoria,
+    this.img,
   });
 
   @override
@@ -78,20 +80,20 @@ class _AudioRolandoState extends State<AudioRolando> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-  padding: const EdgeInsets.only(bottom: 60), 
-  child: TextButton.icon(
-    onPressed: () => Navigator.pop(context),
-    icon: const Icon(
-      Icons.arrow_back,
-      color: Colors.white,
-      size: 24,
-    ),
-    label: const Text(
-      "voltar",
-      style: TextStyle(color: Colors.white, fontSize: 18),
-    ),
-  ),
-),
+              padding: const EdgeInsets.only(bottom: 60),
+              child: TextButton.icon(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 24,
+                ),
+                label: const Text(
+                  "voltar",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
             // Nome do áudio
             Text(
               widget.nome,
@@ -102,12 +104,18 @@ class _AudioRolandoState extends State<AudioRolando> {
               ),
             ),
 
-            // Card player
+            // Card player com imagem de fundo
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
               decoration: BoxDecoration(
-                color: AppColors.azulMenu,
+                color: widget.img == null || widget.img!.isEmpty ? AppColors.azulMenu : null,
+                image: widget.img != null && widget.img!.isNotEmpty
+                    ? DecorationImage(
+                        image: NetworkImage(widget.img!),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25),
                   topRight: Radius.circular(25),

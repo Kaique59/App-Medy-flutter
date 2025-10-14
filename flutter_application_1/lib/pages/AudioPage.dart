@@ -131,6 +131,7 @@ class _AudioPageState extends State<AudioPage> {
               final item = lista[index];
               return CustomCard(
                 text: item["text"]!,
+                img: item["img"], // adicionando imagem
                 onTap: () {
                   Navigator.push(
                     context,
@@ -138,7 +139,8 @@ class _AudioPageState extends State<AudioPage> {
                       builder: (_) => AudioRolando(
                         url: item["url"]!,
                         nome: item["text"]!,
-                        categoria: titulo, // Passando a categoria correta
+                        categoria: titulo,
+                        img: item["img"], // passando imagem para a página do áudio
                       ),
                     ),
                   );
