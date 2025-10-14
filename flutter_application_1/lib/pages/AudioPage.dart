@@ -48,7 +48,7 @@ class _AudioPageState extends State<AudioPage> {
                     children: [
                       _buildCategoria("Natureza", PlayList.naturezaList),
                       SizedBox(height: altura * 0.03),
-                      _buildCategoria("Músicas", PlayList.musicasList),
+                      _buildCategoria("Ruidos terapêuticos", PlayList.musicasList),
                     ],
                   ),
                 ),

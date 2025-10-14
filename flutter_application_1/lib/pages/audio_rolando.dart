@@ -78,20 +78,20 @@ class _AudioRolandoState extends State<AudioRolando> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 80, left: 30),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  widget.categoria, // Agora mostra a categoria certa!
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-
+  padding: const EdgeInsets.only(bottom: 60), 
+  child: TextButton.icon(
+    onPressed: () => Navigator.pop(context),
+    icon: const Icon(
+      Icons.arrow_back,
+      color: Colors.white,
+      size: 24,
+    ),
+    label: const Text(
+      "voltar",
+      style: TextStyle(color: Colors.white, fontSize: 18),
+    ),
+  ),
+),
             // Nome do áudio
             Text(
               widget.nome,
