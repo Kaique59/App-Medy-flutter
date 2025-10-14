@@ -20,6 +20,7 @@ class _AudioPageState extends State<AudioPage> {
 
   bool carregandoNatureza = false;
   bool carregandoMusicas = false;
+  bool carregandoMeditation = false;
 
   @override
   void dispose() {
@@ -48,7 +49,12 @@ class _AudioPageState extends State<AudioPage> {
                     children: [
                       _buildCategoria("Natureza", PlayList.naturezaList),
                       SizedBox(height: altura * 0.03),
-                      _buildCategoria("Ruidos terapêuticos", PlayList.musicasList),
+                      _buildCategoria(
+                        "Ruidos terapêuticos",
+                        PlayList.musicasList,
+                      ),
+                      SizedBox(height: altura * 0.03),
+                      _buildCategoria("Meditação", PlayList.meditationList),
                     ],
                   ),
                 ),
@@ -140,7 +146,8 @@ class _AudioPageState extends State<AudioPage> {
                         url: item["url"]!,
                         nome: item["text"]!,
                         categoria: titulo,
-                        img: item["img"], // passando imagem para a página do áudio
+                        img:
+                            item["img"], // passando imagem para a página do áudio
                       ),
                     ),
                   );
