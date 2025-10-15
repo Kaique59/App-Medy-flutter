@@ -34,6 +34,7 @@ class _AudioPageState extends State<AudioPage> {
     final altura = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: const Color(0xFFEBE8E0),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,9 +87,7 @@ class _AudioPageState extends State<AudioPage> {
               Text(
                 "Silencie o mundo.",
                 style: TextStyle(
-                  color: widget.temaEscuro
-                      ? Colors.grey[300]
-                      : Colors.blueGrey[400],
+                  color: const Color(0xFFA0C8C0),
                   fontSize: largura * 0.045,
                   fontWeight: FontWeight.bold,
                 ),
@@ -96,16 +95,14 @@ class _AudioPageState extends State<AudioPage> {
               Text(
                 "Ouça a si mesmo.",
                 style: TextStyle(
-                  color: widget.temaEscuro ? Colors.white : Colors.blue[800],
+                  color: const Color(0xFF748D88),
                   fontSize: largura * 0.06,
                   fontWeight: FontWeight.bold,
                   shadows: [
                     Shadow(
                       offset: const Offset(1.5, 1.5),
                       blurRadius: 3,
-                      color: widget.temaEscuro
-                          ? Colors.black54
-                          : Colors.blue[200]!,
+                      color: Colors.blue[200]!,
                     ),
                   ],
                 ),
