@@ -3,7 +3,8 @@ class PlayList {
     {
       'text': 'Chuva',
       'url': 'https://cdn.freesound.org/previews/554/554674_4473224-lq.mp3',
-      'img': '',
+      'img':
+          'https://imagens-cdn.canalrural.com.br/2024/10/l7hDlQQv-chuvagif.gif',
     },
     {
       'text': 'Pássaros cantando',
