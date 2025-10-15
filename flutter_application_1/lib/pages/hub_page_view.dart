@@ -45,8 +45,8 @@ class _HubPageViewState extends State<HubPageView> {
         body: listPage[currentPage],
 
         bottomNavigationBar: CircleBottomNavigation(
-          circleColor: AppColors.azulEscuroMenu,
-          barBackgroundColor: AppColors.azulMenu,
+          circleColor: AppColors.verdeBotao,
+          barBackgroundColor: AppColors.verdePrincipal,
           barHeight: 70,
           circleSize: 40,
           initialSelection: currentPage,
