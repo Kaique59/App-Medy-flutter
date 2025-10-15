@@ -22,6 +22,8 @@ class _ChatPageState extends State<ChatPage> {
   final TextEditingController _controller = TextEditingController();
   bool _isLoading = false;
 
+  final Color verdePrincipal = const Color(0xFF7A9591);
+
   static const String _apiKey = "AIzaSyC6dDxQLHx8076s5YPNGQzauoS4gREw0Yk";
 
   Future<String> enviaChat(String prompt) async {
@@ -119,9 +121,11 @@ Mensagem do usuário: $prompt
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Medfy'),
-        backgroundColor: AppColors.azulMenu,
-        foregroundColor: Colors.white,
+        backgroundColor: verdePrincipal,
+        title: const Text(
+          'Medfy',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         children: [
@@ -131,6 +135,7 @@ Mensagem do usuário: $prompt
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 final msg = _messages[index];
+
                 return Align(
                   alignment: msg.isUser
                       ? Alignment.centerRight
