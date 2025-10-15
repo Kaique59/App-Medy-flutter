@@ -24,29 +24,29 @@ class PagCalmaInterior extends StatefulWidget {
 class _PagCalmaInteriorState extends State<PagCalmaInterior> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Respire a Serenidade",
+      titulo: "O Silêncio que Habita em Nós",
       descricao:
-          "Comece inspirando profundamente e soltando o ar lentamente. Sinta cada respiração como uma onda que acalma seu corpo e mente.",
+          "Há dentro de cada um um lugar que o barulho do mundo não alcança. Mesmo quando tudo parece agitado, esse espaço permanece intacto, esperando para ser sentido. A meditação é a chave que abre a porta para esse silêncio.",
     ),
     EtapaMeditacao(
-      titulo: "Silencie o Mundo Interior",
+      titulo: "O Coração em Repouso",
       descricao:
-          "Deixe os pensamentos fluírem sem se prender a eles. Apenas observe o silêncio que surge entre um pensamento e outro.",
+          "Quando a mente deixa de lutar contra o que é, o coração relaxa. A calma interior não é ausência de emoções, mas a capacidade de acolhê-las sem se perder nelas. É o sossego que nasce da aceitação profunda da vida.",
     ),
     EtapaMeditacao(
-      titulo: "Conecte-se com o Agora",
+      titulo: "A Paz que Não Depende",
       descricao:
-          "Traga sua atenção ao momento presente. Perceba o som ao seu redor, o toque do ar na pele e o pulsar tranquilo do seu coração.",
+          "Nada externo pode criar ou tirar sua paz verdadeira. Ela não vem do lugar onde você está, nem das pessoas ao seu redor — vem da forma como você escolhe estar presente. Quando essa verdade é sentida, o mundo pode mudar, mas você permanece sereno.",
     ),
     EtapaMeditacao(
-      titulo: "Aceite e Acolha",
+      titulo: "O Espaço Entre os Sons",
       descricao:
-          "Não lute contra as emoções ou distrações. Acolha-as com gentileza e retorne suavemente ao foco da sua respiração.",
+          "Na prática, observe os intervalos: entre um pensamento e outro, entre uma respiração e a próxima. Esses pequenos espaços são portais para a calma interior. Quanto mais você os reconhece, mais eles se expandem dentro de você.",
     ),
     EtapaMeditacao(
-      titulo: "Mergulhe na Calma Interior",
+      titulo: "O Retorno à Essência",
       descricao:
-          "Permita-se descansar na quietude. Sinta o equilíbrio entre corpo, mente e alma florescendo em paz profunda.",
+          "A calma interior é o seu estado natural. Ela não precisa ser criada, apenas lembrada. Quando você se permite descansar em si mesmo, tudo se alinha — corpo, mente e espírito respiram em uníssono. E nesse instante, você simplesmente é: paz em forma de presença.",
     ),
   ];
 
@@ -147,7 +147,7 @@ class _PagCalmaInteriorState extends State<PagCalmaInterior> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons de Tranquilidade",
+                                text: "Sons para Meditar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,

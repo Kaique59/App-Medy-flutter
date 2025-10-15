@@ -24,29 +24,29 @@ class PagProposito extends StatefulWidget {
 class _PagPropositoState extends State<PagProposito> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Conectando-se com o Propósito",
+      titulo: "O Chamado Interior",
       descricao:
-          "Descobrir o próprio propósito é perceber aquilo que realmente dá sentido à vida e nos faz sentir vivos. Ao nos conectarmos com nossos valores, ",
+        "O propósito não é algo que se busca no mundo, mas algo que desperta em silêncio dentro de você. Ele surge quando a mente se aquieta e o coração sussurra: “é por aqui”. Basta ouvir com atenção o que já estava tentando ser dito há muito tempo.",
     ),
     EtapaMeditacao(
-      titulo: "A Força da Intenção",
+      titulo: "A Voz da Essência",
       descricao:
-          "Cada ação nasce de uma intenção, mesmo que inconsciente. Quando dedicamos momentos à meditação ou reflexão profunda, podemos definir claramente nossas intenções,",
+          "Meditar é aprender a ouvir essa voz interior — aquela que fala sem palavras, que guia sem pressa. Quando você se conecta com o que realmente sente, o propósito deixa de ser uma meta e se torna um modo de viver, simples e verdadeiro.",
     ),
     EtapaMeditacao(
-      titulo: "Alinhando Paixão e Propósito",
+      titulo: "O Caminho com Sentido",
       descricao:
-          "O propósito floresce quando está intimamente ligado à nossa paixão. Identificar aquilo que amamos fazer e combiná-lo com nossas metas pessoais cria um caminho cheio de motivação,",
+        "Propósito não é sobre grandes conquistas, mas sobre presença. É colocar intenção em cada gesto, amor em cada passo. Quando suas ações refletem o que há de mais autêntico em você, até o cotidiano se transforma em algo sagrado.",
     ),
     EtapaMeditacao(
-      titulo: "Propósito e Transformação Interior",
+      titulo: "O Silêncio que Ilumina",
       descricao:
-          "Viver com propósito é permitir que cada dia seja uma oportunidade de evolução e autoconhecimento. Quando nossas ações refletem nossas intenções mais profundas, transformamos hábitos,",
+        "Há um momento na prática em que tudo parece se alinhar — a mente serena, o corpo leve, o coração tranquilo. Nesse espaço, você não precisa procurar respostas. O simples fato de estar desperto já revela o caminho.",
     ),
     EtapaMeditacao(
-      titulo: "Ação com Significado",
+      titulo: "Viver com Verdade",
       descricao:
-          "Não basta apenas definir metas; é essencial agir com intenção, consciência e comprometimento. Cada gesto, escolha e decisão pode ser direcionado para aquilo que realmente importa,",
+        "Descobrir o propósito é reconhecer que o sentido da vida está em viver com verdade. Não é o destino que importa, mas a clareza de cada passo. Quando você caminha com consciência, a vida toda se torna meditação — e o propósito, apenas o reflexo da sua presença.",
     ),
   ];
 
@@ -146,7 +146,7 @@ class _PagPropositoState extends State<PagProposito> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons para concentração",
+                                text: "Sons para Meditar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,

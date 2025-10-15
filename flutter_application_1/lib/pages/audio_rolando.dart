@@ -5,13 +5,15 @@ import 'package:flutter_application_1/Config/app_colors.dart';
 class AudioRolando extends StatefulWidget {
   final String url;
   final String nome;
-  final String categoria; // Novo campo
+  final String categoria;
+  final String? img;
 
   const AudioRolando({
     super.key,
     required this.url,
     required this.nome,
     required this.categoria,
+    this.img,
   });
 
   @override
@@ -23,6 +25,8 @@ class _AudioRolandoState extends State<AudioRolando> {
   bool tocando = false;
   Duration duracao = Duration.zero;
   Duration posicao = Duration.zero;
+
+  final Color verdePrincipal = const Color(0xFF7A9591);
 
   @override
   void initState() {
@@ -66,48 +70,78 @@ class _AudioRolandoState extends State<AudioRolando> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 224, 240, 224),
-          image: DecorationImage(
-            image: AssetImage("assets/fundo.jpg"),
-            fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          // Fundo com imagem (ou padrão se não houver)
+          Container(
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 224, 240, 224),
+              image: DecorationImage(
+                image: widget.img != null && widget.img!.isNotEmpty
+                    ? NetworkImage(widget.img!)
+                    : const AssetImage("assets/fundo.jpg") as ImageProvider,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 80, left: 30),
-              child: Align(
-                alignment: Alignment.topLeft,
+
+          // Categoria no canto superior esquerdo
+          Positioned(
+            top: 40,
+            left: 20,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Text(
+                widget.categoria,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+
+          // Nome do áudio centralizado
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.42,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(5),
+                ),
                 child: Text(
-                  widget.categoria, // Agora mostra a categoria certa!
+                  widget.nome,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
+          ),
 
-            // Nome do áudio
-            Text(
-              widget.nome,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            // Card player
-            Container(
+          // Área inferior (player)
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
               decoration: BoxDecoration(
-                color: AppColors.azulMenu,
+                color: verdePrincipal.withOpacity(0.7),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25),
                   topRight: Radius.circular(25),
@@ -129,6 +163,7 @@ class _AudioRolandoState extends State<AudioRolando> {
                       await _player.seek(pos);
                     },
                   ),
+
                   // Tempo
                   Text(
                     formatarTempo(posicao),
@@ -138,26 +173,20 @@ class _AudioRolandoState extends State<AudioRolando> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
+
                   const SizedBox(height: 20),
 
-                  // Botões
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(width: 70),
-                      IconButton(
-                        icon: Icon(
-                          tocando ? Icons.pause : Icons.play_arrow,
-                          size: 70,
-                          color: Colors.white,
-                        ),
-                        onPressed: _playPause,
-                      ),
-                      const SizedBox(width: 70),
-                    ],
+                  // Botão play/pause
+                  IconButton(
+                    icon: Icon(
+                      tocando ? Icons.pause : Icons.play_arrow,
+                      size: 70,
+                      color: Colors.white,
+                    ),
+                    onPressed: _playPause,
                   ),
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 10),
 
                   // Botão voltar
                   TextButton.icon(
@@ -175,8 +204,8 @@ class _AudioRolandoState extends State<AudioRolando> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

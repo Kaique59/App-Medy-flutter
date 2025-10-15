@@ -23,29 +23,29 @@ class PagAceitacao extends StatefulWidget {
 class _PagAceitacaoState extends State<PagAceitacao> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "Aceitação do Momento Presente",
+      titulo: "O Ato de Acolher",
       descricao:
-          "Aceitar o momento presente é permitir que a vida se desenrole sem resistência ou ansiedade. Cada experiência, seja agradável ou desafiadora, traz aprendizados valiosos que fortalecem nossa maturidade emocional.",
+          "Aceitar é abrir os braços para o que é — sem resistência, sem pressa. É olhar para dentro e reconhecer o que existe, mesmo que doa. A aceitação não muda o que aconteceu, mas muda a forma como você caminha a partir daí.",
     ),
     EtapaMeditacao(
-      titulo: "Fluir com a Vida",
+      titulo: "O Fardo que se Dissolve",
       descricao:
-          "Fluir com a vida é a arte de acompanhar os ciclos naturais sem lutar contra eles. Aprendemos a adaptar-nos com leveza, flexibilidade e paciência.",
+          "Quando deixamos de lutar contra as circunstâncias, algo se desfaz dentro de nós. O peso da negação se transforma em leveza. A mente para de buscar justificativas, e o coração encontra espaço para simplesmente ser.",
     ),
     EtapaMeditacao(
-      titulo: "Liberação de Resistências",
+      titulo: "A Paz no Presente",
       descricao:
-          "Aceitar não significa resignar-se ou desistir, mas sim liberar a resistência que gera tensão, ansiedade e sofrimento.",
+          "Aceitar é um gesto silencioso de amor-próprio. É dizer: “eu me permito estar aqui, exatamente como estou”. Nesse instante, o presente deixa de ser um obstáculo e se torna um lar — o único lugar onde a vida realmente acontece.",
     ),
     EtapaMeditacao(
-      titulo: "Harmonia Interior e Conexão",
+      titulo: "O Fluxo Natural da Vida",
       descricao:
-          "A aceitação profunda cria uma harmonia real entre mente, corpo e espírito, acolhendo emoções sem julgamento.",
+          "Tudo muda, e a aceitação é o que nos mantém em harmonia com esse movimento. Quando confiamos no ritmo da existência, não precisamos mais forçar o que não está pronto. Aprendemos a esperar com serenidade, sabendo que tudo tem seu tempo.",
     ),
     EtapaMeditacao(
-      titulo: "Transformando Desafios em Crescimento",
+      titulo: "Transformar Sem Resistir",
       descricao:
-          "Cada desafio ou momento de dificuldade pode ser recebido como parte do fluxo natural da vida, fortalecendo nosso crescimento pessoal.",
+          "Da aceitação nasce a verdadeira transformação. Não porque forçamos a mudança, mas porque paramos de bloqueá-la. Ao dizer “sim” ao momento presente, abrimos espaço para o novo — e nele, encontramos o equilíbrio que sempre buscamos.",
     ),
   ];
 
@@ -145,7 +145,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons de Tranquilidade",
+                                text: "Sons para Meditar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,

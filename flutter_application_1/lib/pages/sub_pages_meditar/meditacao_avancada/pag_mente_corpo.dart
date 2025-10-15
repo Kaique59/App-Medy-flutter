@@ -24,29 +24,29 @@ class PagMenteCorpo extends StatefulWidget {
 class _PagMenteCorpoState extends State<PagMenteCorpo> {
   final List<EtapaMenteCorpo> instrucoes = [
     EtapaMenteCorpo(
-      titulo: "Respire com Consciência",
+      titulo: "O Corpo como Porta de Entrada",
       descricao:
-          "Sente-se confortavelmente, feche os olhos e perceba o ritmo da sua respiração. Inspire profundamente e solte o ar devagar, sentindo seu corpo relaxar.",
+        "Tudo começa no corpo. Ele é o primeiro mestre, o primeiro espelho da mente. Cada respiração, cada batida do coração, cada tensão guardada revela algo sobre o que se passa dentro. Quando o corpo é ouvido com atenção, a mente começa a se aquietar.",
     ),
     EtapaMenteCorpo(
-      titulo: "Perceba as Sensações Corporais",
+      titulo: "A Energia que Flui",
       descricao:
-          "Observe as partes do seu corpo. Perceba as tensões, o calor, o frio, o toque do ar na pele. Não tente mudar nada, apenas sinta.",
+        "Na respiração consciente, a energia se move livremente. O ar não é apenas ar — é vida, é presença. Ao inspirar, o corpo se renova; ao expirar, ele se purifica. A harmonia entre mente e corpo nasce dessa dança invisível entre movimento e quietude.",
     ),
     EtapaMenteCorpo(
-      titulo: "Conecte-se com o Presente",
+      titulo: "O Olhar Interno",
       descricao:
-          "Mantenha sua atenção no momento atual. Deixe que pensamentos venham e vão, sem se prender a eles.",
+        "Quando você observa o corpo com serenidade, sem julgamento, a mente aprende a ver com clareza. Surge uma nova percepção: o corpo não é um obstáculo, mas um canal. Cada sensação é uma mensagem, cada desconforto, um convite à escuta.",
     ),
     EtapaMenteCorpo(
-      titulo: "Movimente-se com Atenção",
+      titulo: "A Unidade Silenciosa",
       descricao:
-          "Faça pequenos movimentos conscientes — alongue os braços, gire o pescoço — sentindo cada músculo e articulação responder.",
+        "No estado avançado de meditação, não há separação entre o que sente e o que pensa. O corpo respira, a mente observa, e ambos se tornam um só fluxo de consciência. É como se a vida inteira se movesse dentro de você, em perfeita harmonia.",
     ),
     EtapaMenteCorpo(
-      titulo: "Integre Mente e Corpo",
+      titulo: "O Templo Interior",
       descricao:
-          "Perceba como a calma mental influencia o corpo, e como o corpo relaxado acalma a mente. Este é o equilíbrio natural que buscamos.",
+        "Quando mente e corpo se unem, nasce o verdadeiro equilíbrio. O corpo se torna o templo da presença, e a mente, o altar do silêncio. Nesse espaço sagrado, não há esforço nem busca — apenas o simples e profundo ato de existir plenamente desperto.",
     ),
   ];
 
