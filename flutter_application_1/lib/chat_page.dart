@@ -122,7 +122,10 @@ Mensagem do usuário: $prompt
     return Scaffold(
       appBar: AppBar(
         backgroundColor: verdePrincipal,
-        title: const Text('Medfy'),
+        title: const Text(
+          'Medfy',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         children: [
@@ -132,6 +135,7 @@ Mensagem do usuário: $prompt
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 final msg = _messages[index];
+
                 return Align(
                   alignment: msg.isUser
                       ? Alignment.centerRight
