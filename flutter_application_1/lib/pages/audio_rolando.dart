@@ -38,9 +38,17 @@ class _AudioRolandoState extends State<AudioRolando> {
     _player.onDurationChanged.listen((d) {
       setState(() => duracao = d);
     });
+
     _player.onPositionChanged.listen((p) {
       setState(() => posicao = p);
     });
+
+    _player.onPlayerComplete.listen((event) async {
+      await _player.seek(Duration.zero);
+      await _player.resume();
+      setState(() => posicao = Duration.zero);
+    });
+
     await _player.play(UrlSource(widget.url));
     setState(() => tocando = true);
   }
@@ -72,7 +80,6 @@ class _AudioRolandoState extends State<AudioRolando> {
     return Scaffold(
       body: Stack(
         children: [
-          // Fundo com imagem (ou padrão se não houver)
           Container(
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 224, 240, 224),
@@ -85,7 +92,6 @@ class _AudioRolandoState extends State<AudioRolando> {
             ),
           ),
 
-          // Categoria no canto superior esquerdo
           Positioned(
             top: 40,
             left: 20,
@@ -106,7 +112,6 @@ class _AudioRolandoState extends State<AudioRolando> {
             ),
           ),
 
-          // Nome do áudio centralizado
           Positioned(
             top: MediaQuery.of(context).size.height * 0.42,
             left: 0,
@@ -134,7 +139,6 @@ class _AudioRolandoState extends State<AudioRolando> {
             ),
           ),
 
-          // Área inferior (player)
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -150,7 +154,6 @@ class _AudioRolandoState extends State<AudioRolando> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Slider
                   Slider(
                     value: posicao.inSeconds.toDouble(),
                     max: duracao.inSeconds.toDouble() > 0
@@ -164,7 +167,6 @@ class _AudioRolandoState extends State<AudioRolando> {
                     },
                   ),
 
-                  // Tempo
                   Text(
                     formatarTempo(posicao),
                     style: const TextStyle(
@@ -176,7 +178,6 @@ class _AudioRolandoState extends State<AudioRolando> {
 
                   const SizedBox(height: 20),
 
-                  // Botão play/pause
                   IconButton(
                     icon: Icon(
                       tocando ? Icons.pause : Icons.play_arrow,
@@ -188,7 +189,6 @@ class _AudioRolandoState extends State<AudioRolando> {
 
                   const SizedBox(height: 10),
 
-                  // Botão voltar
                   TextButton.icon(
                     onPressed: () => Navigator.pop(context),
                     icon: const Icon(
