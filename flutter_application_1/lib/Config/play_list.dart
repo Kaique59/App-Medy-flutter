@@ -34,10 +34,10 @@ class PlayList {
           'https://upload.wikimedia.org/wikipedia/commons/f/f2/3D_Brown_noise.gif',
     },
     {
-      'text': 'Ruído Rosa',
-      'url': 'https://cdn.freesound.org/previews/165/165057_947433-lq.mp3',
+      'text': 'Atmosfera calma',
+      'url': 'https://cdn.freesound.org/previews/789/789272_16936704-lq.mp3',
       'img':
-          'https://imgproxy.domestika.org/unsafe/w:820/plain/src://content-items/010/432/930/03-original.gif?1643826064',
+          'https://78.media.tumblr.com/a8a4a5b6cbeaef45b23905ecfb9bf673/tumblr_oyqshjBJs31rrqh9xo1_500.gif',
     },
     {
       'text': 'Ruído Marrom',
