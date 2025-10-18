@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomCardMeditar extends StatelessWidget {
   final String text;
-  final String imagePath;
+  final String imagePath; // aceita URL ou caminho local
   final VoidCallback onTap;
 
   const CustomCardMeditar({
@@ -18,7 +18,7 @@ class CustomCardMeditar extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blue[50], // fundo azul clarinho como no print
+          color: Colors.blue[50], // fundo azul clarinho
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -29,17 +29,25 @@ class CustomCardMeditar extends StatelessWidget {
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(12),
                 ),
-                child: Container(
-                  color: Colors.blue[100], // simula imagem
-                  child: Center(
-                    child: Text(
-                      "IMAGEM",
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                child: Image.network(
+                  imagePath,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  errorBuilder: (context, error, stackTrace) {
+                    // fallback caso a imagem não carregue
+                    return Container(
+                      color: Colors.blue[100],
+                      child: const Center(
+                        child: Text(
+                          "IMAGEM",
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ),
