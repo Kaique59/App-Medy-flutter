@@ -184,7 +184,12 @@ Mensagem do usuário: $prompt
                         margin: const EdgeInsets.symmetric(vertical: 4),
                         decoration: BoxDecoration(
                           color: msg.isUser
-                              ? Colors.deepPurpleAccent.withOpacity(0.85)
+                              ? const Color.fromARGB(
+                                  255,
+                                  176,
+                                  187,
+                                  180,
+                                ).withOpacity(0.85)
                               : Colors.white.withOpacity(0.85),
                           borderRadius: BorderRadius.circular(20),
                         ),
