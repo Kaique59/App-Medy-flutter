@@ -18,7 +18,7 @@ class CustomCardMeditar extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blue[50], // fundo azul clarinho
+          color: Colors.black.withOpacity(0.5),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -36,12 +36,12 @@ class CustomCardMeditar extends StatelessWidget {
                   errorBuilder: (context, error, stackTrace) {
                     // fallback caso a imagem não carregue
                     return Container(
-                      color: Colors.blue[100],
+                      color: Colors.white,
                       child: const Center(
                         child: Text(
                           "IMAGEM",
                           style: TextStyle(
-                            color: Colors.black87,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -59,7 +59,7 @@ class CustomCardMeditar extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ),
