@@ -18,10 +18,6 @@ class _AudioPageState extends State<AudioPage> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   String? audioTocando;
 
-  bool carregandoNatureza = false;
-  bool carregandoMusicas = false;
-  bool carregandoMeditation = false;
-
   @override
   void dispose() {
     _audioPlayer.dispose();
@@ -36,42 +32,33 @@ class _AudioPageState extends State<AudioPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFEBE8E0),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildCabecalho(largura),
-            SizedBox(height: altura * 0.01),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: largura * 0.04),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildCategoria("Natureza", PlayList.naturezaList),
-                      SizedBox(height: altura * 0.03),
-                      _buildCategoria(
-                        "Ruidos terapêuticos",
-                        PlayList.musicasList,
-                      ),
-                      SizedBox(height: altura * 0.03),
-                      _buildCategoria("Meditação", PlayList.meditationList),
-                    ],
-                  ),
-                ),
-              ),
+        child: SingleChildScrollView(
+          // <-- AQUI adicionamos o scroll vertical
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: largura * 0.04),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildCabecalho(largura),
+                SizedBox(height: altura * 0.01),
+                _buildCategoria("Natureza", PlayList.naturezaList),
+                SizedBox(height: altura * 0.03),
+                _buildCategoria("Ruidos terapêuticos", PlayList.musicasList),
+                SizedBox(height: altura * 0.03),
+                _buildCategoria("Meditação", PlayList.meditationList),
+                SizedBox(height: altura * 0.04),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
   }
 
-  /// Cabeçalho
   Widget _buildCabecalho(double largura) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: largura * 0.06,
+        horizontal: largura * 0.02,
         vertical: largura * 0.05,
       ),
       child: Row(
@@ -114,7 +101,6 @@ class _AudioPageState extends State<AudioPage> {
     );
   }
 
-  /// Categoria com os cards
   Widget _buildCategoria(String titulo, List<Map<String, String>> lista) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,7 +120,7 @@ class _AudioPageState extends State<AudioPage> {
               final item = lista[index];
               return CustomCard(
                 text: item["text"]!,
-                img: item["img"], // adicionando imagem
+                img: item["img"],
                 onTap: () {
                   Navigator.push(
                     context,
@@ -143,8 +129,7 @@ class _AudioPageState extends State<AudioPage> {
                         url: item["url"]!,
                         nome: item["text"]!,
                         categoria: titulo,
-                        img:
-                            item["img"], // passando imagem para a página do áudio
+                        img: item["img"],
                       ),
                     ),
                   );
