@@ -11,7 +11,7 @@ class AppScrollCard<T> extends StatefulWidget {
     super.key,
     required this.items,
     required this.itemBuilder,
-    this.height = 500, // altura para dar mais espaço para texto
+    this.height = 700, // altura para dar mais espaço para texto
     this.activeDotColor = Colors.blue,
     this.inactiveDotColor = Colors.grey,
   });
@@ -39,7 +39,7 @@ class _AppScrollCardState<T> extends State<AppScrollCard<T>> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height, // agora há mais altura vertical
+      height: widget.height,
       child: Column(
         children: [
           Expanded(
@@ -54,7 +54,26 @@ class _AppScrollCardState<T> extends State<AppScrollCard<T>> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: widget.itemBuilder(widget.items[index]),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 8,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.all(16),
+                        child: widget.itemBuilder(widget.items[index]),
+                      ),
+                    ),
+                  ),
                 );
               },
             ),
