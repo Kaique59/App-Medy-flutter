@@ -37,16 +37,18 @@ class _HubPageViewState extends State<HubPageView> {
       body: Stack(
         children: [
           listPage[currentPage],
-          Positioned(
-            left: 16,
-            right: 16,
-            bottom: 24, // ajuste para flutuar sobre os elementos
-            child: _BottomNavBar(
-              items: menuItems,
-              currentIndex: currentPage,
-              onItemSelected: (index) => setState(() => currentPage = index),
+          // Oculta o BottomNavBar na ChatPage (índice 3)
+          if (currentPage != 3)
+            Positioned(
+              left: 16,
+              right: 16,
+              bottom: 24, // ajuste para flutuar sobre os elementos
+              child: _BottomNavBar(
+                items: menuItems,
+                currentIndex: currentPage,
+                onItemSelected: (index) => setState(() => currentPage = index),
+              ),
             ),
-          ),
         ],
       ),
     );
