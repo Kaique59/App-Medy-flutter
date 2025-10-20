@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Config/app_colors.dart';
+import 'package:http/http.dart' as http;
+import 'dart:io';
 
 class ChatMessage {
   final String text;
@@ -23,8 +23,11 @@ class _ChatPageState extends State<ChatPage> {
   bool _isLoading = false;
 
   final Color verdePrincipal = const Color(0xFF7A9591);
+  final Color inputBackgroundColor = const Color(0xFFD5E0D9);
 
-  static const String _apiKey = "AIzaSyC6dDxQLHx8076s5YPNGQzauoS4gREw0Yk";
+  // IMPORTANTE: Use sua chave de API completa e real aqui!
+  static const String _apiKey =
+      "AIzaSyC6dDxQLHx8076s5YPNGQzauoS4gREw0Yk"; // Coloque sua chave real
 
   Future<String> enviaChat(String prompt) async {
     final url = Uri.parse(
@@ -33,7 +36,6 @@ class _ChatPageState extends State<ChatPage> {
 
     final instruction =
         '''
-
 Você é o Medfy, um aplicativo de meditação focado no bem-estar emocional. Sua função é atuar como um Chat de Meditação.
 
 Sua abordagem deve ser gentil, respeitosa e adaptada ao estado emocional do usuário. No início da conversa, mantenha respostas curtas, suaves e acolhedoras.
@@ -41,19 +43,19 @@ Sua abordagem deve ser gentil, respeitosa e adaptada ao estado emocional do usu�
 Oriente a prática da meditação por três fases:
 
 1. **Introdução à Meditação**
-   - Ensine técnicas básicas de respiração: inspirar pelo nariz, expirar pela boca, focando no momento presente.
-   - Ajude o usuário a relaxar corpo e mente, soltando tensões físicas e preocupações.
-   - Explique que aprender a meditar é um processo: comece com poucos minutos por dia, focando na respiração, sem buscar perfeição — apenas presença.
+    - Ensine técnicas básicas de respiração: inspirar pelo nariz, expirar pela boca, focando no momento presente.
+    - Ajude o usuário a relaxar corpo e mente, soltando tensões físicas e preocupações.
+    - Explique que aprender a meditar é um processo: comece com poucos minutos por dia, focando na respiração, sem buscar perfeição — apenas presença.
 
 2. **Novo Ciclo de Meditação**
-   - Traga reflexões sobre aceitação: acolher as emoções sem resistência, reconhecendo o que se sente.
-   - Ajude o usuário a encontrar equilíbrio entre ação e pausa, mostrando que o equilíbrio é um estado interno.
-   - Estimule o usuário a buscar propósito com introspecção, percebendo o que faz sentido em sua vida de forma genuína.
+    - Traga reflexões sobre aceitação: acolher as emoções sem resistência, reconhecendo o que se sente.
+    - Ajude o usuário a encontrar equilíbrio entre ação e pausa, mostrando que o equilíbrio é um estado interno.
+    - Estimule o usuário a buscar propósito com introspecção, percebendo o que faz sentido em sua vida de forma genuína.
 
 3. **Meditação Avançada**
-   - Fale sobre a conexão entre mente e corpo: respiração consciente gera alinhamento e vitalidade.
-   - Fortaleça o foco e a atenção plena, observando pensamentos sem julgamentos.
-   - Mostre como acessar a calma interior, um espaço silencioso e estável que não depende do mundo externo.
+    - Fale sobre a conexão entre mente e corpo: respiração consciente gera alinhamento e vitalidade.
+    - Fortaleça o foco e a atenção plena, observando pensamentos sem julgamentos.
+    - Mostre como acessar a calma interior, um espaço silencioso e estável que não depende do mundo externo.
 
 Sempre que possível, recomende áudios da biblioteca Medfy, explicando brevemente seus benefícios:
 - "Respiração Consciente" → ideal para começar e voltar ao presente.
@@ -67,10 +69,13 @@ Evite julgamentos, diagnósticos ou conselhos impositivos. Ofereça sempre acolh
 Mensagem do usuário: $prompt
 ''';
 
+    // AQUI ESTÁ A CORREÇÃO PRINCIPAL: Estrutura JSON correta para a API Gemini
     final body = jsonEncode({
       "contents": [
+        // Chave corrigida para "contents" (no plural)
         {
           "parts": [
+            // A mensagem deve estar dentro de "parts"
             {"text": instruction},
           ],
         },
@@ -89,6 +94,7 @@ Mensagem do usuário: $prompt
 
       if (response.statusCode == 200) {
         final data = jsonDecode(responseBody);
+        // Acesso corrigido ao texto da resposta, aninhado em "parts" e "text"
         final text = data["candidates"]?[0]?["content"]?["parts"]?[0]?["text"];
         return text ?? "⚠️ Resposta vazia.";
       } else {
@@ -127,69 +133,99 @@ Mensagem do usuário: $prompt
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(12),
-              itemCount: _messages.length,
-              itemBuilder: (context, index) {
-                final msg = _messages[index];
+          // Fundo verde
+          Container(color: verdePrincipal),
 
-                return Align(
-                  alignment: msg.isUser
-                      ? Alignment.centerRight
-                      : Alignment.centerLeft,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 16,
-                    ),
-                    margin: const EdgeInsets.symmetric(vertical: 4),
-                    decoration: BoxDecoration(
-                      color: msg.isUser
-                          ? Colors.deepPurpleAccent
-                          : Colors.grey[300],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      msg.text,
-                      style: TextStyle(
-                        color: msg.isUser ? Colors.white : Colors.black87,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                );
-              },
+          // Ícone de folha suave no fundo
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.center,
+              child: Opacity(
+                opacity: 0.08,
+                child: Transform.rotate(
+                  angle: -0.3,
+                  child: const Icon(Icons.eco, size: 400, color: Colors.white),
+                ),
+              ),
             ),
           ),
-          if (_isLoading)
-            const Padding(
-              padding: EdgeInsets.all(8),
-              child: CircularProgressIndicator(),
-            ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: 'Digite sua mensagem...',
-                      border: OutlineInputBorder(),
+
+          // Conteúdo principal do chat
+          Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(12),
+                  itemCount: _messages.length,
+                  itemBuilder: (context, index) {
+                    final msg = _messages[index];
+                    return Align(
+                      alignment: msg.isUser
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 16,
+                        ),
+                        margin: const EdgeInsets.symmetric(vertical: 4),
+                        decoration: BoxDecoration(
+                          color: msg.isUser
+                              ? Colors.deepPurpleAccent.withOpacity(0.85)
+                              : Colors.white.withOpacity(0.85),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          msg.text,
+                          style: TextStyle(
+                            color: msg.isUser ? Colors.white : Colors.black87,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              if (_isLoading)
+                const Padding(
+                  padding: EdgeInsets.all(8),
+                  child: CircularProgressIndicator(),
+                ),
+
+              // Barra de entrada com fundo branco ou verde clarinho
+              Container(
+                color: inputBackgroundColor,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 8,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: _controller,
+                        decoration: const InputDecoration(
+                          hintText: 'Digite sua mensagem...',
+                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                        onSubmitted: (_) => _sendMessage(),
+                      ),
                     ),
-                    onSubmitted: (_) => _sendMessage(),
-                  ),
+                    const SizedBox(width: 8),
+                    IconButton(
+                      icon: const Icon(Icons.send),
+                      onPressed: _isLoading ? null : _sendMessage,
+                      color: Colors.black54,
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 8),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: _isLoading ? null : _sendMessage,
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
