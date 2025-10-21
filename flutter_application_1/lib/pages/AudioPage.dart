@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_application_1/Config/play_list.dart';
 import 'audio_rolando.dart';
@@ -19,8 +20,25 @@ class _AudioPageState extends State<AudioPage> {
   String? audioTocando;
 
   @override
+  void initState() {
+    super.initState();
+    // Bloqueia a orientação para retrato (vertical)
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
   void dispose() {
     _audioPlayer.dispose();
+    // Libera todas as orientações quando sair da tela
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     super.dispose();
   }
 
@@ -33,7 +51,6 @@ class _AudioPageState extends State<AudioPage> {
       backgroundColor: const Color(0xFFEBE8E0),
       body: SafeArea(
         child: SingleChildScrollView(
-          // <-- AQUI adicionamos o scroll vertical
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: largura * 0.04),
             child: Column(
