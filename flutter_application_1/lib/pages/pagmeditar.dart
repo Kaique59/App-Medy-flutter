@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/pages/sub_pages_meditar/meditacao_avancada/pag_mente_corpo.dart';
 import 'package:flutter_application_1/widgets/custom_card_meditar.dart';
 import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_respiracao.dart';
@@ -81,6 +82,12 @@ class PagMeditar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 🔒 Bloquear orientação da tela apenas vertical
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     final largura = MediaQuery.of(context).size.width;
 
     return Scaffold(

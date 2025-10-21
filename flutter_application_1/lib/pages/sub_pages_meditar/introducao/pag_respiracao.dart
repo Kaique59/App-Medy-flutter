@@ -84,7 +84,7 @@ class _PagRespiracaoState extends State<PagRespiracao> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: fundoClaro,
-                      fontSize: largura * 0.035,
+                      fontSize: largura * 0.040,
                       fontWeight: FontWeight.w500,
                       height: 1.3,
                     ),
@@ -167,9 +167,10 @@ class _PagRespiracaoState extends State<PagRespiracao> {
                       ),
                       const SizedBox(height: 20),
 
+                      // 🔽 CARD MAIOR (altura ajustada)
                       AppScrollCard<EtapaRespiracao>(
                         items: instrucoes,
-                        height: altura * 0.35,
+                        height: altura * 0.35, // ← aumentei o tamanho vertical
                         activeDotColor: verdePrincipal,
                         inactiveDotColor: Colors.grey[400]!,
                         itemBuilder: (etapa) {
@@ -212,7 +213,7 @@ class _PagRespiracaoState extends State<PagRespiracao> {
                         },
                       ),
 
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
 
                       // VÍDEOS
                       ...VideoPlayList.videoListrespiracao.map((video) {

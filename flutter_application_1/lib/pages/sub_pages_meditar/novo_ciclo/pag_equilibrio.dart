@@ -26,27 +26,27 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
     EtapaMeditacao(
       titulo: "O Centro Silencioso",
       descricao:
-        "O equilíbrio nasce quando você encontra, dentro de si, um ponto que permanece firme mesmo quando tudo ao redor muda. É o espaço silencioso entre um pensamento e outro, onde mora a clareza e o descanso.",
+          "O equilíbrio nasce quando você encontra, dentro de si, um ponto que permanece firme mesmo quando tudo ao redor muda. É o espaço silencioso entre um pensamento e outro, onde mora a clareza e o descanso.",
     ),
     EtapaMeditacao(
       titulo: "Entre o Fazer e o Ser",
       descricao:
-        "Viver em equilíbrio é aprender a alternar entre agir e simplesmente estar. Há momentos de movimento e momentos de pausa — e ambos são necessários. Saber quando avançar e quando respirar é a arte da harmonia.",
+          "Viver em equilíbrio é aprender a alternar entre agir e simplesmente estar. Há momentos de movimento e momentos de pausa — e ambos são necessários. Saber quando avançar e quando respirar é a arte da harmonia.",
     ),
     EtapaMeditacao(
       titulo: "O Corpo que Ensina",
       descricao:
-        "O corpo mostra o caminho: ele inspira e expira, contrai e relaxa, sem esforço. Quando o seguimos, percebemos que o equilíbrio não é rigidez, mas fluidez. É o vai e vem natural da vida acontecendo sem resistência.",
+          "O corpo mostra o caminho: ele inspira e expira, contrai e relaxa, sem esforço. Quando o seguimos, percebemos que o equilíbrio não é rigidez, mas fluidez. É o vai e vem natural da vida acontecendo sem resistência.",
     ),
     EtapaMeditacao(
       titulo: "A Calma em Meio ao Caos",
       descricao:
-        "Mesmo quando tudo parece instável, o equilíbrio pode permanecer dentro de você. Ele não depende das circunstâncias, mas da forma como você as acolhe. É o olhar tranquilo que enxerga o caos e ainda escolhe a paz.",
+          "Mesmo quando tudo parece instável, o equilíbrio pode permanecer dentro de você. Ele não depende das circunstâncias, mas da forma como você as acolhe. É o olhar tranquilo que enxerga o caos e ainda escolhe a paz.",
     ),
     EtapaMeditacao(
       titulo: "O Retorno ao Essencial",
       descricao:
-        "No fundo, equilíbrio é lembrar-se de quem você é. Não é buscar algo novo, mas retornar ao que sempre esteve aí: presença, serenidade e confiança. Quando você se reconecta com esse centro, descobre que a vida toda respira no mesmo ritmo que você.",
+          "No fundo, equilíbrio é lembrar-se de quem você é. Não é buscar algo novo, mas retornar ao que sempre esteve aí: presença, serenidade e confiança. Quando você se reconecta com esse centro, descobre que a vida toda respira no mesmo ritmo que você.",
     ),
   ];
 
@@ -85,7 +85,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: largura * 0.035,
+                      fontSize: largura * 0.040,
                       fontWeight: FontWeight.w500,
                       height: 1.3,
                     ),

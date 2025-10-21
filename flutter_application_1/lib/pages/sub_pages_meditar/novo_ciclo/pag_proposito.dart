@@ -26,7 +26,7 @@ class _PagPropositoState extends State<PagProposito> {
     EtapaMeditacao(
       titulo: "O Chamado Interior",
       descricao:
-        "O propósito não é algo que se busca no mundo, mas algo que desperta em silêncio dentro de você. Ele surge quando a mente se aquieta e o coração sussurra: “é por aqui”. Basta ouvir com atenção o que já estava tentando ser dito há muito tempo.",
+          "O propósito não é algo que se busca no mundo, mas algo que desperta em silêncio dentro de você. Ele surge quando a mente se aquieta e o coração sussurra: “é por aqui”. Basta ouvir com atenção o que já estava tentando ser dito há muito tempo.",
     ),
     EtapaMeditacao(
       titulo: "A Voz da Essência",
@@ -36,17 +36,17 @@ class _PagPropositoState extends State<PagProposito> {
     EtapaMeditacao(
       titulo: "O Caminho com Sentido",
       descricao:
-        "Propósito não é sobre grandes conquistas, mas sobre presença. É colocar intenção em cada gesto, amor em cada passo. Quando suas ações refletem o que há de mais autêntico em você, até o cotidiano se transforma em algo sagrado.",
+          "Propósito não é sobre grandes conquistas, mas sobre presença. É colocar intenção em cada gesto, amor em cada passo. Quando suas ações refletem o que há de mais autêntico em você, até o cotidiano se transforma em algo sagrado.",
     ),
     EtapaMeditacao(
       titulo: "O Silêncio que Ilumina",
       descricao:
-        "Há um momento na prática em que tudo parece se alinhar — a mente serena, o corpo leve, o coração tranquilo. Nesse espaço, você não precisa procurar respostas. O simples fato de estar desperto já revela o caminho.",
+          "Há um momento na prática em que tudo parece se alinhar — a mente serena, o corpo leve, o coração tranquilo. Nesse espaço, você não precisa procurar respostas. O simples fato de estar desperto já revela o caminho.",
     ),
     EtapaMeditacao(
       titulo: "Viver com Verdade",
       descricao:
-        "Descobrir o propósito é reconhecer que o sentido da vida está em viver com verdade. Não é o destino que importa, mas a clareza de cada passo. Quando você caminha com consciência, a vida toda se torna meditação — e o propósito, apenas o reflexo da sua presença.",
+          "Descobrir o propósito é reconhecer que o sentido da vida está em viver com verdade. Não é o destino que importa, mas a clareza de cada passo. Quando você caminha com consciência, a vida toda se torna meditação — e o propósito, apenas o reflexo da sua presença.",
     ),
   ];
 
@@ -85,7 +85,7 @@ class _PagPropositoState extends State<PagProposito> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: largura * 0.035,
+                      fontSize: largura * 0.040,
                       fontWeight: FontWeight.w500,
                       height: 1.3,
                     ),
