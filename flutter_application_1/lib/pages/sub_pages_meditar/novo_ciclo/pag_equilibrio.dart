@@ -2,11 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
-import 'package:flutter_application_1/pages/Audiopage.dart';
-import 'package:flutter_application_1/pages/Home_Page.dart';
+import 'package:flutter_application_1/pages/hub_page_view.dart'; // ← Importante
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-// Classe para cada etapa
 class EtapaMeditacao {
   final String titulo;
   final String descricao;
@@ -26,27 +24,27 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
     EtapaMeditacao(
       titulo: "O Centro Silencioso",
       descricao:
-        "O equilíbrio nasce quando você encontra, dentro de si, um ponto que permanece firme mesmo quando tudo ao redor muda. É o espaço silencioso entre um pensamento e outro, onde mora a clareza e o descanso.",
+          "O equilíbrio nasce quando você encontra, dentro de si, um ponto que permanece firme mesmo quando tudo ao redor muda. É o espaço silencioso entre um pensamento e outro, onde mora a clareza e o descanso.",
     ),
     EtapaMeditacao(
       titulo: "Entre o Fazer e o Ser",
       descricao:
-        "Viver em equilíbrio é aprender a alternar entre agir e simplesmente estar. Há momentos de movimento e momentos de pausa — e ambos são necessários. Saber quando avançar e quando respirar é a arte da harmonia.",
+          "Viver em equilíbrio é aprender a alternar entre agir e simplesmente estar. Há momentos de movimento e momentos de pausa — e ambos são necessários. Saber quando avançar e quando respirar é a arte da harmonia.",
     ),
     EtapaMeditacao(
       titulo: "O Corpo que Ensina",
       descricao:
-        "O corpo mostra o caminho: ele inspira e expira, contrai e relaxa, sem esforço. Quando o seguimos, percebemos que o equilíbrio não é rigidez, mas fluidez. É o vai e vem natural da vida acontecendo sem resistência.",
+          "O corpo mostra o caminho: ele inspira e expira, contrai e relaxa, sem esforço. Quando o seguimos, percebemos que o equilíbrio não é rigidez, mas fluidez. É o vai e vem natural da vida acontecendo sem resistência.",
     ),
     EtapaMeditacao(
       titulo: "A Calma em Meio ao Caos",
       descricao:
-        "Mesmo quando tudo parece instável, o equilíbrio pode permanecer dentro de você. Ele não depende das circunstâncias, mas da forma como você as acolhe. É o olhar tranquilo que enxerga o caos e ainda escolhe a paz.",
+          "Mesmo quando tudo parece instável, o equilíbrio pode permanecer dentro de você. Ele não depende das circunstâncias, mas da forma como você as acolhe. É o olhar tranquilo que enxerga o caos e ainda escolhe a paz.",
     ),
     EtapaMeditacao(
       titulo: "O Retorno ao Essencial",
       descricao:
-        "No fundo, equilíbrio é lembrar-se de quem você é. Não é buscar algo novo, mas retornar ao que sempre esteve aí: presença, serenidade e confiança. Quando você se reconecta com esse centro, descobre que a vida toda respira no mesmo ritmo que você.",
+          "No fundo, equilíbrio é lembrar-se de quem você é. Não é buscar algo novo, mas retornar ao que sempre esteve aí: presença, serenidade e confiança. Quando você se reconecta com esse centro, descobre que a vida toda respira no mesmo ritmo que você.",
     ),
   ];
 
@@ -75,7 +73,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      icon: Icon(Icons.arrow_back, color: fundoClaro),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
@@ -84,8 +82,8 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                     "Encontre a harmonia entre corpo, mente e espírito através da meditação do equilíbrio.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: largura * 0.035,
+                      color: fundoClaro,
+                      fontSize: largura * 0.040,
                       fontWeight: FontWeight.w500,
                       height: 1.3,
                     ),
@@ -116,10 +114,12 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
+                                // ✅ Volta para Home com menu
                                 Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HomePage(),
+                                    builder: (context) =>
+                                        const HubPageView(initialIndex: 0),
                                   ),
                                   (route) => false,
                                 );
@@ -137,16 +137,19 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
+                                // ✅ Vai para aba "Áudios" com menu
+                                Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const AudioPage(),
+                                    builder: (context) =>
+                                        const HubPageView(initialIndex: 2),
                                   ),
+                                  (route) => false,
                                 );
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons para Meditar",
+                                text: "Sons relaxantes",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -179,7 +182,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   color: Colors.black12,
                                   blurRadius: 6,
@@ -282,6 +285,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
   }
 }
 
+// --- CARD DE VÍDEO ---
 class YoutubeVideoCard extends StatelessWidget {
   final String videoUrl;
   final String title;
