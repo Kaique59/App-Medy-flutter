@@ -22,7 +22,6 @@ class _AudioPageState extends State<AudioPage> {
   @override
   void initState() {
     super.initState();
-    // Bloqueia a orientação para retrato (vertical)
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -32,7 +31,6 @@ class _AudioPageState extends State<AudioPage> {
   @override
   void dispose() {
     _audioPlayer.dispose();
-    // Libera todas as orientações quando sair da tela
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
