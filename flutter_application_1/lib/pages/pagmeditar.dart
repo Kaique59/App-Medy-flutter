@@ -100,6 +100,9 @@ class PagMeditar extends StatelessWidget {
             ...sections.entries.map((section) {
               return _buildSection(context, section.key, section.value);
             }).toList(),
+
+            // Espaço reservado para o menu flutuante no final
+            const SizedBox(height: 120), // ajuste conforme altura do menu
           ],
         ),
       ),

@@ -7,14 +7,16 @@ import 'package:flutter_application_1/pages/pagmeditar.dart';
 import 'package:flutter_application_1/pages/Audiopage.dart';
 
 class HubPageView extends StatefulWidget {
-  const HubPageView({super.key});
+  final int initialIndex; // ← ADICIONADO
+
+  const HubPageView({super.key, this.initialIndex = 0}); // ← PADRÃO = 0 (Home)
 
   @override
   State<HubPageView> createState() => _HubPageViewState();
 }
 
 class _HubPageViewState extends State<HubPageView> {
-  int currentPage = 0;
+  late int currentPage;
 
   final List<Widget> listPage = [
     HomePage(),
@@ -31,6 +33,12 @@ class _HubPageViewState extends State<HubPageView> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    currentPage = widget.initialIndex; // ← usa o índice inicial
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
@@ -42,7 +50,7 @@ class _HubPageViewState extends State<HubPageView> {
             Positioned(
               left: 16,
               right: 16,
-              bottom: 24, // ajuste para flutuar sobre os elementos
+              bottom: 24,
               child: _BottomNavBar(
                 items: menuItems,
                 currentIndex: currentPage,
@@ -78,7 +86,7 @@ class _BottomNavBar extends StatelessWidget {
     return Container(
       height: 90,
       decoration: BoxDecoration(
-        color: AppColors.verdePrincipal, // só o verdePrincipal
+        color: AppColors.verdePrincipal,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
