@@ -2,11 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
-import 'package:flutter_application_1/pages/Audiopage.dart';
-import 'package:flutter_application_1/pages/Home_Page.dart';
+import 'package:flutter_application_1/pages/hub_page_view.dart'; // ← Importante
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-// Classe para cada etapa
 class EtapaMeditacao {
   final String titulo;
   final String descricao;
@@ -75,7 +73,7 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      icon: Icon(Icons.arrow_back, color: fundoClaro),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
@@ -84,7 +82,7 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                     "A meditação é a arte de acalmar a mente e harmonizar corpo e espírito.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: fundoClaro,
                       fontSize: largura * 0.040,
                       fontWeight: FontWeight.w500,
                       height: 1.3,
@@ -116,10 +114,12 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
+                                // ✅ Volta para a Home com menu
                                 Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HomePage(),
+                                    builder: (context) =>
+                                        const HubPageView(initialIndex: 0),
                                   ),
                                   (route) => false,
                                 );
@@ -137,16 +137,19 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
+                                // ✅ Vai para aba "Áudios" com menu
+                                Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const AudioPage(),
+                                    builder: (context) =>
+                                        const HubPageView(initialIndex: 2),
                                   ),
+                                  (route) => false,
                                 );
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons para meditar",
+                                text: "Sons relaxantes",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -157,7 +160,7 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                       ),
                       const SizedBox(height: 30),
 
-                      // PASSOS PARA APRENDER MEDITAÇÃO
+                      // PASSOS PARA MEDITAÇÃO
                       Text(
                         "Passos para aprender meditação",
                         style: TextStyle(
@@ -168,6 +171,7 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                       ),
                       const SizedBox(height: 20),
 
+                      // 🔽 CARD MAIOR
                       AppScrollCard<EtapaMeditacao>(
                         items: instrucoes,
                         height: altura * 0.35,
@@ -179,7 +183,7 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   color: Colors.black12,
                                   blurRadius: 6,
@@ -224,19 +228,6 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                         );
                       }),
 
-                      const SizedBox(height: 20),
-                      const Center(
-                        child: Text(
-                          "Respire fundo, sinta a paz envolver você e leve consigo a serenidade deste momento.",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontStyle: FontStyle.italic,
-                            color: Colors.blueGrey,
-                            height: 1.4,
-                          ),
-                        ),
-                      ),
                       const SizedBox(height: 20),
                     ],
                   ),

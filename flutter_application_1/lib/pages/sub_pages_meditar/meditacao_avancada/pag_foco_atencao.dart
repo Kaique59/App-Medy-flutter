@@ -2,11 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
-import 'package:flutter_application_1/pages/Audiopage.dart';
-import 'package:flutter_application_1/pages/home_page.dart';
+import 'package:flutter_application_1/pages/hub_page_view.dart'; // ← Import importante
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-// Classe para cada etapa
 class EtapaMeditacao {
   final String titulo;
   final String descricao;
@@ -50,7 +48,6 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
     ),
   ];
 
-  // CORES PADRÃO DO APP (sem azul)
   final Color fundoClaro = const Color(0xFFEBE8E0);
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
@@ -76,7 +73,7 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: IconButton(
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      icon: Icon(Icons.arrow_back, color: fundoClaro),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
@@ -85,7 +82,7 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
                     "Aprofunde sua atenção e melhore sua capacidade de foco com esta prática de meditação avançada.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: fundoClaro,
                       fontSize: largura * 0.040,
                       fontWeight: FontWeight.w500,
                       height: 1.3,
@@ -117,15 +114,17 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.pushReplacement(
+                                Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HomePage(),
+                                    builder: (context) =>
+                                        const HubPageView(initialIndex: 0),
                                   ),
+                                  (route) => false,
                                 );
                               },
                               child: _actionButton(
-                                icon: Icons.home,
+                                icon: CupertinoIcons.house_fill,
                                 text: "Home",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
@@ -137,16 +136,18 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.push(
+                                Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const AudioPage(),
+                                    builder: (context) =>
+                                        const HubPageView(initialIndex: 2),
                                   ),
+                                  (route) => false,
                                 );
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons para Meditar",
+                                text: "Sons relaxantes",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -249,7 +250,6 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
     );
   }
 
-  // BOTÃO PERSONALIZADO
   Widget _actionButton({
     required IconData icon,
     required String text,
@@ -268,7 +268,7 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, color: iconTextColor, size: 26),
-          const SizedBox(width: 8), // 👈 espaço entre ícone e texto
+          const SizedBox(width: 15),
           Text(
             text,
             style: TextStyle(
