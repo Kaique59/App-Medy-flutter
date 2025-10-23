@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
 import 'package:flutter_application_1/pages/hub_page_view.dart'; // ← Importante
@@ -52,6 +53,26 @@ class _PagCalmaInteriorState extends State<PagCalmaInterior> {
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
   final Color verdeContorno = const Color(0xFFA4A4A4);
+
+  @override
+  void initState() {
+    super.initState();
+    // 🔒 Bloqueia em retrato ao abrir a página
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    // 🔒 Retorna para retrato quando sair da página
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -312,9 +333,31 @@ class YoutubeVideoCard extends StatelessWidget {
               YoutubePlayer(
                 controller: YoutubePlayerController(
                   initialVideoId: videoId ?? "",
-                  flags: const YoutubePlayerFlags(autoPlay: false),
+                  flags: const YoutubePlayerFlags(
+                    autoPlay: false,
+                    enableCaption: true,
+                    isLive: false,
+                  ),
                 ),
                 showVideoProgressIndicator: true,
+                onReady: () {
+                
+                  YoutubePlayerController controller =
+                      YoutubePlayerController(initialVideoId: videoId ?? "");
+                  controller.addListener(() {
+                    if (controller.value.isFullScreen) {
+                      SystemChrome.setPreferredOrientations([
+                        DeviceOrientation.landscapeLeft,
+                        DeviceOrientation.landscapeRight,
+                      ]);
+                    } else {
+                      SystemChrome.setPreferredOrientations([
+                        DeviceOrientation.portraitUp,
+                        DeviceOrientation.portraitDown,
+                      ]);
+                    }
+                  });
+                },
               ),
               const SizedBox(height: 8),
               Text(

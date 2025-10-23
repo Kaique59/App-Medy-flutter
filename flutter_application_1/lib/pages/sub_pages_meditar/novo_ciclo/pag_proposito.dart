@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
-import 'package:flutter_application_1/pages/hub_page_view.dart'; // ← Importante
+import 'package:flutter_application_1/pages/hub_page_view.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class EtapaMeditacao {
@@ -52,6 +53,23 @@ class _PagPropositoState extends State<PagProposito> {
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
   final Color verdeContorno = const Color(0xFFA4A4A4);
+
+  @override
+  void initState() {
+    super.initState();
+    // 🔒 Trava a tela na vertical ao entrar na página
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    // 🔄 Restaura a rotação normal ao sair da página
+    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +132,6 @@ class _PagPropositoState extends State<PagProposito> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                // ✅ Volta para Home com menu
                                 Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
@@ -137,7 +154,6 @@ class _PagPropositoState extends State<PagProposito> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                // ✅ Vai para aba "Áudios" com menu
                                 Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
@@ -218,7 +234,7 @@ class _PagPropositoState extends State<PagProposito> {
 
                       const SizedBox(height: 30),
 
-                      // VÍDEOS
+                      // --- LISTA DE VÍDEOS ---
                       ...VideoPlayList.videoListProposito.map((video) {
                         return YoutubeVideoCard(
                           videoUrl: video["videoUrl"]!,
@@ -285,8 +301,8 @@ class _PagPropositoState extends State<PagProposito> {
   }
 }
 
-// --- CARD DE VÍDEO ---
-class YoutubeVideoCard extends StatelessWidget {
+// --- CARD DE VÍDEO COM CONTROLE DE ROTAÇÃO ---
+class YoutubeVideoCard extends StatefulWidget {
   final String videoUrl;
   final String title;
   final String subtitle;
@@ -299,9 +315,44 @@ class YoutubeVideoCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final videoId = YoutubePlayer.convertUrlToId(videoUrl);
+  State<YoutubeVideoCard> createState() => _YoutubeVideoCardState();
+}
 
+class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl) ?? "";
+
+    _controller =
+        YoutubePlayerController(
+          initialVideoId: videoId,
+          flags: const YoutubePlayerFlags(autoPlay: false),
+        )..addListener(() {
+          if (_controller.value.isFullScreen) {
+            // 🔄 Libera rotação quando o vídeo entra em tela cheia
+            SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+          } else {
+            // 🔒 Volta a travar na vertical ao sair do fullscreen
+            SystemChrome.setPreferredOrientations([
+              DeviceOrientation.portraitUp,
+              DeviceOrientation.portraitDown,
+            ]);
+          }
+        });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Card(
@@ -312,15 +363,12 @@ class YoutubeVideoCard extends StatelessWidget {
           child: Column(
             children: [
               YoutubePlayer(
-                controller: YoutubePlayerController(
-                  initialVideoId: videoId ?? "",
-                  flags: const YoutubePlayerFlags(autoPlay: false),
-                ),
+                controller: _controller,
                 showVideoProgressIndicator: true,
               ),
               const SizedBox(height: 8),
               Text(
-                title,
+                widget.title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -328,7 +376,7 @@ class YoutubeVideoCard extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                subtitle,
+                widget.subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
