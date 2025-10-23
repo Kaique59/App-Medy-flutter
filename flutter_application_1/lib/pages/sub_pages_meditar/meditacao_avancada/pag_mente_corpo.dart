@@ -25,27 +25,27 @@ class _PagMenteCorpoState extends State<PagMenteCorpo> {
     EtapaMenteCorpo(
       titulo: "O Corpo como Porta de Entrada",
       descricao:
-          "Tudo começa no corpo. Ele é o primeiro mestre, o primeiro espelho da mente...",
+          "Tudo começa no corpo, o primeiro mestre e espelho da mente. Ele revela o que a mente muitas vezes ignora.",
     ),
     EtapaMenteCorpo(
       titulo: "A Energia que Flui",
       descricao:
-          "Na respiração consciente, a energia se move livremente. O ar não é apenas ar — é vida...",
+          "Na respiração consciente, a energia circula livremente. Cada inspiração é vida, cada expiração, liberação.",
     ),
     EtapaMenteCorpo(
       titulo: "O Olhar Interno",
       descricao:
-          "Quando você observa o corpo com serenidade, sem julgamento, a mente aprende a ver com clareza...",
+          "Observar o corpo com serenidade e sem julgamentos ensina a mente a enxergar com clareza e presença.",
     ),
     EtapaMenteCorpo(
       titulo: "A Unidade Silenciosa",
       descricao:
-          "No estado avançado de meditação, não há separação entre o que sente e o que pensa...",
+          "Na meditação profunda, não há separação entre sentir e pensar; mente e corpo se harmonizam em silêncio.",
     ),
     EtapaMenteCorpo(
       titulo: "O Templo Interior",
       descricao:
-          "Quando mente e corpo se unem, nasce o verdadeiro equilíbrio. O corpo se torna o templo da presença...",
+          "Quando mente e corpo se alinham, nasce o equilíbrio. O corpo se torna o templo vivo da presença e consciência.",
     ),
   ];
 
@@ -165,7 +165,7 @@ class _PagMenteCorpoState extends State<PagMenteCorpo> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons Relaxantes",
+                                text: "Relaxe",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -361,13 +361,11 @@ class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
                 onReady: () {
                   _controller.addListener(() {
                     if (_controller.value.isFullScreen) {
-    
                       SystemChrome.setPreferredOrientations([
                         DeviceOrientation.landscapeLeft,
                         DeviceOrientation.landscapeRight,
                       ]);
                     } else {
-                      
                       SystemChrome.setPreferredOrientations([
                         DeviceOrientation.portraitUp,
                         DeviceOrientation.portraitDown,

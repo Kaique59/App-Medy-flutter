@@ -43,25 +43,28 @@ class _HubPageViewState extends State<HubPageView> {
     final largura = MediaQuery.of(context).size.width;
     final altura = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      extendBody: true,
-      body: Stack(
-        children: [
-          listPage[currentPage],
-          if (currentPage != 3)
-            Positioned(
-              left: largura * 0.04,
-              right: largura * 0.04,
-              bottom: altura * 0.025,
-              child: _BottomNavBar(
-                items: menuItems,
-                currentIndex: currentPage,
-                onItemSelected: (index) => setState(() => currentPage = index),
-                larguraTela: largura,
-                alturaTela: altura,
+    return SafeArea(
+      child: Scaffold(
+        extendBody: true,
+        body: Stack(
+          children: [
+            listPage[currentPage],
+            if (currentPage != 3)
+              Positioned(
+                left: largura * 0.04,
+                right: largura * 0.04,
+                bottom: altura * 0.025,
+                child: _BottomNavBar(
+                  items: menuItems,
+                  currentIndex: currentPage,
+                  onItemSelected: (index) =>
+                      setState(() => currentPage = index),
+                  larguraTela: largura,
+                  alturaTela: altura,
+                ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

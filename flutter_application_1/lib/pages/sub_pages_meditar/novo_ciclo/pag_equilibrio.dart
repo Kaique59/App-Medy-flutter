@@ -25,27 +25,27 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
     EtapaMeditacao(
       titulo: "O Centro Silencioso",
       descricao:
-          "O equilíbrio nasce quando você encontra, dentro de si, um ponto que permanece firme mesmo quando tudo ao redor muda. É o espaço silencioso entre um pensamento e outro, onde mora a clareza e o descanso.",
+          "O equilíbrio nasce quando você encontra um ponto interno que permanece firme mesmo quando tudo ao redor muda.",
     ),
     EtapaMeditacao(
       titulo: "Entre o Fazer e o Ser",
       descricao:
-          "Viver em equilíbrio é aprender a alternar entre agir e simplesmente estar. Há momentos de movimento e momentos de pausa — e ambos são necessários. Saber quando avançar e quando respirar é a arte da harmonia.",
+          "Viver em equilíbrio é alternar entre agir e simplesmente estar. Há momentos de movimento e momentos de pausa, e ambos são essenciais para a harmonia.",
     ),
     EtapaMeditacao(
       titulo: "O Corpo que Ensina",
       descricao:
-          "O corpo mostra o caminho: ele inspira e expira, contrai e relaxa, sem esforço. Quando o seguimos, percebemos que o equilíbrio não é rigidez, mas fluidez. É o vai e vem natural da vida acontecendo sem resistência.",
+          "O corpo inspira, expira, contrai e relaxa naturalmente. Segui-lo nos mostra que equilíbrio é fluidez, o vai e vem da vida acontecendo sem resistência.",
     ),
     EtapaMeditacao(
       titulo: "A Calma em Meio ao Caos",
       descricao:
-          "Mesmo quando tudo parece instável, o equilíbrio pode permanecer dentro de você. Ele não depende das circunstâncias, mas da forma como você as acolhe. É o olhar tranquilo que enxerga o caos e ainda escolhe a paz.",
+          "Mesmo quando tudo parece instável, o equilíbrio pode permanecer dentro de você. Não depende das circunstâncias.",
     ),
     EtapaMeditacao(
       titulo: "O Retorno ao Essencial",
       descricao:
-          "No fundo, equilíbrio é lembrar-se de quem você é. Não é buscar algo novo, mas retornar ao que sempre esteve aí: presença, serenidade e confiança. Quando você se reconecta com esse centro, descobre que a vida toda respira no mesmo ritmo que você.",
+          "Equilíbrio é lembrar-se de quem você é. Não é buscar algo novo, mas retornar ao que sempre esteve aí: presença, serenidade e confiança, em sintonia com a vida.",
     ),
   ];
 
@@ -165,7 +165,7 @@ class _PagEquilibrioState extends State<PagEquilibrio> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons relaxantes",
+                                text: "relaxar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -324,28 +324,26 @@ class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
   void initState() {
     super.initState();
     final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
-    _controller = YoutubePlayerController(
-      initialVideoId: videoId ?? "",
-      flags: const YoutubePlayerFlags(
-        autoPlay: false,
-        enableCaption: true,
-      ),
-    )..addListener(() async {
-        // 🔄 Detecta entrada e saída do modo tela cheia
-        if (_controller.value.isFullScreen) {
-          // 👉 Libera rotação horizontal ao entrar em tela cheia
-          await SystemChrome.setPreferredOrientations([
-            DeviceOrientation.landscapeLeft,
-            DeviceOrientation.landscapeRight,
-          ]);
-        } else {
-          // 🔒 Volta a travar na vertical ao sair
-          await SystemChrome.setPreferredOrientations([
-            DeviceOrientation.portraitUp,
-            DeviceOrientation.portraitDown,
-          ]);
-        }
-      });
+    _controller =
+        YoutubePlayerController(
+          initialVideoId: videoId ?? "",
+          flags: const YoutubePlayerFlags(autoPlay: false, enableCaption: true),
+        )..addListener(() async {
+          // 🔄 Detecta entrada e saída do modo tela cheia
+          if (_controller.value.isFullScreen) {
+            // 👉 Libera rotação horizontal ao entrar em tela cheia
+            await SystemChrome.setPreferredOrientations([
+              DeviceOrientation.landscapeLeft,
+              DeviceOrientation.landscapeRight,
+            ]);
+          } else {
+            // 🔒 Volta a travar na vertical ao sair
+            await SystemChrome.setPreferredOrientations([
+              DeviceOrientation.portraitUp,
+              DeviceOrientation.portraitDown,
+            ]);
+          }
+        });
   }
 
   @override

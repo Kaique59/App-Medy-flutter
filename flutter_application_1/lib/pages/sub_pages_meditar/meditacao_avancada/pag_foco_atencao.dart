@@ -25,27 +25,27 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
     EtapaMeditacao(
       titulo: "O Poder do Agora",
       descricao:
-          "Focar é voltar ao instante que está diante de você. É sentir o ar entrar, o corpo existir, o silêncio se expandir. Toda vez que a mente se dispersa e você retorna, fortalece o músculo invisível da presença — e é nesse retorno que o foco nasce.",
+          "Focar é voltar ao instante presente, sentir o corpo e o silêncio. Cada retorno fortalece a presença e nasce o foco.",
     ),
     EtapaMeditacao(
       titulo: "A Arte de Observar",
       descricao:
-          "Durante a meditação, pensamentos surgem como nuvens. Em vez de afastá-los, apenas observe. Veja-os passar, dissolver-se, mudar de forma. O foco verdadeiro não é eliminar o movimento da mente, mas permanecer firme enquanto ele acontece.",
+          "Pensamentos surgem como nuvens; apenas observe. O foco não é eliminar a mente agitada, mas permanecer firme enquanto ela se move.",
     ),
     EtapaMeditacao(
-      titulo: "A Atenção Suave",
+      titulo: "Atenção Suave",
       descricao:
-          "O foco não precisa ser rígido. Ele pode ser leve, como um olhar calmo sobre o presente. Quando você observa com suavidade — sem cobrança, sem pressa — a mente aprende a descansar no agora, e a atenção se torna natural.",
+          "O foco pode ser leve, como um olhar calmo sobre o presente. Observar sem pressa faz a atenção se tornar natural.",
     ),
     EtapaMeditacao(
-      titulo: "O Silêncio entre os Pensamentos",
+      titulo: "Silêncio entre Pensamentos",
       descricao:
-          "Há um espaço silencioso entre um pensamento e outro. É nesse intervalo que mora a clareza. Quanto mais você reconhece esse silêncio, mais ele se expande, e o foco deixa de ser um esforço — torna-se estado.",
+          "Entre pensamentos existe um espaço silencioso. Reconhecê-lo expande a clareza e transforma o foco em estado.",
     ),
     EtapaMeditacao(
-      titulo: "A Presença Desperta",
+      titulo: "Presença Desperta",
       descricao:
-          "Com o tempo, o foco ultrapassa a meditação. Ele se manifesta em cada gesto, em cada palavra, em cada olhar. Estar atento é viver plenamente. Quando a mente se ancora no presente, tudo o que existe se ilumina — e o simples ato de estar torna-se sagrado.",
+          "Com prática, o foco se manifesta em cada gesto e olhar. Estar atento é viver plenamente, tornando o ato de estar sagrado.",
     ),
   ];
 
@@ -165,7 +165,7 @@ class _PagFocoAtencaoState extends State<PagFocoAtencao> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons relaxantes",
+                                text: "Relaxe",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -360,13 +360,11 @@ class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
                 onReady: () {
                   _controller.addListener(() {
                     if (_controller.value.isFullScreen) {
-                    
                       SystemChrome.setPreferredOrientations([
                         DeviceOrientation.landscapeLeft,
                         DeviceOrientation.landscapeRight,
                       ]);
                     } else {
-                      
                       SystemChrome.setPreferredOrientations([
                         DeviceOrientation.portraitUp,
                         DeviceOrientation.portraitDown,

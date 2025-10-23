@@ -27,27 +27,27 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
     EtapaMeditacao(
       titulo: "O Início da Jornada",
       descricao:
-          "Meditar começa com o simples ato de parar. Sentar, fechar os olhos e permitir-se estar. Não é sobre “fazer certo”, mas sobre se aproximar de si mesmo. Cada respiração é um convite para voltar ao presente — e o presente é onde tudo começa.",
+          "O Começo da Meditação: Sentar, fechar os olhos e simplesmente estar presente. Cada respiração é um convite para voltar ao presente.",
     ),
     EtapaMeditacao(
       titulo: "O Encontro com o Silêncio",
       descricao:
-          "Nos primeiros momentos, a mente pode parecer barulhenta. Pensamentos correm, lembranças surgem, distrações aparecem. Não lute contra isso. Observe. O silêncio não chega de repente — ele nasce da aceitação.",
+          "Aceitando a Mente: Pensamentos surgem, distrações aparecem. Não lute; observe. O silêncio nasce da aceitação.",
     ),
     EtapaMeditacao(
       titulo: "O Tempo e a Paciência",
       descricao:
-          "Comece devagar. Um minuto, depois três, depois cinco. O tempo se ajusta ao seu ritmo. O importante é a constância, não a duração. Cada pequeno instante de presença é uma semente que, com o tempo, floresce em serenidade.",
+          "Passos Gradativos: Comece devagar, aumentando o tempo aos poucos. A constância é mais importante que a duração.",
     ),
     EtapaMeditacao(
       titulo: "A Mente que Aprende a Observar",
       descricao:
-          "Com a prática, os pensamentos deixam de ser inimigos e passam a ser visitantes. Você aprende a observá-los com leveza, sem se prender a nenhum. Essa é a essência da meditação: ser o espaço onde tudo acontece, e nada se perde.",
+          "Observando os Pensamentos: Aprenda a ver os pensamentos como visitantes, sem se prender a eles.",
     ),
     EtapaMeditacao(
       titulo: "O Momento de Clareza",
       descricao:
-          "Em algum ponto da jornada, você percebe que não está mais buscando paz — você é a paz. A vida continua igual por fora, mas por dentro há calma, leveza e compreensão. Meditar é isso: viver desperto em cada respiração.",
+          "Ser a Paz: Com a prática, você percebe que não busca paz — você a é, encontrando calma, leveza e presença em cada respiração.",
     ),
   ];
 
@@ -164,7 +164,7 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons relaxantes",
+                                text: "Relaxe",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
