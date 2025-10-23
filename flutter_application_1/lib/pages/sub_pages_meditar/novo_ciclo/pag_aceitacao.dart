@@ -25,27 +25,27 @@ class _PagAceitacaoState extends State<PagAceitacao> {
     EtapaMeditacao(
       titulo: "O Ato de Acolher",
       descricao:
-          "Aceitar é abrir os braços para o que é — sem resistência, sem pressa. É olhar para dentro e reconhecer o que existe, mesmo que doa. A aceitação não muda o que aconteceu, mas muda a forma como você caminha a partir daí.",
+          "Aceitar é acolher o que é, sem resistência. Reconhecer a realidade muda a forma como você caminha na vida.",
     ),
     EtapaMeditacao(
       titulo: "O Fardo que se Dissolve",
       descricao:
-          "Quando deixamos de lutar contra as circunstâncias, algo se desfaz dentro de nós. O peso da negação se transforma em leveza. A mente para de buscar justificativas, e o coração encontra espaço para simplesmente ser.",
+          "Quando paramos de lutar contra as circunstâncias, o peso se transforma em leveza e o coração encontra espaço para apenas ser.",
     ),
     EtapaMeditacao(
       titulo: "A Paz no Presente",
       descricao:
-          "Aceitar é um gesto silencioso de amor-próprio. É dizer: “eu me permito estar aqui, exatamente como estou”. Nesse instante, o presente deixa de ser um obstáculo e se torna um lar — o único lugar onde a vida realmente acontece.",
+          "Aceitar é um gesto de amor-próprio: permitir-se estar presente, transformando o agora em um verdadeiro lar.",
     ),
     EtapaMeditacao(
       titulo: "O Fluxo Natural da Vida",
       descricao:
-          "Tudo muda, e a aceitação é o que nos mantém em harmonia com esse movimento. Quando confiamos no ritmo da existência, não precisamos mais forçar o que não está pronto. Aprendemos a esperar com serenidade, sabendo que tudo tem seu tempo.",
+          "Tudo muda, e a aceitação nos mantém em harmonia. Confiar no ritmo da vida permite esperar com serenidade e calma.",
     ),
     EtapaMeditacao(
       titulo: "Transformar Sem Resistir",
       descricao:
-          "Da aceitação nasce a verdadeira transformação. Não porque forçamos a mudança, mas porque paramos de bloqueá-la. Ao dizer “sim” ao momento presente, abrimos espaço para o novo — e nele, encontramos o equilíbrio que sempre buscamos.",
+          "Da aceitação nasce a verdadeira transformação. Ao dizer sim ao momento presente, abrimos espaço para o novo e encontramos equilíbrio.",
     ),
   ];
 
@@ -57,13 +57,13 @@ class _PagAceitacaoState extends State<PagAceitacao> {
   @override
   void initState() {
     super.initState();
-    // 🔒 Bloqueia a rotação (modo retrato)
+    // Bloqueia a orientação vertical ao entrar na tela
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
   @override
   void dispose() {
-    // 🔄 Restaura a orientação ao sair da página
+    // Permite rotação normal ao sair
     SystemChrome.setPreferredOrientations(DeviceOrientation.values);
     super.dispose();
   }
@@ -78,7 +78,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
       body: SafeArea(
         child: Column(
           children: [
-            // TOPO
+            // TOPO VERDE ESTÁTICO
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
@@ -107,7 +107,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
               ),
             ),
 
-            // CORPO
+            // CONTEÚDO ROLÁVEL
             Expanded(
               child: Container(
                 width: double.infinity,
@@ -120,6 +120,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                 ),
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(16),
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -162,7 +163,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons relaxantes",
+                                text: "Relaxar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -173,7 +174,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                       ),
                       const SizedBox(height: 30),
 
-                      // PASSOS
+                      // TÍTULO PASSOS
                       Text(
                         "Passos para cultivar a aceitação e viver em harmonia consigo mesmo",
                         style: TextStyle(
@@ -184,6 +185,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                       ),
                       const SizedBox(height: 20),
 
+                      // SCROLL DE ETAPAS
                       AppScrollCard<EtapaMeditacao>(
                         items: instrucoes,
                         height: altura * 0.35,
@@ -252,7 +254,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
                     ],
                   ),
                 ),
@@ -297,7 +299,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
   }
 }
 
-// --- CARD DE VÍDEO ---
+// CARD DE VÍDEO
 class YoutubeVideoCard extends StatefulWidget {
   final String videoUrl;
   final String title;
@@ -325,25 +327,11 @@ class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
       initialVideoId: videoId ?? "",
       flags: const YoutubePlayerFlags(autoPlay: false, enableCaption: true),
     );
-
-    // 🔁 Detecta quando entra e sai do modo tela cheia
-    _controller.addListener(() async {
-      if (_controller.value.isFullScreen) {
-        // 👉 Permite rotação livre no modo tela cheia
-        await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
-      } else {
-        // 🔒 Bloqueia novamente no modo retrato
-        await SystemChrome.setPreferredOrientations([
-          DeviceOrientation.portraitUp,
-        ]);
-      }
-    });
   }
 
   @override
   void dispose() {
     _controller.dispose();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.dispose();
   }
 

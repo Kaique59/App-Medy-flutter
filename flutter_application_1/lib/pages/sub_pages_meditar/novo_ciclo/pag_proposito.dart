@@ -25,27 +25,27 @@ class _PagPropositoState extends State<PagProposito> {
     EtapaMeditacao(
       titulo: "O Chamado Interior",
       descricao:
-          "O propósito não é algo que se busca no mundo, mas algo que desperta em silêncio dentro de você. Ele surge quando a mente se aquieta e o coração sussurra: “é por aqui”. Basta ouvir com atenção o que já estava tentando ser dito há muito tempo.",
+          "O propósito não se busca fora, mas desperta em silêncio dentro de você. Ele surge quando a mente se aquieta e o coração sussurra: 'é por aqui'. Basta ouvir.",
     ),
     EtapaMeditacao(
       titulo: "A Voz da Essência",
       descricao:
-          "Meditar é aprender a ouvir essa voz interior — aquela que fala sem palavras, que guia sem pressa. Quando você se conecta com o que realmente sente, o propósito deixa de ser uma meta e se torna um modo de viver, simples e verdadeiro.",
+          "Meditar é ouvir essa voz interior que fala sem palavras. Quando você se conecta com o que sente, o propósito deixa de ser meta e se torna modo de viver.",
     ),
     EtapaMeditacao(
       titulo: "O Caminho com Sentido",
       descricao:
-          "Propósito não é sobre grandes conquistas, mas sobre presença. É colocar intenção em cada gesto, amor em cada passo. Quando suas ações refletem o que há de mais autêntico em você, até o cotidiano se transforma em algo sagrado.",
+          "Propósito é presença, não conquistas. Coloque intenção em cada gesto e amor em cada passo. Assim, o cotidiano se torna sagrado.",
     ),
     EtapaMeditacao(
       titulo: "O Silêncio que Ilumina",
       descricao:
-          "Há um momento na prática em que tudo parece se alinhar — a mente serena, o corpo leve, o coração tranquilo. Nesse espaço, você não precisa procurar respostas. O simples fato de estar desperto já revela o caminho.",
+          "Na prática, tudo se alinha: mente serena, corpo leve, coração tranquilo. Nesse espaço, estar desperto já revela o caminho.",
     ),
     EtapaMeditacao(
       titulo: "Viver com Verdade",
       descricao:
-          "Descobrir o propósito é reconhecer que o sentido da vida está em viver com verdade. Não é o destino que importa, mas a clareza de cada passo. Quando você caminha com consciência, a vida toda se torna meditação — e o propósito, apenas o reflexo da sua presença.",
+          "Descobrir o propósito é viver com verdade. Não é o destino, mas a clareza de cada passo que transforma a vida em meditação e o propósito em reflexo da presença.",
     ),
   ];
 
@@ -57,7 +57,6 @@ class _PagPropositoState extends State<PagProposito> {
   @override
   void initState() {
     super.initState();
-    // 🔒 Trava a tela na vertical ao entrar na página
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -66,7 +65,6 @@ class _PagPropositoState extends State<PagProposito> {
 
   @override
   void dispose() {
-    // 🔄 Restaura a rotação normal ao sair da página
     SystemChrome.setPreferredOrientations(DeviceOrientation.values);
     super.dispose();
   }
@@ -165,7 +163,7 @@ class _PagPropositoState extends State<PagProposito> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons relaxantes",
+                                text: "relaxar",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -176,7 +174,6 @@ class _PagPropositoState extends State<PagProposito> {
                       ),
                       const SizedBox(height: 30),
 
-                      // PASSOS PARA SE ALINHAR COM O PROPÓSITO
                       Text(
                         "Passos para se alinhar com seu propósito",
                         style: TextStyle(

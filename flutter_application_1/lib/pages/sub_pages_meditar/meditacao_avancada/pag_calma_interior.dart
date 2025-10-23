@@ -23,29 +23,29 @@ class PagCalmaInterior extends StatefulWidget {
 class _PagCalmaInteriorState extends State<PagCalmaInterior> {
   final List<EtapaMeditacao> instrucoes = [
     EtapaMeditacao(
-      titulo: "O Silêncio que Habita em Nós",
+      titulo: "O Silêncio Interior",
       descricao:
-          "Há dentro de cada um um lugar que o barulho do mundo não alcança. Mesmo quando tudo parece agitado, esse espaço permanece intacto, esperando para ser sentido. A meditação é a chave que abre a porta para esse silêncio.",
+          "Dentro de cada um há um espaço que o barulho do mundo não alcança; a meditação nos conecta a ele.",
     ),
     EtapaMeditacao(
-      titulo: "O Coração em Repouso",
+      titulo: "Coração em Repouso",
       descricao:
-          "Quando a mente deixa de lutar contra o que é, o coração relaxa. A calma interior não é ausência de emoções, mas a capacidade de acolhê-las sem se perder nelas. É o sossego que nasce da aceitação profunda da vida.",
+          "Aceitar acalma a mente e o coração, permitindo acolher emoções sem se perder nelas.",
     ),
     EtapaMeditacao(
-      titulo: "A Paz que Não Depende",
+      titulo: "Paz Verdadeira",
       descricao:
-          "Nada externo pode criar ou tirar sua paz verdadeira. Ela não vem do lugar onde você está, nem das pessoas ao seu redor — vem da forma como você escolhe estar presente. Quando essa verdade é sentida, o mundo pode mudar, mas você permanece sereno.",
+          "A paz não depende do externo, mas de como você se mantém presente e sereno.",
     ),
     EtapaMeditacao(
-      titulo: "O Espaço Entre os Sons",
+      titulo: "Espaço Entre os Sons",
       descricao:
-          "Na prática, observe os intervalos: entre um pensamento e outro, entre uma respiração e a próxima. Esses pequenos espaços são portais para a calma interior. Quanto mais você os reconhece, mais eles se expandem dentro de você.",
+          "Observe os intervalos entre pensamentos e respirações; eles expandem a calma interior.",
     ),
     EtapaMeditacao(
-      titulo: "O Retorno à Essência",
+      titulo: "Retorno à Essência",
       descricao:
-          "A calma interior é o seu estado natural. Ela não precisa ser criada, apenas lembrada. Quando você se permite descansar em si mesmo, tudo se alinha — corpo, mente e espírito respiram em uníssono. E nesse instante, você simplesmente é: paz em forma de presença.",
+          "A calma é natural; ao se permitir descansar em si mesmo, corpo, mente e espírito se alinham.",
     ),
   ];
 
@@ -168,7 +168,7 @@ class _PagCalmaInteriorState extends State<PagCalmaInterior> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons relaxantes",
+                                text: "Relaxe",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -341,9 +341,9 @@ class YoutubeVideoCard extends StatelessWidget {
                 ),
                 showVideoProgressIndicator: true,
                 onReady: () {
-                
-                  YoutubePlayerController controller =
-                      YoutubePlayerController(initialVideoId: videoId ?? "");
+                  YoutubePlayerController controller = YoutubePlayerController(
+                    initialVideoId: videoId ?? "",
+                  );
                   controller.addListener(() {
                     if (controller.value.isFullScreen) {
                       SystemChrome.setPreferredOrientations([

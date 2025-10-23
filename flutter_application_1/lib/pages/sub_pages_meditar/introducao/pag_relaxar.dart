@@ -27,27 +27,27 @@ class _PagRelaxarState extends State<PagRelaxar> {
     EtapaRelaxamento(
       titulo: "O Espaço da Calma",
       descricao:
-          "Encontre um lugar onde o silêncio possa te abraçar. Não precisa ser perfeito — apenas um canto onde você possa respirar sem pressa. Feche os olhos e perceba o som do ambiente, o toque do ar na pele. O relaxamento começa quando você se permite estar presente.",
+          "O Espaço da Calma: Encontre um lugar tranquilo, respire devagar e preste atenção aos sons e sensações ao seu redor. Permita-se estar completamente presente.",
     ),
     EtapaRelaxamento(
       titulo: "Soltar o Corpo",
       descricao:
-          "Sinta o peso dos ombros caindo, o maxilar se abrindo, as mãos se soltando. Cada parte do corpo responde ao seu cuidado. Imagine que está derretendo suavemente em direção à terra, entregando o cansaço e acolhendo a leveza.",
+          "Soltar o Corpo: Sinta o peso dos ombros, mãos e maxilar relaxarem. Cada parte do corpo se entrega à leveza, liberando tensões acumuladas.",
     ),
     EtapaRelaxamento(
       titulo: "Deixar Ir",
       descricao:
-          "Relaxar também é uma forma de deixar ir. Solte a necessidade de controlar, de entender, de resolver tudo. O descanso é um ato de confiança: o mundo pode esperar um pouco enquanto você volta a si.",
+          "Deixar Ir: Solte a necessidade de controlar ou resolver tudo. Confie que o mundo pode esperar enquanto você retorna a si mesmo.",
     ),
     EtapaRelaxamento(
       titulo: "Silenciar o Ruído Interno",
       descricao:
-          "Quando o corpo desacelera, a mente começa a falar menos. O barulho dos pensamentos se torna mais distante. Nesse silêncio, há espaço para sentir, para ouvir o próprio coração e perceber o quanto a paz sempre esteve ali, só adormecida.",
+          "Silenciar a Mente: Com o corpo desacelerado, os pensamentos se tornam mais suaves. Ouça seu coração e perceba a paz que sempre esteve ali.",
     ),
     EtapaRelaxamento(
       titulo: "O Estado de Entrega",
       descricao:
-          "Relaxe sem esforço. Permita que o corpo e a mente se encontrem em quietude. Não há o que buscar, apenas o que sentir. Nesse instante, você não está tentando relaxar — você é o relaxamento. E nele, encontra o verdadeiro descanso.",
+          "Entrega Total: Relaxe sem esforço e permita que corpo e mente se encontrem em quietude. Nesse instante, você não apenas relaxa você se torna o relaxamento.",
     ),
   ];
 
@@ -59,15 +59,13 @@ class _PagRelaxarState extends State<PagRelaxar> {
   @override
   void initState() {
     super.initState();
-    // ✅ Bloqueia o app na vertical quando entrar na tela
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    // Bloqueia o app na vertical quando entrar na tela
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
   @override
   void dispose() {
-    // ✅ Garante que, ao sair, o app possa rotacionar normalmente
+    // Permite rotação novamente ao sair da tela
     SystemChrome.setPreferredOrientations(DeviceOrientation.values);
     super.dispose();
   }
@@ -166,7 +164,7 @@ class _PagRelaxarState extends State<PagRelaxar> {
                               },
                               child: _actionButton(
                                 icon: CupertinoIcons.music_note_2,
-                                text: "Sons relaxantes",
+                                text: "Relaxe",
                                 backgroundColor: verdeBotao,
                                 borderColor: verdeContorno,
                                 iconTextColor: Colors.black,
@@ -189,6 +187,7 @@ class _PagRelaxarState extends State<PagRelaxar> {
                       ),
                       const SizedBox(height: 20),
 
+                      // CARDS DE TEXTO
                       AppScrollCard<EtapaRelaxamento>(
                         items: instrucoes,
                         height: altura * 0.35,
@@ -234,9 +233,11 @@ class _PagRelaxarState extends State<PagRelaxar> {
                         },
                       ),
 
-                      const SizedBox(height: 20),
-
-                      // --- LISTA DE VÍDEOS ---
+                      // --- AUMENTAR ESPAÇO ABAIXO DOS CARDS ---
+                      const SizedBox(
+                        height: 50,
+                      ), // espaço maior antes dos vídeos
+                      // LISTA DE VÍDEOS
                       ...VideoPlayList.videoListRelaxar.map((video) {
                         return YoutubeVideoCard(
                           videoUrl: video["videoUrl"]!,
@@ -330,22 +331,17 @@ class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
     final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
     _controller = YoutubePlayerController(
       initialVideoId: videoId ?? "",
-      flags: const YoutubePlayerFlags(
-        autoPlay: false,
-        enableCaption: true,
-      ),
+      flags: const YoutubePlayerFlags(autoPlay: false, enableCaption: true),
     )..addListener(_listener);
   }
 
   void _listener() {
     if (_controller.value.isFullScreen) {
-      // ✅ Permite rotação quando o vídeo está em tela cheia
+      // Permite rotação quando o vídeo está em tela cheia
       SystemChrome.setPreferredOrientations(DeviceOrientation.values);
     } else {
-      // ✅ Bloqueia novamente na vertical ao sair da tela cheia
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-      ]);
+      // Bloqueia novamente na vertical ao sair da tela cheia
+      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     }
   }
 
