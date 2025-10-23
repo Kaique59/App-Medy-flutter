@@ -197,7 +197,7 @@ Mensagem do usuário: $prompt
                           ),
                           decoration: BoxDecoration(
                             color: msg.isUser
-                                ? Colors.green.shade700.withOpacity(0.85)
+                                ? Color(0xFFD5E0D9).withOpacity(0.85)
                                 : Colors.white.withOpacity(0.85),
                             borderRadius: BorderRadius.circular(20),
                           ),
