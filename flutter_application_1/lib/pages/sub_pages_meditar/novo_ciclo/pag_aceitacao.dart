@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
-import 'package:flutter_application_1/pages/hub_page_view.dart'; // ← Importante
+import 'package:flutter_application_1/pages/hub_page_view.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class EtapaMeditacao {
@@ -52,6 +53,20 @@ class _PagAceitacaoState extends State<PagAceitacao> {
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
   final Color verdeContorno = const Color(0xFFA4A4A4);
+
+  @override
+  void initState() {
+    super.initState();
+    // 🔒 Bloqueia a rotação (modo retrato)
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
+  @override
+  void dispose() {
+    // 🔄 Restaura a orientação ao sair da página
+    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +173,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                       ),
                       const SizedBox(height: 30),
 
-                      // PASSOS PARA ACEITAÇÃO
+                      // PASSOS
                       Text(
                         "Passos para cultivar a aceitação e viver em harmonia consigo mesmo",
                         style: TextStyle(
@@ -213,7 +228,6 @@ class _PagAceitacaoState extends State<PagAceitacao> {
                           );
                         },
                       ),
-
                       const SizedBox(height: 30),
 
                       // VÍDEOS
@@ -284,7 +298,7 @@ class _PagAceitacaoState extends State<PagAceitacao> {
 }
 
 // --- CARD DE VÍDEO ---
-class YoutubeVideoCard extends StatelessWidget {
+class YoutubeVideoCard extends StatefulWidget {
   final String videoUrl;
   final String title;
   final String subtitle;
@@ -297,9 +311,44 @@ class YoutubeVideoCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final videoId = YoutubePlayer.convertUrlToId(videoUrl);
+  State<YoutubeVideoCard> createState() => _YoutubeVideoCardState();
+}
 
+class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
+    _controller = YoutubePlayerController(
+      initialVideoId: videoId ?? "",
+      flags: const YoutubePlayerFlags(autoPlay: false, enableCaption: true),
+    );
+
+    // 🔁 Detecta quando entra e sai do modo tela cheia
+    _controller.addListener(() async {
+      if (_controller.value.isFullScreen) {
+        // 👉 Permite rotação livre no modo tela cheia
+        await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+      } else {
+        // 🔒 Bloqueia novamente no modo retrato
+        await SystemChrome.setPreferredOrientations([
+          DeviceOrientation.portraitUp,
+        ]);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Card(
@@ -310,15 +359,12 @@ class YoutubeVideoCard extends StatelessWidget {
           child: Column(
             children: [
               YoutubePlayer(
-                controller: YoutubePlayerController(
-                  initialVideoId: videoId ?? "",
-                  flags: const YoutubePlayerFlags(autoPlay: false),
-                ),
+                controller: _controller,
                 showVideoProgressIndicator: true,
               ),
               const SizedBox(height: 8),
               Text(
-                title,
+                widget.title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -326,7 +372,7 @@ class YoutubeVideoCard extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                subtitle,
+                widget.subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
