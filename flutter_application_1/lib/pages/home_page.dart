@@ -3,7 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Config/play_list.dart';
 import '../widgets/custom_card.dart';
+import '../widgets/custom_card_meditar.dart';
 import 'audio_rolando.dart';
+
+// Import das páginas de meditação
+import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_respiracao.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_relaxar.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/introducao/pag_aprenda_meditacao.dart';
+import 'package:flutter_application_1/pages/sub_pages_meditar/meditacao_avancada/pag_mente_corpo.dart';
 
 class HomePage extends StatefulWidget {
   bool temaEscuro;
@@ -15,6 +22,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final double cardHeight = 150;
+
+  final List<Map<String, dynamic>> meditarIntroCards = [
+    {
+      "text": "Respiração",
+      "page": const PagRespiracao(),
+      "image":
+          "https://cdn.pixabay.com/photo/2018/08/16/02/01/purple-3609478_1280.jpg",
+    },
+    {
+      "text": "Relaxamento",
+      "page": const PagRelaxar(),
+      "image":
+          "https://cdn.pixabay.com/photo/2017/12/17/21/44/drink-3025022_1280.jpg",
+    },
+    {
+      "text": "Comece a Meditar",
+      "page": const PagAprendaMeditacao(),
+      "image":
+          "https://cdn.pixabay.com/photo/2020/06/29/17/41/meditate-5353620_1280.jpg",
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     double largura = MediaQuery.of(context).size.width;
@@ -128,7 +158,7 @@ class _HomePageState extends State<HomePage> {
 
               SizedBox(height: altura * 0.04),
 
-              // Categoria: Ruídos Terapêuticos
+              // Categoria: Ruídos Terapêuticos (CustomCard)
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: largura * 0.05),
                 child: Column(
@@ -143,12 +173,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(height: 10),
                     SizedBox(
-                      height: 150,
+                      height: cardHeight,
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
-                        itemCount: PlayList.musicasList.length,
                         separatorBuilder: (context, index) =>
                             const SizedBox(width: 12),
+                        itemCount: PlayList.musicasList.length,
                         itemBuilder: (context, index) {
                           final item = PlayList.musicasList[index];
                           return CustomCard(
@@ -176,6 +206,50 @@ class _HomePageState extends State<HomePage> {
               ),
 
               SizedBox(height: altura * 0.04),
+
+              // Categoria: Introdução à Meditação (CustomCardMeditar)
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: largura * 0.05),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Introdução à Meditação",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      height: cardHeight,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(width: 12),
+                        itemCount: meditarIntroCards.length,
+                        itemBuilder: (context, index) {
+                          final item = meditarIntroCards[index];
+                          return CustomCardMeditar(
+                            text: item["text"]!,
+                            imagePath: item["image"]!,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => item["page"]!,
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: altura * 0.20),
             ],
           ),
         ),
