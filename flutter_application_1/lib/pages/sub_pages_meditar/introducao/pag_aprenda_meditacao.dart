@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Config/app_scroll_card.dart';
 import 'package:flutter_application_1/Config/video_play_list.dart';
-import 'package:flutter_application_1/pages/hub_page_view.dart'; // ← Importante
+import 'package:flutter_application_1/pages/hub_page_view.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+// --- CLASSE DE DADOS ---
 class EtapaMeditacao {
   final String titulo;
   final String descricao;
@@ -12,6 +14,7 @@ class EtapaMeditacao {
   EtapaMeditacao({required this.titulo, required this.descricao});
 }
 
+// --- PÁGINA PRINCIPAL ---
 class PagAprendaMeditacao extends StatefulWidget {
   const PagAprendaMeditacao({super.key});
 
@@ -52,6 +55,20 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
   final Color verdePrincipal = const Color(0xFF7A9591);
   final Color verdeBotao = Colors.grey[400]!;
   final Color verdeContorno = const Color(0xFFA4A4A4);
+
+  @override
+  void initState() {
+    super.initState();
+    // ✅ Bloqueia a tela na vertical ao entrar
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
+  @override
+  void dispose() {
+    // ✅ Libera as orientações novamente ao sair da página
+    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +131,6 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                // ✅ Volta para a Home com menu
                                 Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
@@ -137,7 +153,6 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                // ✅ Vai para aba "Áudios" com menu
                                 Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
@@ -171,7 +186,6 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
                       ),
                       const SizedBox(height: 20),
 
-                      // 🔽 CARD MAIOR
                       AppScrollCard<EtapaMeditacao>(
                         items: instrucoes,
                         height: altura * 0.35,
@@ -274,7 +288,8 @@ class _PagAprendaMeditacaoState extends State<PagAprendaMeditacao> {
 }
 
 // --- CARD DE VÍDEO ---
-class YoutubeVideoCard extends StatelessWidget {
+// ✅ Atualizado com controle de rotação (tela cheia libera rotação)
+class YoutubeVideoCard extends StatefulWidget {
   final String videoUrl;
   final String title;
   final String subtitle;
@@ -287,9 +302,39 @@ class YoutubeVideoCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final videoId = YoutubePlayer.convertUrlToId(videoUrl);
+  State<YoutubeVideoCard> createState() => _YoutubeVideoCardState();
+}
 
+class _YoutubeVideoCardState extends State<YoutubeVideoCard> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
+    _controller = YoutubePlayerController(
+      initialVideoId: videoId ?? "",
+      flags: const YoutubePlayerFlags(autoPlay: false, enableCaption: true),
+    )..addListener(_listener);
+  }
+
+  void _listener() {
+    if (_controller.value.isFullScreen) {
+      SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+    } else {
+      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_listener);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Card(
@@ -300,15 +345,12 @@ class YoutubeVideoCard extends StatelessWidget {
           child: Column(
             children: [
               YoutubePlayer(
-                controller: YoutubePlayerController(
-                  initialVideoId: videoId ?? "",
-                  flags: const YoutubePlayerFlags(autoPlay: false),
-                ),
+                controller: _controller,
                 showVideoProgressIndicator: true,
               ),
               const SizedBox(height: 8),
               Text(
-                title,
+                widget.title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
@@ -316,7 +358,7 @@ class YoutubeVideoCard extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                subtitle,
+                widget.subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey[700], fontSize: 14),
               ),
