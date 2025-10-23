@@ -49,20 +49,29 @@ class _HubPageViewState extends State<HubPageView> {
         body: Stack(
           children: [
             listPage[currentPage],
-            if (currentPage != 3)
-              Positioned(
-                left: largura * 0.04,
-                right: largura * 0.04,
-                bottom: altura * 0.025,
-                child: _BottomNavBar(
-                  items: menuItems,
-                  currentIndex: currentPage,
-                  onItemSelected: (index) =>
-                      setState(() => currentPage = index),
-                  larguraTela: largura,
-                  alturaTela: altura,
-                ),
+            Positioned(
+              left: largura * 0.04,
+              right: largura * 0.04,
+              bottom: altura * 0.025,
+              child: _BottomNavBar(
+                items: menuItems,
+                currentIndex: currentPage,
+                onItemSelected: (index) {
+                  print(index);
+                  if (index == 3) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatPage()),
+                    );
+                    return;
+                  }
+
+                  setState(() => currentPage = index);
+                },
+                larguraTela: largura,
+                alturaTela: altura,
               ),
+            ),
           ],
         ),
       ),

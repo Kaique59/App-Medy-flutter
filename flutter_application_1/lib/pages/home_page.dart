@@ -114,10 +114,10 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      "AWQQQIOQHIOI",
+                      "Entre o som e o nada.",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: largura * 0.06,
+                        fontSize: largura * 0.04,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.2,
                       ),
