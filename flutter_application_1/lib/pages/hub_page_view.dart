@@ -29,7 +29,7 @@ class _HubPageViewState extends State<HubPageView> {
     _MenuData(icon: Icons.home, label: 'Home'),
     _MenuData(icon: Icons.self_improvement, label: 'Meditação'),
     _MenuData(icon: CupertinoIcons.music_note_2, label: 'Áudios'),
-    _MenuData(icon: Icons.chat, label: 'Medfy IA'),
+    _MenuData(icon: Icons.chat, label: 'Medfy'),
   ];
 
   @override
