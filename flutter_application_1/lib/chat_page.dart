@@ -144,122 +144,130 @@ Mensagem do usuário: $prompt
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context);
-    return Scaffold(
-      backgroundColor: verdePrincipal,
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: verdePrincipal,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text(
-          'Medfy',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          backgroundColor: verdePrincipal,
+          iconTheme: const IconThemeData(color: Colors.white),
+          title: const Text(
+            'Medfy',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
-      body: Stack(
-        children: [
-          // Ícone de fundo
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.center,
-              child: Opacity(
-                opacity: 0.08,
-                child: Transform.rotate(
-                  angle: -0.3,
-                  child: const Icon(Icons.eco, size: 400, color: Colors.white),
+        body: Stack(
+          children: [
+            // Ícone de fundo
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.center,
+                child: Opacity(
+                  opacity: 0.08,
+                  child: Transform.rotate(
+                    angle: -0.3,
+                    child: const Icon(
+                      Icons.eco,
+                      size: 400,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-          Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: media.size.width * 0.03,
-                    vertical: media.size.height * 0.02,
-                  ),
-                  itemCount: _messages.length,
-                  itemBuilder: (context, index) {
-                    final msg = _messages[index];
-                    return Align(
-                      alignment: msg.isUser
-                          ? Alignment.centerRight
-                          : Alignment.centerLeft,
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxWidth: media.size.width * 0.2,
-                        ),
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                            vertical: media.size.height * 0.015,
-                            horizontal: media.size.width * 0.04,
+            Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: media.size.width * 0.03,
+                      vertical: media.size.height * 0.02,
+                    ),
+                    itemCount: _messages.length,
+                    itemBuilder: (context, index) {
+                      final msg = _messages[index];
+                      return Align(
+                        alignment: msg.isUser
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxWidth: media.size.width * 0.2,
                           ),
-                          margin: EdgeInsets.symmetric(
-                            vertical: media.size.height * 0.008,
-                          ),
-                          decoration: BoxDecoration(
-                            color: msg.isUser
-                                ? Color(0xFFD5E0D9).withOpacity(0.85)
-                                : Colors.white.withOpacity(0.85),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Text(
-                            msg.text,
-                            style: TextStyle(
-                              color: msg.isUser ? Colors.white : Colors.black87,
-                              fontSize: media.size.width * 0.04,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              vertical: media.size.height * 0.015,
+                              horizontal: media.size.width * 0.04,
+                            ),
+                            margin: EdgeInsets.symmetric(
+                              vertical: media.size.height * 0.008,
+                            ),
+                            decoration: BoxDecoration(
+                              color: msg.isUser
+                                  ? Color(0xFFD5E0D9).withOpacity(0.85)
+                                  : Colors.white.withOpacity(0.85),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              msg.text,
+                              style: TextStyle(
+                                color: msg.isUser
+                                    ? Colors.white
+                                    : Colors.black87,
+                                fontSize: media.size.width * 0.04,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
-              ),
-              if (_isLoading)
-                Padding(
-                  padding: EdgeInsets.all(media.size.height * 0.01),
-                  child: const CircularProgressIndicator(),
-                ),
-              // Input
-              Container(
-                color: inputBackgroundColor,
-                padding: EdgeInsets.symmetric(
-                  horizontal: media.size.width * 0.03,
-                  vertical: media.size.height * 0.015,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: _controller,
-                        decoration: InputDecoration(
-                          hintText: 'Digite sua mensagem...',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
+                if (_isLoading)
+                  Padding(
+                    padding: EdgeInsets.all(media.size.height * 0.01),
+                    child: const CircularProgressIndicator(),
+                  ),
+                // Input
+                Container(
+                  color: inputBackgroundColor,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: media.size.width * 0.03,
+                    vertical: media.size.height * 0.015,
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          controller: _controller,
+                          decoration: InputDecoration(
+                            hintText: 'Digite sua mensagem...',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: media.size.height * 0.015,
+                              horizontal: media.size.width * 0.04,
+                            ),
                           ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: media.size.height * 0.015,
-                            horizontal: media.size.width * 0.04,
-                          ),
+                          onSubmitted: (_) => _sendMessage(),
                         ),
-                        onSubmitted: (_) => _sendMessage(),
                       ),
-                    ),
-                    SizedBox(width: media.size.width * 0.02),
-                    IconButton(
-                      icon: const Icon(Icons.send),
-                      onPressed: _isLoading ? null : _sendMessage,
-                      color: Colors.black54,
-                      iconSize: media.size.width * 0.08,
-                    ),
-                  ],
+                      SizedBox(width: media.size.width * 0.02),
+                      IconButton(
+                        icon: const Icon(Icons.send),
+                        onPressed: _isLoading ? null : _sendMessage,
+                        color: Colors.black54,
+                        iconSize: media.size.width * 0.08,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

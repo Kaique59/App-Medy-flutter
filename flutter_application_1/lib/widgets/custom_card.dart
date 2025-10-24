@@ -19,7 +19,7 @@ class CustomCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 130,
-        height: 130,
+        height: 150,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8),

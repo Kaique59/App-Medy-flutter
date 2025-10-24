@@ -56,12 +56,22 @@ class _AudioPageState extends State<AudioPage> {
               children: [
                 _buildCabecalho(largura),
                 SizedBox(height: altura * 0.01),
-                _buildCategoria("Natureza", PlayList.naturezaList),
+                _buildCategoria("Natureza", PlayList.naturezaList, altura),
                 SizedBox(height: altura * 0.03),
-                _buildCategoria("Ruidos terapêuticos", PlayList.musicasList),
+                _buildCategoria(
+                  "Ruidos terapêuticos",
+                  PlayList.musicasList,
+                  altura,
+                ),
                 SizedBox(height: altura * 0.03),
-                _buildCategoria("Meditação", PlayList.meditationList),
-                SizedBox(height: altura * 0.04),
+                Container(
+                  margin: EdgeInsets.only(bottom: 200),
+                  child: _buildCategoria(
+                    "Meditação",
+                    PlayList.meditationList,
+                    altura,
+                  ),
+                ),
               ],
             ),
           ),
@@ -116,7 +126,12 @@ class _AudioPageState extends State<AudioPage> {
     );
   }
 
-  Widget _buildCategoria(String titulo, List<Map<String, String>> lista) {
+  // Agora recebe 'altura' para usar no SizedBox adicionado ao final de cada card
+  Widget _buildCategoria(
+    String titulo,
+    List<Map<String, String>> lista,
+    double altura,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -125,6 +140,7 @@ class _AudioPageState extends State<AudioPage> {
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 10),
+        // Ajustei a altura para comportar também o SizedBox(height: altura * 0.20) de cada item
         SizedBox(
           height: 150,
           child: ListView.separated(
@@ -133,22 +149,28 @@ class _AudioPageState extends State<AudioPage> {
             separatorBuilder: (context, index) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               final item = lista[index];
-              return CustomCard(
-                text: item["text"]!,
-                img: item["img"],
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => AudioRolando(
-                        url: item["url"]!,
-                        nome: item["text"]!,
-                        categoria: titulo,
-                        img: item["img"],
-                      ),
-                    ),
-                  );
-                },
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CustomCard(
+                    text: item["text"]!,
+                    img: item["img"],
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => AudioRolando(
+                            url: item["url"]!,
+                            nome: item["text"]!,
+                            categoria: titulo,
+                            img: item["img"],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  // adicionado no final de cada card, como você pediu
+                ],
               );
             },
           ),

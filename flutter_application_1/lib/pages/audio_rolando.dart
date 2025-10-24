@@ -82,23 +82,20 @@ class _AudioRolandoState extends State<AudioRolando> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 224, 240, 224),
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: widget.img != null && widget.img!.isNotEmpty
+                  ? NetworkImage(widget.img!)
+                  : const AssetImage("assets/fundo.jpg") as ImageProvider,
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // 🔹 Imagem de fundo
               Container(
                 width: double.infinity,
-                height: media.height * 0.45,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: widget.img != null && widget.img!.isNotEmpty
-                        ? NetworkImage(widget.img!)
-                        : const AssetImage("assets/fundo.jpg") as ImageProvider,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+
                 child: Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.only(top: 40, left: 20),
@@ -122,78 +119,103 @@ class _AudioRolandoState extends State<AudioRolando> {
                   ),
                 ),
               ),
+              Expanded(
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      // 🔹 Imagem de fundo
 
-              // 🔹 Título do áudio
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-                child: Text(
-                  widget.nome,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.black87,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+                      // 🔹 Título do áudio
+                      Container(
+                        margin: EdgeInsets.only(bottom: 20),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 7,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Text(
+                          widget.nome,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      // 🔹 Player (slider + botões)
+                      Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 30,
+                          horizontal: 20,
+                        ),
+                        decoration: BoxDecoration(
+                          color: verdePrincipal.withOpacity(0.8),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Column(
+                          children: [
+                            Slider(
+                              value: posicao.inSeconds.toDouble(),
+                              max: duracao.inSeconds.toDouble() > 0
+                                  ? duracao.inSeconds.toDouble()
+                                  : 1,
+                              activeColor: AppColors.amareloMenu,
+                              inactiveColor: Colors.white54,
+                              onChanged: (value) async {
+                                final pos = Duration(seconds: value.toInt());
+                                await _player.seek(pos);
+                              },
+                            ),
+                            Text(
+                              "${formatarTempo(posicao)} / ${formatarTempo(duracao)}",
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            IconButton(
+                              icon: Icon(
+                                tocando
+                                    ? Icons.pause_circle
+                                    : Icons.play_circle,
+                                size: 80,
+                                color: Colors.white,
+                              ),
+                              onPressed: _playPause,
+                            ),
+                            const SizedBox(height: 20),
+                            TextButton.icon(
+                              onPressed: () => Navigator.pop(context),
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                              ),
+                              label: const Text(
+                                "Voltar",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 50), // espaço extra pro final
+                    ],
                   ),
                 ),
               ),
-
-              // 🔹 Player (slider + botões)
-              Container(
-                width: double.infinity,
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 30,
-                  horizontal: 20,
-                ),
-                decoration: BoxDecoration(
-                  color: verdePrincipal.withOpacity(0.8),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Column(
-                  children: [
-                    Slider(
-                      value: posicao.inSeconds.toDouble(),
-                      max: duracao.inSeconds.toDouble() > 0
-                          ? duracao.inSeconds.toDouble()
-                          : 1,
-                      activeColor: AppColors.amareloMenu,
-                      inactiveColor: Colors.white54,
-                      onChanged: (value) async {
-                        final pos = Duration(seconds: value.toInt());
-                        await _player.seek(pos);
-                      },
-                    ),
-                    Text(
-                      "${formatarTempo(posicao)} / ${formatarTempo(duracao)}",
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    IconButton(
-                      icon: Icon(
-                        tocando ? Icons.pause_circle : Icons.play_circle,
-                        size: 80,
-                        color: Colors.white,
-                      ),
-                      onPressed: _playPause,
-                    ),
-                    const SizedBox(height: 20),
-                    TextButton.icon(
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      label: const Text(
-                        "Voltar",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 50), // espaço extra pro final
             ],
           ),
         ),
