@@ -148,6 +148,7 @@ Mensagem do usuário: $prompt
       backgroundColor: verdePrincipal,
       appBar: AppBar(
         backgroundColor: verdePrincipal,
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'Medfy',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
