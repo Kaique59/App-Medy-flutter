@@ -1,8 +1,8 @@
 # 🧘 Medfy – Aplicativo de Meditação com Acessibilidade
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Plataforma-Mobile-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Desenvolvido-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Plataforma-Mobile-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Acessibilidade-Inclusiva-orange?style=for-the-badge" />
 </div>
 
@@ -13,11 +13,7 @@ O **Medfy** é um aplicativo desenvolvido para auxiliar pessoas a iniciarem sua 
 
 Este projeto foi criado como atividade acadêmica para praticar **desenvolvimento mobile com Flutter**, incluindo boas práticas de interface e acessibilidade digital.
 
-O foco principal é tornar a meditação **acessível para pessoas com deficiência visual e auditiva**, utilizando:
-- Narração em áudio
-- Guias escritos
-- Interface de alto contraste
-- Compatibilidade com leitores de tela
+O foco principal é tornar a meditação **acessível para pessoas com deficiência visual e auditiva**, incluindo sons que ajudam pessoas autistas a encontrarem calmaria e foco.
 
 ---
 
@@ -40,11 +36,11 @@ O foco principal é tornar a meditação **acessível para pessoas com deficiên
 
 ✔️ Vídeos explicativos de meditação  
 ✔️ Guias escritos passo a passo  
-✔️ Narração em áudio para acessibilidade visual  
+✔️ Sons relaxantes que auxiliam pessoas autistas  
 ✔️ Interface adaptada para leitores de tela  
 ✔️ Cores com alto contraste  
+✔️ Navegação simples e intuitiva  
 ✔️ Feedback sonoro  
-✔️ Modo de navegação simples e intuitivo  
 
 ---
 
@@ -53,9 +49,21 @@ O foco principal é tornar a meditação **acessível para pessoas com deficiên
 O app foi pensado para atender:
 
 ♿ Pessoas com deficiência visual  
-🔊 Pessoas que preferem narração  
-🖱 Usuários que utilizam navegação assistiva  
-🎨 Pessoas sensíveis a baixa legibilidade
+🎧 Pessoas com sensibilidade auditiva  
+🧠 Pessoas autistas buscando sons calmantes  
+🖱 Usuários que utilizam navegação assistiva
+
+---
+
+## 📦 Dependências
+
+- [cupertino_icons ^1.0.8](https://pub.dev/packages/cupertino_icons)
+- [youtube_player_flutter ^9.1.2](https://pub.dev/packages/youtube_player_flutter)
+- [circle_bottom_navigation ^2.0.0](https://pub.dev/packages/circle_bottom_navigation)
+- [http ^1.2.2](https://pub.dev/packages/http)
+- [audioplayers ^6.0.0](https://pub.dev/packages/audioplayers)
+- [cached_network_image ^3.3.1](https://pub.dev/packages/cached_network_image)
+- [connectivity_plus ^6.0.2](https://pub.dev/packages/connectivity_plus)
 
 ---
 
@@ -89,16 +97,6 @@ flutter pub get
 ```bash
 flutter run
 ```
-
----
-
-## 📌 Dependências (Exemplo)
-
-* cupertino_icons
-* flutter_tts (narração)
-* provider / riverpod (gerência de estado)
-
-> *(Adapte conforme seu pubspec.yaml)*
 
 ---
 
