@@ -1,38 +1,70 @@
-# 🧘 Medfy - App de Meditação
+# 🧘 Medfy – Aplicativo de Meditação com Acessibilidade
 
-Bem-vindo ao **Medfy**, um aplicativo de meditação pensado para ser **acessível, intuitivo e inclusivo**, ajudando qualquer pessoa a aprender a meditar de forma simples, clara e prática, em qualquer lugar.
-
----
-
-## 🎯 Objetivo do Projeto
-
-O Medfy tem como objetivo:
-
-- Ensinar técnicas de meditação passo a passo, com **guias escritos e vídeos explicativos**.
-- Oferecer **acessibilidade para pessoas com deficiência visual e auditiva**.
-- Promover o **bem-estar mental**, ajudando o usuário a criar uma rotina de meditação consistente.
+<div align="center">
+  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Plataforma-Mobile-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Acessibilidade-Inclusiva-orange?style=for-the-badge" />
+</div>
 
 ---
 
-## 🛠 Funcionalidades
+## 📘 Sobre o Projeto
+O **Medfy** é um aplicativo desenvolvido para auxiliar pessoas a iniciarem sua jornada na meditação de forma simples, acessível e guiada.
 
-- 🎬 Vídeos explicativos de meditação.
-- 📖 Guias escritos para acompanhamento passo a passo.
-- 🔊 Áudio de narração para acessibilidade visual.
-- ♿ Navegação intuitiva e compatível com leitores de tela.
-- 🎨 Interface amigável e com alto contraste.
+Este projeto foi criado como atividade acadêmica para praticar **desenvolvimento mobile com Flutter**, incluindo boas práticas de interface e acessibilidade digital.
+
+O foco principal é tornar a meditação **acessível para pessoas com deficiência visual e auditiva**, utilizando:
+- Narração em áudio
+- Guias escritos
+- Interface de alto contraste
+- Compatibilidade com leitores de tela
 
 ---
 
 ## 👨‍💻 Equipe
 
-- [Kaique](https://github.com/Kaique59)  
-- [Andrey](https://github.com/Andreyzc02)  
-- [Guilherme](https://github.com/guiidoo)  
+- [Kaique](https://github.com/Kaique59)
+- [Andrey](https://github.com/Andreyzc02)
+- [Guilherme](https://github.com/guiidoo)
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 🚀 Tecnologias Utilizadas
+
+- [![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/)
+- [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)
+
+---
+
+## 🎯 Funcionalidades
+
+✔️ Vídeos explicativos de meditação  
+✔️ Guias escritos passo a passo  
+✔️ Narração em áudio para acessibilidade visual  
+✔️ Interface adaptada para leitores de tela  
+✔️ Cores com alto contraste  
+✔️ Feedback sonoro  
+✔️ Modo de navegação simples e intuitivo  
+
+---
+
+## 🔐 Acessibilidade
+
+O app foi pensado para atender:
+
+♿ Pessoas com deficiência visual  
+🔊 Pessoas que preferem narração  
+🖱 Usuários que utilizam navegação assistiva  
+🎨 Pessoas sensíveis a baixa legibilidade
+
+---
+
+## 📱 Demonstração
+> (Aqui você pode adicionar prints do app rodando, ou até um gif mostrando as telas)
+
+---
+
+## 🧩 Como Executar o Projeto
 
 1. Clone o repositório:
 
@@ -52,7 +84,7 @@ cd flutter_application_1
 flutter pub get
 ```
 
-4. Execute o app no emulador ou dispositivo:
+4. Execute o app:
 
 ```bash
 flutter run
@@ -60,38 +92,22 @@ flutter run
 
 ---
 
-## 📌 Tecnologias Utilizadas
+## 📌 Dependências (Exemplo)
 
-* [Flutter](https://flutter.dev/) – Desenvolvimento cross-platform
-* [Dart](https://dart.dev/) – Linguagem do Flutter
+* cupertino_icons
+* flutter_tts (narração)
+* provider / riverpod (gerência de estado)
 
----
-
-## ✨ Observações
-
-* Este projeto é **100% inclusivo**, com foco em acessibilidade visual e auditiva.
-* Todo o conteúdo de meditação é desenvolvido para ser **claro, simples e aplicável a qualquer usuário**.
-* Feedback e melhorias são sempre bem-vindos!
+> *(Adapte conforme seu pubspec.yaml)*
 
 ---
 
-## 📬 Contato
+## 👨‍🏫 Créditos
 
-* [Kaique](https://github.com/Kaique59)
-* [Andrey](https://github.com/Andreyzc02)
-* [Guilherme](https://github.com/guiidoo)
+Projeto criado para fins educacionais no **SENAC**, como parte do aprendizado em desenvolvimento mobile.
 
 ---
 
-## 💖 Agradecimentos
-
-Agradecemos a todos que contribuíram direta ou indiretamente para a criação do Medfy, tornando o projeto **inclusivo, acessível e educativo**.
-
-```
-
----
-
-Se você quiser, posso fazer uma **versão ainda mais atraente**, com **emojis, badges de status do Flutter, links diretos para issues e pull requests**, deixando o README **mais interativo e moderno** para o GitHub.  
-
-Quer que eu faça essa versão?
-```
+<div align="center">
+Feito com dedicação, foco e respiração consciente 🧘✨
+</div>
