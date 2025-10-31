@@ -26,21 +26,9 @@ O Medfy tem como objetivo:
 
 ## 👨‍💻 Equipe
 
-| Nome       | GitHub                           |
-|------------|---------------------------------|
-| Kaique     | [@Kaique59](https://github.com/Kaique59) |
-| Andrey     | [@Andreyzc02](https://github.com/Andreyzc02) |
-| Guilherme  | [@guiidoo](https://github.com/guiidoo) |
-
----
-
-## 📑 Apresentação
-
-Você pode conferir a **apresentação completa do projeto** criada no Canva clicando no link abaixo:
-
-[![Apresentação do Canva](https://img.shields.io/badge/Ver%20Apresentação-Canva-blue)](COLE_AQUI_O_LINK_DA_APRESENTAÇÃO_CANVA)
-
-> **Dica:** substitua `COLE_AQUI_O_LINK_DA_APRESENTAÇÃO_CANVA` pelo link público da sua apresentação no Canva.
+- [Kaique](https://github.com/Kaique59)  
+- [Andrey](https://github.com/Andreyzc02)  
+- [Guilherme](https://github.com/guiidoo)  
 
 ---
 
@@ -76,7 +64,6 @@ flutter run
 
 * [Flutter](https://flutter.dev/) – Desenvolvimento cross-platform
 * [Dart](https://dart.dev/) – Linguagem do Flutter
-* Ferramentas de design: Canva para apresentação e wireframes
 
 ---
 
@@ -90,9 +77,9 @@ flutter run
 
 ## 📬 Contato
 
-* Kaique: [@Kaique59](https://github.com/Kaique59)
-* Andrey: [@Andreyzc02](https://github.com/Andreyzc02)
-* Guilherme: [@guiidoo](https://github.com/guiidoo)
+* [Kaique](https://github.com/Kaique59)
+* [Andrey](https://github.com/Andreyzc02)
+* [Guilherme](https://github.com/guiidoo)
 
 ---
 
@@ -104,7 +91,7 @@ Agradecemos a todos que contribuíram direta ou indiretamente para a criação d
 
 ---
 
-Se você quiser, posso fazer **uma versão ainda mais “visual”**, com **GIFs, imagens dos vídeos e screenshots do app**, e um **botão de play direto da apresentação do Canva** dentro do README, para ficar **mais interativo e atraente** no GitHub.  
+Se você quiser, posso fazer uma **versão ainda mais atraente**, com **emojis, badges de status do Flutter, links diretos para issues e pull requests**, deixando o README **mais interativo e moderno** para o GitHub.  
 
-Quer que eu faça essa versão avançada?
+Quer que eu faça essa versão?
 ```
