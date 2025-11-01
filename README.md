@@ -71,12 +71,13 @@ O app foi pensado para atender:
 
 <div align="center">
 
-<iframe 
-    width="800" 
-    height="450" 
-    src="https://www.canva.com/design/DAG3aB9cVhM/9O85ZEyFWVoWBgDFhsQsgQ/view?embed" 
-    allowfullscreen>
-</iframe>
+👉 **Clique no botão abaixo para visualizar a apresentação completa:**  
+
+<br>
+
+<a href="https://www.canva.com/design/DAG3aB9cVhM/9O85ZEyFWVoWBgDFhsQsgQ/view?utm_content=DAG3aB9cVhM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=had34860821" target="_blank">
+  <img src="https://img.shields.io/badge/Abrir_Apresentação-8A2BE2?style=for-the-badge&logo=canva&logoColor=white" />
+</a>
 
 </div>
 
