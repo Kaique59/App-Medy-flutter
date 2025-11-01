@@ -1,4 +1,4 @@
-# 🧘 Medfy – Aplicativo de Meditação com Acessibilidade
+# Medfy – Aplicativo de Meditação com Acessibilidade
 
 <div align="center">
   <img src="https://img.shields.io/badge/Status-Desenvolvido-green?style=for-the-badge" />
@@ -67,8 +67,18 @@ O app foi pensado para atender:
 
 ---
 
-## 📱 Demonstração
-> (Aqui você pode adicionar prints do app rodando, ou até um gif mostrando as telas)
+## 🎞️ Apresentação
+
+<div align="center">
+
+<iframe 
+    width="800" 
+    height="450" 
+    src="https://www.canva.com/design/DAG3aB9cVhM/9O85ZEyFWVoWBgDFhsQsgQ/view?embed" 
+    allowfullscreen>
+</iframe>
+
+</div>
 
 ---
 
